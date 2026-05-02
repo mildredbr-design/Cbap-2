@@ -2377,19 +2377,31 @@ else:
     </div>""", unsafe_allow_html=True)
 
     # ── Answer options ───────────────────────────────────────────
+    letters = ["A", "B", "C", "D"]
     if not already_submitted:
-        letters = ["A", "B", "C", "D"]
-        chosen = st.radio(
-            "Select your answer:",
-            options=q["options"],
-            format_func=lambda o: f"{letters[q['options'].index(o)]}) {o}",
-            index=None,
-            key=f"radio_{idx}"
-        )
+        selected = st.session_state.get(f"pending_{idx}", None)
+        st.markdown("<p style='font-family:\"Source Sans 3\",sans-serif;color:#c8d4e8;margin-bottom:.5rem'>Select your answer:</p>", unsafe_allow_html=True)
+        for i, opt in enumerate(q["options"]):
+            label   = f"{letters[i]}) {opt}"
+            is_sel  = (opt == selected)
+            border  = "2px solid #c9a84c" if is_sel else "1px solid rgba(201,168,76,0.2)"
+            bg      = "rgba(201,168,76,0.12)" if is_sel else "rgba(255,255,255,0.03)"
+            icon    = "◉" if is_sel else "○"
+            st.markdown(f"""
+            <div style='padding:.6rem 1rem;margin:.25rem 0;border-radius:8px;
+                        background:{bg};border:{border};
+                        font-family:"Source Sans 3",sans-serif;color:#f4f1eb'>
+                {icon} {label}
+            </div>""", unsafe_allow_html=True)
+            if st.button(f"Select {letters[i]}", key=f"opt_{idx}_{i}", use_container_width=False):
+                st.session_state[f"pending_{idx}"] = opt
+                st.rerun()
+
         st.markdown("<br>", unsafe_allow_html=True)
         col_a, col_b = st.columns([1, 4])
         with col_a:
             if st.button("✅  Confirm Answer", key=f"confirm_{idx}", use_container_width=True):
+                chosen = st.session_state.get(f"pending_{idx}", None)
                 if chosen is None:
                     st.warning("Please select an answer before confirming.")
                 else:
