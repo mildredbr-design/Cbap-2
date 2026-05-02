@@ -2338,40 +2338,69 @@ elif st.session_state.phase == "exam":
     </div>""", unsafe_allow_html=True)
 
     # ── Options ──────────────────────────────────────────────
-    # Show option texts as static HTML (Streamlit never touches them).
-    # Use a single st.radio with only ["A","B","C","D"] — 4 fixed letters,
-    # nothing to reorder.
+    # Pure HTML form inside st.components — Streamlit never touches options.
+    # Selection stored in st.query_params, read back on rerun.
     if not submitted:
-        # Static HTML display of all 4 options
-        opts_html = ""
-        for opt in q["options"]:
-            opts_html += f"""<div style='padding:.65rem 1rem;margin:.25rem 0;border-radius:8px;
-                background:rgba(255,255,255,0.03);border:1px solid rgba(201,168,76,0.2);
-                font-family:"Source Sans 3",sans-serif;color:#f4f1eb;line-height:1.5'>
-                {opt}
-            </div>"""
-        st.markdown(opts_html, unsafe_allow_html=True)
+        import json
 
-        # Single radio on letters only — Streamlit cannot reorder A B C D
-        chosen_letter = st.radio(
-            "Select your answer:",
-            options=["A", "B", "C", "D"],
-            index=None,
-            horizontal=True,
-            key=f"radio_{idx}"
-        )
+        # Read current selection from query params
+        qp       = st.query_params.to_dict()
+        qp_key   = f"q{idx}"
+        selected = qp.get(qp_key, "")
 
-        st.markdown("<br>", unsafe_allow_html=True)
+        # Build options JSON for JS
+        opts_data = [{"letter": o[0], "text": o[3:]} for o in q["options"]]
+        opts_json = json.dumps(opts_data)
+        sel_json  = json.dumps(selected)
+
+        html = f"""
+        <style>
+        body {{ margin:0; background:transparent; font-family:'Source Sans 3',sans-serif; }}
+        .opt {{ display:flex; align-items:flex-start; gap:10px; padding:10px 14px;
+                margin:5px 0; border-radius:8px; cursor:pointer;
+                border:1px solid rgba(201,168,76,0.2); background:rgba(255,255,255,0.03);
+                color:#f4f1eb; font-size:15px; line-height:1.5; }}
+        .opt.sel {{ border:2px solid #c9a84c; background:rgba(201,168,76,0.12); color:#f0d080; }}
+        .letter {{ font-weight:700; color:#c9a84c; min-width:22px; flex-shrink:0; }}
+        .opt.sel .letter {{ color:#f0d080; }}
+        </style>
+        <div id="opts"></div>
+        <script>
+        var opts   = {opts_json};
+        var selLet = {sel_json};
+        var cont   = document.getElementById('opts');
+        opts.forEach(function(o) {{
+            var d = document.createElement('div');
+            d.className = 'opt' + (o.letter === selLet ? ' sel' : '');
+            d.innerHTML = '<span class="letter">' + o.letter + ')</span><span>' + o.text + '</span>';
+            d.onclick = function() {{
+                var url = new URL(window.parent.location.href);
+                url.searchParams.set('{qp_key}', o.letter);
+                window.parent.location.href = url.toString();
+            }};
+            cont.appendChild(d);
+        }});
+        </script>
+        """
+        st.components.v1.html(html, height=len(q["options"]) * 60 + 20, scrolling=False)
+
+        # Show selected
+        if selected:
+            full = next((o for o in q["options"] if o[0] == selected), None)
+            if full:
+                st.markdown(f"<p style='font-family:\"Source Sans 3\",sans-serif;color:#c9a84c;font-size:.9rem;margin:.3rem 0'>Selected: <b>{full}</b></p>", unsafe_allow_html=True)
+
         if st.button("✅  Confirm Answer", key=f"confirm_{idx}"):
-            if not chosen_letter:
-                st.warning("Please select A, B, C or D first.")
+            if not selected:
+                st.warning("Please click an option first.")
             else:
-                # Map letter to full option text
                 letter_map = {o[0]: o for o in q["options"]}
-                chosen = letter_map[chosen_letter]
-                st.session_state.answers[idx]  = chosen
-                st.session_state.q_times[idx]  = time.time() - (st.session_state.q_start or time.time())
-                st.rerun()
+                chosen = letter_map.get(selected)
+                if chosen:
+                    st.session_state.answers[idx]  = chosen
+                    st.session_state.q_times[idx]  = time.time() - (st.session_state.q_start or time.time())
+                    st.query_params.clear()
+                    st.rerun()
 
     else:
         # Show result
