@@ -1,11 +1,6 @@
 import streamlit as st
 import random
 import time
-try:
-    from streamlit_autorefresh import st_autorefresh
-    HAS_AUTOREFRESH = True
-except ImportError:
-    HAS_AUTOREFRESH = False
 
 st.set_page_config(
     page_title="CBAP Simulator — Chapter 1",
@@ -33,27 +28,25 @@ html, body, [data-testid="stAppViewContainer"] { background-color: var(--navy) !
 .exam-header h1 { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 2.4rem; margin: 0 0 .4rem 0; letter-spacing: 1px; }
 .exam-header p { font-family:'Source Sans 3',sans-serif; color:var(--mid); margin:0; font-size:1rem; }
 .progress-container { background:rgba(255,255,255,0.08); border-radius:8px; height:10px; margin:1rem 0 1.5rem; overflow:hidden; }
-.progress-bar { background:linear-gradient(90deg,var(--gold),var(--gold2)); height:100%; border-radius:8px; transition:width .5s ease; }
+.progress-bar { background:linear-gradient(90deg,var(--gold),var(--gold2)); height:100%; border-radius:8px; }
 .q-card { background: linear-gradient(160deg,#112244 0%,#0d1e3a 100%); border: 1px solid rgba(201,168,76,0.3); border-radius: 12px; padding: 1.8rem 2rem; margin-bottom: 1.5rem; box-shadow: 0 4px 24px rgba(0,0,0,0.4); }
 .q-number { font-family:'Source Sans 3',sans-serif; color:var(--gold); font-size:.85rem; font-weight:600; letter-spacing:2px; text-transform:uppercase; margin-bottom:.7rem; }
 .q-chapter { display:inline-block; background:rgba(201,168,76,0.15); color:var(--gold2); font-size:.75rem; padding:2px 10px; border-radius:20px; border:1px solid rgba(201,168,76,0.3); margin-bottom:.9rem; font-family:'Source Sans 3',sans-serif; }
 .q-text { font-family:'Source Sans 3',sans-serif; font-size:1.05rem; line-height:1.65; color:var(--light); margin:0; }
-div[data-testid="stRadio"] label p, div[data-testid="stRadio"] label span, div[data-testid="stRadio"] label { font-family: 'Source Sans 3', sans-serif !important; color: #f4f1eb !important; font-size: 1rem !important; }
-div[data-testid="stRadio"] > div { gap:.5rem !important; }
 .feedback-correct { background:rgba(30,124,74,0.2); border-left:4px solid var(--green); border-radius:8px; padding:1rem 1.2rem; margin-top:1rem; font-family:'Source Sans 3',sans-serif; color:#6fe4a4; }
-.feedback-wrong   { background:rgba(155,35,53,0.2);  border-left:4px solid var(--red);   border-radius:8px; padding:1rem 1.2rem; margin-top:1rem; font-family:'Source Sans 3',sans-serif; color:#f4a0a0; }
+.feedback-wrong   { background:rgba(155,35,53,0.2); border-left:4px solid var(--red); border-radius:8px; padding:1rem 1.2rem; margin-top:1rem; font-family:'Source Sans 3',sans-serif; color:#f4a0a0; }
 .feedback-explanation { margin-top:.6rem; color:#c8d4e8; font-size:.93rem; line-height:1.55; }
 .score-card { background:linear-gradient(135deg,#112244,#0d1e3a); border:1px solid var(--gold); border-radius:16px; padding:2.5rem; text-align:center; margin:1rem 0; }
 .score-big  { font-family:'Playfair Display',serif; font-size:5rem; color:var(--gold); line-height:1; }
 .score-label { font-family:'Source Sans 3',sans-serif; color:var(--mid); font-size:1rem; margin-top:.5rem; }
 .score-verdict { font-family:'Playfair Display',serif; font-size:1.6rem; margin-top:1.2rem; }
 .passed { color:#6fe4a4; } .failed { color:#f4a0a0; }
-div[data-testid="stButton"] > button { background: linear-gradient(135deg,var(--gold),#a07828) !important; color: var(--navy) !important; font-family: 'Source Sans 3',sans-serif !important; font-weight: 700 !important; border: none !important; border-radius: 8px !important; padding: .7rem 2rem !important; font-size: 1rem !important; }
-div[data-testid="stButton"] > button:hover { opacity:.85 !important; }
 .stats-row { display:flex; gap:1rem; justify-content:center; margin:1.5rem 0; flex-wrap:wrap; }
 .stat-box { background:rgba(255,255,255,0.06); border:1px solid rgba(201,168,76,0.25); border-radius:10px; padding:.9rem 1.4rem; text-align:center; min-width:120px; }
 .stat-num { font-family:'Playfair Display',serif; font-size:2rem; color:var(--gold); }
 .stat-lbl { font-family:'Source Sans 3',sans-serif; font-size:.78rem; color:var(--mid); text-transform:uppercase; letter-spacing:1px; }
+div[data-testid="stButton"] > button { background: linear-gradient(135deg,var(--gold),#a07828) !important; color: var(--navy) !important; font-family: 'Source Sans 3',sans-serif !important; font-weight: 700 !important; border: none !important; border-radius: 8px !important; padding: .7rem 2rem !important; font-size: 1rem !important; }
+div[data-testid="stButton"] > button:hover { opacity:.85 !important; }
 #MainMenu, footer, header { visibility:hidden; }
 </style>
 """, unsafe_allow_html=True)
@@ -2125,26 +2118,32 @@ ALL_QUESTIONS = [
     }
 ]
 
+
 # ──────────────────────────────────────────────────────────────
 #  SESSION STATE
 # ──────────────────────────────────────────────────────────────
-def init_state():
+def init():
     defaults = {
-        "started": False, "questions": [], "current": 0,
-        "answers": {}, "submitted": {}, "finished": False,
-        "num_questions": 20, "start_time": None,
-        "q_start_time": None, "q_times": {},
+        "phase": "start",       # start | exam | results
+        "questions": [],
+        "idx": 0,
+        "answers": {},          # idx -> full option string e.g. "B) Something"
+        "q_times": {},          # idx -> seconds spent
+        "q_start": None,
+        "exam_start": None,
+        "num_q": 40,
     }
     for k, v in defaults.items():
         if k not in st.session_state:
             st.session_state[k] = v
 
-def reset_exam():
-    for k in ["started","questions","current","answers","submitted",
-              "finished","start_time","q_start_time","q_times"]:
-        st.session_state.pop(k, None)
+def reset():
+    for k in ["phase","questions","idx","answers","q_times","q_start","exam_start"]:
+        if k in st.session_state:
+            del st.session_state[k]
+    st.session_state["num_q"] = 40
 
-init_state()
+init()
 
 # ──────────────────────────────────────────────────────────────
 #  HEADER
@@ -2156,72 +2155,67 @@ st.markdown(f"""
 </div>
 """, unsafe_allow_html=True)
 
-# ──────────────────────────────────────────────────────────────
+# ══════════════════════════════════════════════════════════════
 #  START SCREEN
-# ──────────────────────────────────────────────────────────────
-if not st.session_state.started:
-    col1, col2, col3 = st.columns([1, 2, 1])
-    with col2:
+# ══════════════════════════════════════════════════════════════
+if st.session_state.phase == "start":
+    c1, c2, c3 = st.columns([1, 2, 1])
+    with c2:
         st.markdown(f"""
         <div style='background:rgba(255,255,255,0.05);border:1px solid rgba(201,168,76,0.3);
                     border-radius:12px;padding:1.8rem;margin-bottom:1.5rem;
                     font-family:"Source Sans 3",sans-serif;color:#c8d4e8;line-height:1.7'>
             <b style='color:#c9a84c;font-size:1.05rem'>📌 Exam Rules</b><br><br>
-            • {len(ALL_QUESTIONS)} questions available from Chapter 1 of BABOK® v3<br>
-            • Difficulty levels: Foundational · Intermediate · Advanced · Expert<br>
-            • Covers §1.1 through §1.5 — all sections included<br>
-            • Questions are randomized on every exam<br>
-            • One attempt per question — confirm before moving on<br>
-            • Per-question timer visible on every question<br>
-            • Passing score: <b style='color:#f0d080'>70%</b> (CBAP® benchmark)
+            • {len(ALL_QUESTIONS)} questions available — Chapter 1 BABOK® v3<br>
+            • Difficulty: Foundational · Intermediate · Advanced · Expert<br>
+            • Questions appear in random order each exam<br>
+            • Answer options are fixed — A, B, C, D never change<br>
+            • One attempt per question · Immediate explanation after each<br>
+            • Passing score: <b style='color:#f0d080'>70%</b>
         </div>
         """, unsafe_allow_html=True)
 
-        n = st.slider("Number of questions", min_value=5,
-                      max_value=len(ALL_QUESTIONS),
-                      value=min(40, len(ALL_QUESTIONS)), step=1)
-        st.session_state.num_questions = n
+        num = st.slider("Number of questions", 5, len(ALL_QUESTIONS), 40, 1)
+        st.session_state.num_q = num
 
         if st.button("🚀  Start Exam", use_container_width=True):
             pool = ALL_QUESTIONS.copy()
             random.shuffle(pool)
-            st.session_state.questions   = pool[:n]
-            st.session_state.num_questions = n
-            st.session_state.current     = 0
-            st.session_state.answers     = {}
-            st.session_state.submitted   = {}
-            st.session_state.finished    = False
-            st.session_state.started     = True
-            st.session_state.start_time  = time.time()
-            st.session_state.q_start_time = time.time()
-            st.session_state.q_times     = {}
+            st.session_state.questions  = pool[:num]
+            st.session_state.idx        = 0
+            st.session_state.answers    = {}
+            st.session_state.q_times    = {}
+            st.session_state.q_start    = time.time()
+            st.session_state.exam_start = time.time()
+            st.session_state.phase      = "exam"
             st.rerun()
 
-# ──────────────────────────────────────────────────────────────
+# ══════════════════════════════════════════════════════════════
 #  RESULTS SCREEN
-# ──────────────────────────────────────────────────────────────
-elif st.session_state.finished:
+# ══════════════════════════════════════════════════════════════
+elif st.session_state.phase == "results":
     qs      = st.session_state.questions
-    correct = sum(1 for i, q in enumerate(qs)
-                  if st.session_state.answers.get(i) == q["answer"])
+    answers = st.session_state.answers
     total   = len(qs)
+    correct = sum(1 for i, q in enumerate(qs) if answers.get(i) == q["answer"])
     pct     = round(correct / total * 100)
-    elapsed = int(time.time() - (st.session_state.start_time or time.time()))
-    mins, secs = divmod(elapsed, 60)
     passed  = pct >= 70
-    q_times_vals = list(st.session_state.q_times.values())
-    avg_q = int(sum(q_times_vals) / len(q_times_vals)) if q_times_vals else 0
-    avg_m, avg_s = divmod(avg_q, 60)
 
-    col1, col2, col3 = st.columns([1, 3, 1])
-    with col2:
-        vclass = "passed" if passed else "failed"
-        vtext  = "✅ PASSED" if passed else "❌ NOT PASSED"
+    elapsed     = int(time.time() - (st.session_state.exam_start or time.time()))
+    mins, secs  = divmod(elapsed, 60)
+    times       = list(st.session_state.q_times.values())
+    avg         = int(sum(times) / len(times)) if times else 0
+    am, as_     = divmod(avg, 60)
+
+    c1, c2, c3 = st.columns([1, 3, 1])
+    with c2:
+        verdict = "✅ PASSED" if passed else "❌ NOT PASSED"
+        vclass  = "passed" if passed else "failed"
         st.markdown(f"""
         <div class="score-card">
             <div class="score-big">{pct}%</div>
             <div class="score-label">{correct} correct out of {total} questions</div>
-            <div class="score-verdict {vclass}">{vtext}</div>
+            <div class="score-verdict {vclass}">{verdict}</div>
         </div>""", unsafe_allow_html=True)
 
         st.markdown(f"""
@@ -2229,59 +2223,48 @@ elif st.session_state.finished:
             <div class="stat-box"><div class="stat-num">{correct}</div><div class="stat-lbl">Correct</div></div>
             <div class="stat-box"><div class="stat-num">{total-correct}</div><div class="stat-lbl">Incorrect</div></div>
             <div class="stat-box"><div class="stat-num">{mins}:{secs:02d}</div><div class="stat-lbl">Total Time</div></div>
-            <div class="stat-box"><div class="stat-num">{avg_m}:{avg_s:02d}</div><div class="stat-lbl">Avg / Question</div></div>
+            <div class="stat-box"><div class="stat-num">{am}:{as_:02d}</div><div class="stat-lbl">Avg / Q</div></div>
             <div class="stat-box"><div class="stat-num">{pct}%</div><div class="stat-lbl">Score</div></div>
         </div>""", unsafe_allow_html=True)
 
-        # ── Difficulty breakdown ─────────────────────────────────
+        # Difficulty breakdown
         levels = ["Foundational", "Intermediate", "Advanced", "Expert"]
         rows = ""
         for lvl in levels:
             lvl_qs  = [(i, q) for i, q in enumerate(qs) if lvl in q["chapter"]]
+            if not lvl_qs: continue
+            lvl_ok  = sum(1 for i, q in lvl_qs if answers.get(i) == q["answer"])
             lvl_tot = len(lvl_qs)
-            if lvl_tot == 0:
-                continue
-            lvl_ok  = sum(1 for i, q in lvl_qs if st.session_state.answers.get(i) == q["answer"])
             lvl_pct = round(lvl_ok / lvl_tot * 100)
-            bar_color = "#6fe4a4" if lvl_pct >= 70 else ("#f0d080" if lvl_pct >= 50 else "#f4a0a0")
-            rows += f"""
-            <tr>
+            col     = "#6fe4a4" if lvl_pct >= 70 else ("#f0d080" if lvl_pct >= 50 else "#f4a0a0")
+            rows += f"""<tr>
                 <td style='padding:.5rem .8rem;color:#f4f1eb;font-weight:600'>{lvl}</td>
                 <td style='padding:.5rem .8rem;color:#c8d4e8;text-align:center'>{lvl_tot}</td>
                 <td style='padding:.5rem .8rem;color:#6fe4a4;text-align:center'>{lvl_ok}</td>
                 <td style='padding:.5rem .8rem;color:#f4a0a0;text-align:center'>{lvl_tot-lvl_ok}</td>
-                <td style='padding:.5rem .8rem;text-align:center'>
-                    <span style='color:{bar_color};font-weight:700'>{lvl_pct}%</span>
-                </td>
+                <td style='padding:.5rem .8rem;text-align:center;color:{col};font-weight:700'>{lvl_pct}%</td>
             </tr>"""
         st.markdown(f"""
-        <div style='margin:1.5rem 0;background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.2);
-                    border-radius:10px;overflow:hidden;font-family:"Source Sans 3",sans-serif'>
-            <div style='padding:.7rem 1rem;background:rgba(201,168,76,0.1);color:#c9a84c;
-                        font-size:.8rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase'>
-                Performance by Difficulty
-            </div>
+        <div style='margin:1.5rem 0;background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.2);border-radius:10px;overflow:hidden;font-family:"Source Sans 3",sans-serif'>
+            <div style='padding:.7rem 1rem;background:rgba(201,168,76,0.1);color:#c9a84c;font-size:.8rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase'>Performance by Difficulty</div>
             <table style='width:100%;border-collapse:collapse'>
-                <thead>
-                    <tr style='border-bottom:1px solid rgba(255,255,255,0.08)'>
-                        <th style='padding:.5rem .8rem;color:#6b7a99;font-weight:600;text-align:left;font-size:.8rem'>Level</th>
-                        <th style='padding:.5rem .8rem;color:#6b7a99;font-weight:600;text-align:center;font-size:.8rem'>Total</th>
-                        <th style='padding:.5rem .8rem;color:#6b7a99;font-weight:600;text-align:center;font-size:.8rem'>✅ Correct</th>
-                        <th style='padding:.5rem .8rem;color:#6b7a99;font-weight:600;text-align:center;font-size:.8rem'>❌ Wrong</th>
-                        <th style='padding:.5rem .8rem;color:#6b7a99;font-weight:600;text-align:center;font-size:.8rem'>Score</th>
-                    </tr>
-                </thead>
+                <thead><tr style='border-bottom:1px solid rgba(255,255,255,0.08)'>
+                    <th style='padding:.5rem .8rem;color:#6b7a99;font-weight:600;text-align:left;font-size:.8rem'>Level</th>
+                    <th style='padding:.5rem .8rem;color:#6b7a99;font-weight:600;text-align:center;font-size:.8rem'>Total</th>
+                    <th style='padding:.5rem .8rem;color:#6b7a99;font-weight:600;text-align:center;font-size:.8rem'>✅ Correct</th>
+                    <th style='padding:.5rem .8rem;color:#6b7a99;font-weight:600;text-align:center;font-size:.8rem'>❌ Wrong</th>
+                    <th style='padding:.5rem .8rem;color:#6b7a99;font-weight:600;text-align:center;font-size:.8rem'>Score</th>
+                </tr></thead>
                 <tbody>{rows}</tbody>
             </table>
         </div>""", unsafe_allow_html=True)
 
-        wrong = [(i, q) for i, q in enumerate(qs)
-                 if st.session_state.answers.get(i) != q["answer"]]
+        # Wrong answers review
+        wrong = [(i, q) for i, q in enumerate(qs) if answers.get(i) != q["answer"]]
         if wrong:
-            st.markdown("<br>", unsafe_allow_html=True)
             with st.expander(f"📖  Review {len(wrong)} incorrect answer(s)"):
-                for _, (i, q) in enumerate(wrong):
-                    user_ans = st.session_state.answers.get(i, "Not answered")
+                for i, q in wrong:
+                    user_ans = answers.get(i, "Not answered")
                     st.markdown(f"""
                     <div style='margin-bottom:1.2rem;padding:1rem;background:rgba(155,35,53,0.12);
                                 border-radius:8px;border-left:3px solid #9b2335;
@@ -2295,76 +2278,58 @@ elif st.session_state.finished:
 
         st.markdown("<br>", unsafe_allow_html=True)
         if st.button("🔄  New Exam", use_container_width=True):
-            reset_exam()
+            reset()
             st.rerun()
 
-# ──────────────────────────────────────────────────────────────
+# ══════════════════════════════════════════════════════════════
 #  EXAM SCREEN
-# ──────────────────────────────────────────────────────────────
-else:
+# ══════════════════════════════════════════════════════════════
+elif st.session_state.phase == "exam":
     qs    = st.session_state.questions
     total = len(qs)
-    idx   = st.session_state.current
+    idx   = st.session_state.idx
     q     = qs[idx]
 
-    already_submitted = idx in st.session_state.submitted
+    submitted = idx in st.session_state.answers
 
-    # ── Progress bar ────────────────────────────────────────────
-    progress_pct = int(idx / total * 100)
+    # Progress
+    pct = int(idx / total * 100)
     st.markdown(f"""
-    <div style='font-family:"Source Sans 3",sans-serif;color:#8090aa;
-                font-size:.85rem;display:flex;justify-content:space-between'>
-        <span>Question {idx+1} of {total}</span>
-        <span>{progress_pct}% complete</span>
+    <div style='font-family:"Source Sans 3",sans-serif;color:#8090aa;font-size:.85rem;display:flex;justify-content:space-between'>
+        <span>Question {idx+1} of {total}</span><span>{pct}% complete</span>
     </div>
-    <div class="progress-container">
-        <div class="progress-bar" style="width:{progress_pct}%"></div>
-    </div>""", unsafe_allow_html=True)
+    <div class="progress-container"><div class="progress-bar" style="width:{pct}%"></div></div>
+    """, unsafe_allow_html=True)
 
-    # ── Timer — pure JS, runs in browser, no Streamlit rerenders ─
-    if already_submitted:
-        q_elapsed = int(st.session_state.q_times.get(idx, 0))
-        q_mins, q_secs = divmod(q_elapsed, 60)
-        timer_color = "#6fe4a4" if q_elapsed < 60 else ("#f0d080" if q_elapsed < 120 else "#f4a0a0")
-        st.markdown(f"""
-        <div style='font-family:"Source Sans 3",sans-serif;font-size:.85rem;
-                    color:{timer_color};text-align:right;margin-bottom:.5rem;letter-spacing:1px'>
-            ⏱ Time on this question: <b>{q_mins:02d}:{q_secs:02d}</b>
-        </div>""", unsafe_allow_html=True)
+    # Timer (JS-based, no rerenders)
+    if submitted:
+        t = int(st.session_state.q_times.get(idx, 0))
+        m, s = divmod(t, 60)
+        tc = "#6fe4a4" if t < 60 else ("#f0d080" if t < 120 else "#f4a0a0")
+        st.markdown(f"<div style='text-align:right;font-family:\"Source Sans 3\",sans-serif;font-size:.85rem;color:{tc}'>⏱ {m:02d}:{s:02d}</div>", unsafe_allow_html=True)
     else:
-        start_ts = int(st.session_state.q_start_time or time.time())
+        ts = int(st.session_state.q_start or time.time())
         st.markdown(f"""
-        <div id="q_timer" style='font-family:"Source Sans 3",sans-serif;font-size:.85rem;
-                    color:#6fe4a4;text-align:right;margin-bottom:.5rem;letter-spacing:1px'>
-            ⏱ Time on this question: <b>00:00</b>
-        </div>
-        <script>
-        (function() {{
-            var start = {start_ts};
-            function tick() {{
-                var el = document.getElementById('q_timer');
-                if (!el) return;
-                var elapsed = Math.floor(Date.now() / 1000) - start;
-                var m = Math.floor(elapsed / 60);
-                var s = elapsed % 60;
-                var mm = String(m).padStart(2,'0');
-                var ss = String(s).padStart(2,'0');
-                var color = elapsed < 60 ? '#6fe4a4' : (elapsed < 120 ? '#f0d080' : '#f4a0a0');
-                el.style.color = color;
-                el.innerHTML = '⏱ Time on this question: <b>' + mm + ':' + ss + '</b>';
+        <div id="qtimer" style='text-align:right;font-family:"Source Sans 3",sans-serif;font-size:.85rem;color:#6fe4a4'>⏱ 00:00</div>
+        <script>(function(){{
+            var s={ts};
+            function tick(){{
+                var el=document.getElementById('qtimer');
+                if(!el)return;
+                var e=Math.floor(Date.now()/1000)-s;
+                var m=Math.floor(e/60),sec=e%60;
+                el.style.color=e<60?'#6fe4a4':e<120?'#f0d080':'#f4a0a0';
+                el.innerHTML='⏱ '+String(m).padStart(2,'0')+':'+String(sec).padStart(2,'0');
             }}
-            tick();
-            setInterval(tick, 1000);
-        }})();
-        </script>""", unsafe_allow_html=True)
+            tick();setInterval(tick,1000);
+        }})();</script>""", unsafe_allow_html=True)
 
-    # ── Restart button + Question card ──────────────────────────
-    col_q1, col_q2 = st.columns([6, 1])
-    with col_q2:
-        if st.button("🔄 Restart", key="restart_top", use_container_width=True):
-            reset_exam()
-            st.rerun()
+    # Restart button
+    if st.button("🔄 Restart", key="restart"):
+        reset()
+        st.rerun()
 
+    # Question card
     st.markdown(f"""
     <div class="q-card">
         <div class="q-number">Question {idx+1}</div>
@@ -2372,83 +2337,84 @@ else:
         <p class="q-text">{q["question"]}</p>
     </div>""", unsafe_allow_html=True)
 
-    # ── Answer options ───────────────────────────────────────────
-    if not already_submitted:
-        selected = st.session_state.get(f"pending_{idx}", None)
-        st.markdown("<p style='font-family:\"Source Sans 3\",sans-serif;color:#c8d4e8;margin:.5rem 0'>Select your answer:</p>", unsafe_allow_html=True)
+    # ── Options ──────────────────────────────────────────────
+    # Show option texts as static HTML (Streamlit never touches them).
+    # Use a single st.radio with only ["A","B","C","D"] — 4 fixed letters,
+    # nothing to reorder.
+    if not submitted:
+        # Static HTML display of all 4 options
+        opts_html = ""
         for opt in q["options"]:
-            is_sel = (opt == selected)
-            border = "2px solid #c9a84c" if is_sel else "1px solid rgba(201,168,76,0.2)"
-            bg     = "rgba(201,168,76,0.12)" if is_sel else "rgba(255,255,255,0.03)"
-            icon   = "◉" if is_sel else "○"
-            st.markdown(f"""<div style='padding:.6rem 1rem;border-radius:8px;background:{bg};
-                border:{border};font-family:"Source Sans 3",sans-serif;
-                color:#f4f1eb;margin:.2rem 0'>{icon} {opt}</div>
-            """, unsafe_allow_html=True)
-            if st.button(f"Select {opt[0]}", key=f"btn_{idx}_{opt[0]}"):
-                st.session_state[f"pending_{idx}"] = opt
-                st.rerun()
+            opts_html += f"""<div style='padding:.65rem 1rem;margin:.25rem 0;border-radius:8px;
+                background:rgba(255,255,255,0.03);border:1px solid rgba(201,168,76,0.2);
+                font-family:"Source Sans 3",sans-serif;color:#f4f1eb;line-height:1.5'>
+                {opt}
+            </div>"""
+        st.markdown(opts_html, unsafe_allow_html=True)
+
+        # Single radio on letters only — Streamlit cannot reorder A B C D
+        chosen_letter = st.radio(
+            "Select your answer:",
+            options=["A", "B", "C", "D"],
+            index=None,
+            horizontal=True,
+            key=f"radio_{idx}"
+        )
 
         st.markdown("<br>", unsafe_allow_html=True)
         if st.button("✅  Confirm Answer", key=f"confirm_{idx}"):
-            chosen = st.session_state.get(f"pending_{idx}", None)
-            if chosen is None:
-                st.warning("Please select an answer before confirming.")
+            if not chosen_letter:
+                st.warning("Please select A, B, C or D first.")
             else:
+                # Map letter to full option text
+                letter_map = {o[0]: o for o in q["options"]}
+                chosen = letter_map[chosen_letter]
                 st.session_state.answers[idx]  = chosen
-                st.session_state.q_times[idx]  = time.time() - (st.session_state.q_start_time or time.time())
-                st.session_state.submitted[idx] = True
+                st.session_state.q_times[idx]  = time.time() - (st.session_state.q_start or time.time())
                 st.rerun()
-    else:
-        user_ans    = st.session_state.answers.get(idx)
-        correct_ans = q["answer"]
-        is_correct  = user_ans == correct_ans
 
-        letters = ["A", "B", "C", "D"]
-        for i, opt in enumerate(q["options"]):
+    else:
+        # Show result
+        user_ans    = st.session_state.answers[idx]
+        correct_ans = q["answer"]
+        is_correct  = (user_ans == correct_ans)
+
+        for opt in q["options"]:
             if opt == correct_ans:
                 color, icon, bg = "#1e7c4a", "✅", "rgba(30,124,74,0.15)"
             elif opt == user_ans and not is_correct:
                 color, icon, bg = "#9b2335", "❌", "rgba(155,35,53,0.15)"
             else:
-                color, icon, bg = "#8090aa", "○", "transparent"
-            st.markdown(f"""
-            <div style='padding:.6rem 1rem;margin:.3rem 0;border-radius:8px;
-                        background:{bg};border:1px solid {color}33;
-                        font-family:"Source Sans 3",sans-serif;color:{color}'>
+                color, icon, bg = "#8090aa", "○",  "transparent"
+            st.markdown(f"""<div style='padding:.65rem 1rem;margin:.25rem 0;border-radius:8px;
+                background:{bg};border:1px solid {color}33;
+                font-family:"Source Sans 3",sans-serif;color:{color}'>
                 {icon} {opt}
             </div>""", unsafe_allow_html=True)
 
         if is_correct:
-            st.markdown(f"""
-            <div class="feedback-correct">
-                🎯 <b>Correct!</b>
-                <div class="feedback-explanation">💡 {q["explanation"]}</div>
-            </div>""", unsafe_allow_html=True)
+            st.markdown(f"""<div class="feedback-correct">🎯 <b>Correct!</b>
+                <div class="feedback-explanation">💡 {q["explanation"]}</div></div>""", unsafe_allow_html=True)
         else:
-            correct_letter = letters[q["options"].index(correct_ans)]
-            st.markdown(f"""
-            <div class="feedback-wrong">
-                ❌ <b>Incorrect.</b> Correct answer: <b>{correct_ans}</b>
-                <div class="feedback-explanation">💡 {q["explanation"]}</div>
-            </div>""", unsafe_allow_html=True)
+            st.markdown(f"""<div class="feedback-wrong">❌ <b>Incorrect.</b> Correct answer: <b>{correct_ans}</b>
+                <div class="feedback-explanation">💡 {q["explanation"]}</div></div>""", unsafe_allow_html=True)
 
         st.markdown("<br>", unsafe_allow_html=True)
-        is_last = idx == total - 1
-        col_nav1, col_nav2 = st.columns([1, 1])
-        with col_nav1:
+        is_last = (idx == total - 1)
+        c1, c2 = st.columns(2)
+        with c1:
             if idx > 0:
-                if st.button("⬅  Previous", key=f"prev_{idx}", use_container_width=True):
-                    st.session_state.current -= 1
-                    st.session_state.q_start_time = time.time()
+                if st.button("⬅  Previous", key=f"prev_{idx}"):
+                    st.session_state.idx     = idx - 1
+                    st.session_state.q_start = time.time()
                     st.rerun()
-        with col_nav2:
+        with c2:
             if is_last:
-                if st.button("🏁  Finish Exam", key=f"finish_{idx}", use_container_width=True):
-                    st.session_state.finished = True
+                if st.button("🏁  Finish Exam", key=f"finish_{idx}"):
+                    st.session_state.phase = "results"
                     st.rerun()
             else:
-                if st.button("Next  ➡", key=f"next_{idx}", use_container_width=True):
-                    st.session_state.current += 1
-                    st.session_state.q_start_time = time.time()
+                if st.button("Next  ➡", key=f"next_{idx}"):
+                    st.session_state.idx     = idx + 1
+                    st.session_state.q_start = time.time()
                     st.rerun()
