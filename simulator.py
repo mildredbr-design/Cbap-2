@@ -2373,10 +2373,6 @@ else:
     </div>""", unsafe_allow_html=True)
 
     # ── Answer options ───────────────────────────────────────────
-    # Options are stored as "A) text", "B) text" etc. in the bank.
-    # We display them as HTML and use tiny buttons only for selection.
-    # Streamlit never touches the option text or order.
-    letters = ["A", "B", "C", "D"]
     if not already_submitted:
         selected = st.session_state.get(f"pending_{idx}", None)
         st.markdown("<p style='font-family:\"Source Sans 3\",sans-serif;color:#c8d4e8;margin:.5rem 0'>Select your answer:</p>", unsafe_allow_html=True)
@@ -2385,30 +2381,24 @@ else:
             border = "2px solid #c9a84c" if is_sel else "1px solid rgba(201,168,76,0.2)"
             bg     = "rgba(201,168,76,0.12)" if is_sel else "rgba(255,255,255,0.03)"
             icon   = "◉" if is_sel else "○"
-            col_txt, col_btn = st.columns([11, 1])
-            with col_txt:
-                st.markdown(f"""
-                <div style='padding:.6rem 1rem;border-radius:8px;background:{bg};
-                            border:{border};font-family:"Source Sans 3",sans-serif;
-                            color:#f4f1eb;margin:.2rem 0'>{icon} {opt}</div>
-                """, unsafe_allow_html=True)
-            with col_btn:
-                if st.button(opt[0], key=f"btn_{idx}_{opt[0]}", use_container_width=True):
-                    st.session_state[f"pending_{idx}"] = opt
-                    st.rerun()
+            st.markdown(f"""<div style='padding:.6rem 1rem;border-radius:8px;background:{bg};
+                border:{border};font-family:"Source Sans 3",sans-serif;
+                color:#f4f1eb;margin:.2rem 0'>{icon} {opt}</div>
+            """, unsafe_allow_html=True)
+            if st.button(f"Select {opt[0]}", key=f"btn_{idx}_{opt[0]}"):
+                st.session_state[f"pending_{idx}"] = opt
+                st.rerun()
 
         st.markdown("<br>", unsafe_allow_html=True)
-        col_a, col_b = st.columns([1, 4])
-        with col_a:
-            if st.button("✅  Confirm Answer", key=f"confirm_{idx}", use_container_width=True):
-                chosen = st.session_state.get(f"pending_{idx}", None)
-                if chosen is None:
-                    st.warning("Please select an answer before confirming.")
-                else:
-                    st.session_state.answers[idx]  = chosen
-                    st.session_state.q_times[idx]  = time.time() - (st.session_state.q_start_time or time.time())
-                    st.session_state.submitted[idx] = True
-                    st.rerun()
+        if st.button("✅  Confirm Answer", key=f"confirm_{idx}"):
+            chosen = st.session_state.get(f"pending_{idx}", None)
+            if chosen is None:
+                st.warning("Please select an answer before confirming.")
+            else:
+                st.session_state.answers[idx]  = chosen
+                st.session_state.q_times[idx]  = time.time() - (st.session_state.q_start_time or time.time())
+                st.session_state.submitted[idx] = True
+                st.rerun()
     else:
         user_ans    = st.session_state.answers.get(idx)
         correct_ans = q["answer"]
