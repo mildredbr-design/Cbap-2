@@ -1,6 +1,11 @@
 import streamlit as st
 import random
 import time
+try:
+    from streamlit_autorefresh import st_autorefresh
+    HAS_AUTOREFRESH = True
+except ImportError:
+    HAS_AUTOREFRESH = False
 
 st.set_page_config(
     page_title="CBAP Simulator — Chapter 1",
@@ -2292,12 +2297,15 @@ elif st.session_state.phase == "results":
 #  EXAM SCREEN
 # ══════════════════════════════════════════════════════════════
 elif st.session_state.phase == "exam":
+    # Autorefresh every second for live timer — only when question not yet submitted
     qs    = st.session_state.questions
     total = len(qs)
     idx   = st.session_state.idx
     q     = qs[idx]
-
     submitted = idx in st.session_state.answers
+
+    if not submitted and HAS_AUTOREFRESH:
+        st_autorefresh(interval=1000, limit=None, key=f"timer_{idx}")
 
     # Progress
     pct = int(idx / total * 100)
@@ -2308,28 +2316,14 @@ elif st.session_state.phase == "exam":
     <div class="progress-container"><div class="progress-bar" style="width:{pct}%"></div></div>
     """, unsafe_allow_html=True)
 
-    # Timer (JS-based, no rerenders)
+    # Timer
     if submitted:
         t = int(st.session_state.q_times.get(idx, 0))
-        m, s = divmod(t, 60)
-        tc = "#6fe4a4" if t < 60 else ("#f0d080" if t < 120 else "#f4a0a0")
-        st.markdown(f"<div style='text-align:right;font-family:\"Source Sans 3\",sans-serif;font-size:.85rem;color:{tc}'>⏱ {m:02d}:{s:02d}</div>", unsafe_allow_html=True)
     else:
-        ts = int(st.session_state.q_start or time.time())
-        st.markdown(f"""
-        <div id="qtimer" style='text-align:right;font-family:"Source Sans 3",sans-serif;font-size:.85rem;color:#6fe4a4'>⏱ 00:00</div>
-        <script>(function(){{
-            var s={ts};
-            function tick(){{
-                var el=document.getElementById('qtimer');
-                if(!el)return;
-                var e=Math.floor(Date.now()/1000)-s;
-                var m=Math.floor(e/60),sec=e%60;
-                el.style.color=e<60?'#6fe4a4':e<120?'#f0d080':'#f4a0a0';
-                el.innerHTML='⏱ '+String(m).padStart(2,'0')+':'+String(sec).padStart(2,'0');
-            }}
-            tick();setInterval(tick,1000);
-        }})();</script>""", unsafe_allow_html=True)
+        t = int(time.time() - (st.session_state.q_start or time.time()))
+    m, s = divmod(t, 60)
+    tc = "#6fe4a4" if t < 60 else ("#f0d080" if t < 120 else "#f4a0a0")
+    st.markdown(f"<div style='text-align:right;font-family:\"Source Sans 3\",sans-serif;font-size:.85rem;color:{tc}'>⏱ {m:02d}:{s:02d}</div>", unsafe_allow_html=True)
 
     # Restart button
     if st.button("🔄 Restart", key="restart"):
