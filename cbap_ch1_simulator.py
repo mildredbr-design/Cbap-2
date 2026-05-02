@@ -2296,6 +2296,48 @@ elif st.session_state.finished:
             <div class="stat-box"><div class="stat-num">{pct}%</div><div class="stat-lbl">Score</div></div>
         </div>""", unsafe_allow_html=True)
 
+        # ── Difficulty breakdown ─────────────────────────────────
+        levels = ["Foundational", "Intermediate", "Advanced", "Expert"]
+        rows = ""
+        for lvl in levels:
+            lvl_qs  = [(i, q) for i, q in enumerate(qs) if lvl in q["chapter"]]
+            lvl_tot = len(lvl_qs)
+            if lvl_tot == 0:
+                continue
+            lvl_ok  = sum(1 for i, q in lvl_qs if st.session_state.answers.get(i) == q["answer"])
+            lvl_pct = round(lvl_ok / lvl_tot * 100)
+            bar_color = "#6fe4a4" if lvl_pct >= 70 else ("#f0d080" if lvl_pct >= 50 else "#f4a0a0")
+            rows += f"""
+            <tr>
+                <td style='padding:.5rem .8rem;color:#f4f1eb;font-weight:600'>{lvl}</td>
+                <td style='padding:.5rem .8rem;color:#c8d4e8;text-align:center'>{lvl_tot}</td>
+                <td style='padding:.5rem .8rem;color:#6fe4a4;text-align:center'>{lvl_ok}</td>
+                <td style='padding:.5rem .8rem;color:#f4a0a0;text-align:center'>{lvl_tot-lvl_ok}</td>
+                <td style='padding:.5rem .8rem;text-align:center'>
+                    <span style='color:{bar_color};font-weight:700'>{lvl_pct}%</span>
+                </td>
+            </tr>"""
+        st.markdown(f"""
+        <div style='margin:1.5rem 0;background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.2);
+                    border-radius:10px;overflow:hidden;font-family:"Source Sans 3",sans-serif'>
+            <div style='padding:.7rem 1rem;background:rgba(201,168,76,0.1);color:#c9a84c;
+                        font-size:.8rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase'>
+                Performance by Difficulty
+            </div>
+            <table style='width:100%;border-collapse:collapse'>
+                <thead>
+                    <tr style='border-bottom:1px solid rgba(255,255,255,0.08)'>
+                        <th style='padding:.5rem .8rem;color:#6b7a99;font-weight:600;text-align:left;font-size:.8rem'>Level</th>
+                        <th style='padding:.5rem .8rem;color:#6b7a99;font-weight:600;text-align:center;font-size:.8rem'>Total</th>
+                        <th style='padding:.5rem .8rem;color:#6b7a99;font-weight:600;text-align:center;font-size:.8rem'>✅ Correct</th>
+                        <th style='padding:.5rem .8rem;color:#6b7a99;font-weight:600;text-align:center;font-size:.8rem'>❌ Wrong</th>
+                        <th style='padding:.5rem .8rem;color:#6b7a99;font-weight:600;text-align:center;font-size:.8rem'>Score</th>
+                    </tr>
+                </thead>
+                <tbody>{rows}</tbody>
+            </table>
+        </div>""", unsafe_allow_html=True)
+
         wrong = [(i, q) for i, q in enumerate(qs)
                  if st.session_state.answers.get(i) != q["answer"]]
         if wrong:
@@ -2369,7 +2411,7 @@ else:
     st.markdown(f"""
     <div class="q-card">
         <div class="q-number">Question {idx+1}</div>
-        <div class="q-chapter">{q["chapter"]}</div>
+        <div class="q-chapter">{q["chapter"].split("|")[0].strip()}</div>
         <p class="q-text">{q["question"]}</p>
     </div>""", unsafe_allow_html=True)
 
