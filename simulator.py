@@ -2374,12 +2374,15 @@ else:
 
     # ── Answer options ───────────────────────────────────────────
     if not already_submitted:
-        chosen = st.radio("Select your answer:", q["options"],
-                          key=f"radio_{idx}", index=None)
-        st.markdown("<br>", unsafe_allow_html=True)
-        col_a, col_b = st.columns([1, 4])
-        with col_a:
-            if st.button("✅  Confirm Answer", key=f"confirm_{idx}", use_container_width=True):
+        with st.form(key=f"form_{idx}"):
+            chosen = st.radio(
+                "Select your answer:",
+                options=q["options"],
+                index=None,
+                key=f"radio_{idx}"
+            )
+            submitted_form = st.form_submit_button("✅  Confirm Answer")
+            if submitted_form:
                 if chosen is None:
                     st.warning("Please select an answer before confirming.")
                 else:
