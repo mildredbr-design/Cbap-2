@@ -75,12 +75,12 @@ ALL_QUESTIONS = [
         "chapter": "Ch1 §1.1 – Why BA Exists | Foundational",
         "question": "Which statement BEST describes what business analysis enables in an organization?",
         "options": [
-            "A) Faster software delivery",
-            "B) Change in an enterprise through needs definition and value-delivering solutions",
+            "A) Change in an enterprise through needs definition and value-delivering solutions",
+            "B) Faster software delivery",
             "C) Reduction of project management overhead",
             "D) Elimination of stakeholder conflicts"
         ],
-        "answer": "B) Change in an enterprise through needs definition and value-delivering solutions",
+        "answer": "A) Change in an enterprise through needs definition and value-delivering solutions",
         "explanation": "BABOK® v3 §1.1: BA enables organizational change—it is not limited to software delivery, PM efficiency, or conflict resolution."
     },
     {
@@ -89,22 +89,22 @@ ALL_QUESTIONS = [
         "options": [
             "A) System design",
             "B) Vendor negotiation",
-            "C) Project scope management",
-            "D) Identifying the real need before committing to a solution"
+            "C) Identifying the real need before committing to a solution",
+            "D) Project scope management"
         ],
-        "answer": "D) Identifying the real need before committing to a solution",
+        "answer": "C) Identifying the real need before committing to a solution",
         "explanation": "BABOK® v3 §1.1: A core BA responsibility is validating that the proposed solution addresses the actual need rather than accepting a pre-defined solution."
     },
     {
         "chapter": "Ch1 §1.1 – Why BA Exists | Intermediate",
         "question": "An organization consistently delivers projects on time and within budget, yet rarely achieves the expected business benefits. The MOST likely root cause is:",
         "options": [
-            "A) Poor project management practices",
-            "B) Inadequate testing processes",
-            "C) Insufficient business analysis—the right problems are not being defined before solutions are built",
+            "A) Insufficient business analysis—the right problems are not being defined before solutions are built",
+            "B) Poor project management practices",
+            "C) Inadequate testing processes",
             "D) Weak change management"
         ],
-        "answer": "C) Insufficient business analysis—the right problems are not being defined before solutions are built",
+        "answer": "A) Insufficient business analysis—the right problems are not being defined before solutions are built",
         "explanation": "BABOK® v3 §1.1: On-time/on-budget delivery without benefit realization signals that BA is absent or weak—the wrong problems are being solved correctly."
     },
     {
@@ -113,22 +113,22 @@ ALL_QUESTIONS = [
         "options": [
             "A) Requirements documentation skill",
             "B) Technical solution design",
-            "C) Stakeholder negotiation",
-            "D) Understanding the true need rather than accepting the assumed solution"
+            "C) Understanding the true need rather than accepting the assumed solution",
+            "D) Stakeholder negotiation"
         ],
-        "answer": "D) Understanding the true need rather than accepting the assumed solution",
+        "answer": "C) Understanding the true need rather than accepting the assumed solution",
         "explanation": "BABOK® v3 §1.1: BA requires challenging assumed solutions and investigating the real root cause before recommending action."
     },
     {
         "chapter": "Ch1 §1.1 – Why BA Exists | Intermediate",
         "question": "Which of the following BEST distinguishes business analysis from project management?",
         "options": [
-            "A) BA focuses on managing scope; PM focuses on managing requirements",
-            "B) BA identifies needs and recommends value-delivering solutions; PM manages delivery within constraints of time, cost, and scope",
+            "A) BA identifies needs and recommends value-delivering solutions; PM manages delivery within constraints of time, cost, and scope",
+            "B) BA focuses on managing scope; PM focuses on managing requirements",
             "C) BA is performed only at project initiation; PM spans the entire project",
             "D) BA and PM are interchangeable in agile contexts"
         ],
-        "answer": "B) BA identifies needs and recommends value-delivering solutions; PM manages delivery within constraints of time, cost, and scope",
+        "answer": "A) BA identifies needs and recommends value-delivering solutions; PM manages delivery within constraints of time, cost, and scope",
         "explanation": "BABOK® v3 §1.1: BA is about 'what and why'—defining the right problem and solution. PM is about 'how'—delivering within constraints. Both disciplines are complementary."
     },
     {
@@ -147,36 +147,36 @@ ALL_QUESTIONS = [
         "chapter": "Ch1 §1.1 – Why BA Exists | Advanced",
         "question": "An organization initiates a $2M project without any business analysis. The delivered system meets all stated requirements but does not improve business performance. This outcome BEST illustrates:",
         "options": [
-            "A) The risk of building correct solutions to the wrong problem due to skipping BA",
-            "B) Poor development quality",
-            "C) Inadequate testing coverage",
+            "A) Poor development quality",
+            "B) Inadequate testing coverage",
+            "C) The risk of building correct solutions to the wrong problem due to skipping BA",
             "D) Weak project governance"
         ],
-        "answer": "A) The risk of building correct solutions to the wrong problem due to skipping BA",
+        "answer": "C) The risk of building correct solutions to the wrong problem due to skipping BA",
         "explanation": "BABOK® v3 §1.1: Without BA, organizations risk correctly building solutions that don't address actual needs—maximizing waste while meeting technical specs."
     },
     {
         "chapter": "Ch1 §1.1 – Why BA Exists | Advanced",
         "question": "A skeptical executive asks a BA to justify the BA function's existence. Which argument is MOST aligned with BABOK® v3?",
         "options": [
-            "A) BA reduces development costs by writing detailed specifications",
-            "B) BA provides audit-ready documentation",
-            "C) BA prevents scope creep",
-            "D) BA ensures investment in change is directed at the right problems and solutions, maximizing business value realization"
+            "A) BA ensures investment in change is directed at the right problems and solutions, maximizing business value realization",
+            "B) BA reduces development costs by writing detailed specifications",
+            "C) BA provides audit-ready documentation",
+            "D) BA prevents scope creep"
         ],
-        "answer": "D) BA ensures investment in change is directed at the right problems and solutions, maximizing business value realization",
+        "answer": "A) BA ensures investment in change is directed at the right problems and solutions, maximizing business value realization",
         "explanation": "BABOK® v3 §1.1: The core value proposition of BA is directing organizational investment toward the right problems and solutions to maximize value—not just producing documents or managing scope."
     },
     {
         "chapter": "Ch1 §1.1 – Why BA Exists | Advanced",
         "question": "According to BABOK® v3, business analysis applies to:",
         "options": [
-            "A) Only IT and software development projects",
-            "B) Any initiative where change is being considered, regardless of industry, domain, or methodology",
+            "A) Any initiative where change is being considered, regardless of industry, domain, or methodology",
+            "B) Only IT and software development projects",
             "C) Only large enterprises with formal BA departments",
             "D) Only projects with a dedicated BA resource"
         ],
-        "answer": "B) Any initiative where change is being considered, regardless of industry, domain, or methodology",
+        "answer": "A) Any initiative where change is being considered, regardless of industry, domain, or methodology",
         "explanation": "BABOK® v3 §1.1 explicitly states that BA applies to any change initiative, in any industry, regardless of size or methodology."
     },
     {
@@ -185,10 +185,10 @@ ALL_QUESTIONS = [
         "options": [
             "A) BA only applies to technology projects",
             "B) The BA will manage the project",
-            "C) BA adds value whenever organizational change is being considered, including purely process-focused initiatives",
-            "D) BA is required for all non-profit initiatives by regulation"
+            "C) BA is required for all non-profit initiatives by regulation",
+            "D) BA adds value whenever organizational change is being considered, including purely process-focused initiatives"
         ],
-        "answer": "C) BA adds value whenever organizational change is being considered, including purely process-focused initiatives",
+        "answer": "D) BA adds value whenever organizational change is being considered, including purely process-focused initiatives",
         "explanation": "BABOK® v3 §1.1: BA is relevant to any change initiative—technology or otherwise—because it ensures the right problem is being solved."
     },
     {
@@ -196,11 +196,11 @@ ALL_QUESTIONS = [
         "question": "A BA is challenged to explain how BA contributes to organizational strategy. The MOST accurate BABOK® v3-aligned response is:",
         "options": [
             "A) BA executes the strategy by managing projects",
-            "B) BA has no role in strategic matters",
-            "C) BA replaces strategic planning",
-            "D) BA bridges the gap between organizational strategy and tactical execution by ensuring the right needs are identified and addressed"
+            "B) BA bridges the gap between organizational strategy and tactical execution by ensuring the right needs are identified and addressed",
+            "C) BA has no role in strategic matters",
+            "D) BA replaces strategic planning"
         ],
-        "answer": "D) BA bridges the gap between organizational strategy and tactical execution by ensuring the right needs are identified and addressed",
+        "answer": "B) BA bridges the gap between organizational strategy and tactical execution by ensuring the right needs are identified and addressed",
         "explanation": "BABOK® v3 §1.1: BA links strategy to execution—it ensures that the needs being addressed align with organizational strategic intent."
     },
     {
@@ -221,10 +221,10 @@ ALL_QUESTIONS = [
         "options": [
             "A) Only dedicated Business Analysts",
             "B) Only senior management",
-            "C) Only IT professionals",
-            "D) Product Owner, Project Manager, Subject Matter Expert, Consultant, or anyone performing BA tasks"
+            "C) Product Owner, Project Manager, Subject Matter Expert, Consultant, or anyone performing BA tasks",
+            "D) Only IT professionals"
         ],
-        "answer": "D) Product Owner, Project Manager, Subject Matter Expert, Consultant, or anyone performing BA tasks",
+        "answer": "C) Product Owner, Project Manager, Subject Matter Expert, Consultant, or anyone performing BA tasks",
         "explanation": "BABOK® v3 §1.2 explicitly recognizes that many titles—PO, PM, SME, consultant, developer—may perform BA tasks."
     },
     {
@@ -232,23 +232,23 @@ ALL_QUESTIONS = [
         "question": "A product owner writes user stories, defines acceptance criteria, and facilitates backlog refinement. According to BABOK® v3, this person:",
         "options": [
             "A) Is not performing BA because they lack a BA title",
-            "B) Is performing business analysis tasks",
-            "C) Needs CBAP® certification to legitimately perform these activities",
+            "B) Needs CBAP® certification to legitimately perform these activities",
+            "C) Is performing business analysis tasks",
             "D) Is performing project management, not business analysis"
         ],
-        "answer": "B) Is performing business analysis tasks",
+        "answer": "C) Is performing business analysis tasks",
         "explanation": "BABOK® v3 §1.2: BA is defined by tasks, not title. A PO performing BA tasks—user stories, acceptance criteria—is performing BA."
     },
     {
         "chapter": "Ch1 §1.2 – Who Performs BA | Intermediate",
         "question": "An agile team argues that a dedicated BA role is unnecessary because developers interview customers directly. The BABOK® v3-aligned response is:",
         "options": [
-            "A) BA tasks may be distributed, but what matters is whether all BA tasks are being performed with sufficient rigor and quality",
-            "B) Agree—developers can fully replace BA",
+            "A) Agree—developers can fully replace BA",
+            "B) BA tasks may be distributed, but what matters is whether all BA tasks are being performed with sufficient rigor and quality",
             "C) Disagree—only certified BAs can perform BA tasks",
             "D) Defer to the agile coach's decision"
         ],
-        "answer": "A) BA tasks may be distributed, but what matters is whether all BA tasks are being performed with sufficient rigor and quality",
+        "answer": "B) BA tasks may be distributed, but what matters is whether all BA tasks are being performed with sufficient rigor and quality",
         "explanation": "BABOK® v3 §1.2: Distributing BA tasks is acceptable; the question is whether all necessary BA work is being done effectively, regardless of who does it."
     },
     {
@@ -267,48 +267,48 @@ ALL_QUESTIONS = [
         "chapter": "Ch1 §1.2 – Who Performs BA | Advanced",
         "question": "An organization has no dedicated BA role. Requirements are gathered informally by developers. Which risk does this MOST create?",
         "options": [
-            "A) Development will be slower",
-            "B) Solutions may not address actual business needs, wasting investment and reducing value delivery",
+            "A) Solutions may not address actual business needs, wasting investment and reducing value delivery",
+            "B) Development will be slower",
             "C) Stakeholders will always be unhappy",
             "D) Projects will always exceed budget"
         ],
-        "answer": "B) Solutions may not address actual business needs, wasting investment and reducing value delivery",
+        "answer": "A) Solutions may not address actual business needs, wasting investment and reducing value delivery",
         "explanation": "BABOK® v3 §1.1, §1.2: Without rigorous BA tasks, the risk is building solutions to the wrong problems—wasting investment."
     },
     {
         "chapter": "Ch1 §1.2 – Who Performs BA | Advanced",
         "question": "A consulting firm assigns a management consultant to lead requirements elicitation on a transformation program. That consultant performs all BA tasks listed in BABOK® v3. According to BABOK® v3, this consultant is:",
         "options": [
-            "A) Not a BA because they work for a consulting firm",
-            "B) A BA for the purposes of that engagement",
+            "A) A BA for the purposes of that engagement",
+            "B) Not a BA because they work for a consulting firm",
             "C) A project manager performing BA tasks incorrectly",
             "D) Not qualified without CBAP® certification"
         ],
-        "answer": "B) A BA for the purposes of that engagement",
+        "answer": "A) A BA for the purposes of that engagement",
         "explanation": "BABOK® v3 §1.2: BA is defined by task performance. A consultant performing all BA tasks is functioning as a BA regardless of their firm or title."
     },
     {
         "chapter": "Ch1 §1.3 – Knowledge Areas | Foundational",
         "question": "How many Knowledge Areas does BABOK® v3 define?",
         "options": [
-            "A) 4",
-            "B) 5",
-            "C) 6",
+            "A) 6",
+            "B) 4",
+            "C) 5",
             "D) 7"
         ],
-        "answer": "C) 6",
+        "answer": "A) 6",
         "explanation": "BABOK® v3 §1.3 defines exactly six Knowledge Areas: Business Analysis Planning & Monitoring, Elicitation & Collaboration, Requirements Life Cycle Management, Strategy Analysis, Requirements Analysis & Design Definition, and Solution Evaluation."
     },
     {
         "chapter": "Ch1 §1.3 – Knowledge Areas | Foundational",
         "question": "Which Knowledge Area focuses on planning how BA work will be conducted?",
         "options": [
-            "A) Business Analysis Planning and Monitoring",
-            "B) Elicitation and Collaboration",
+            "A) Elicitation and Collaboration",
+            "B) Business Analysis Planning and Monitoring",
             "C) Strategy Analysis",
             "D) Requirements Life Cycle Management"
         ],
-        "answer": "A) Business Analysis Planning and Monitoring",
+        "answer": "B) Business Analysis Planning and Monitoring",
         "explanation": "BABOK® v3 §1.3: BA Planning and Monitoring covers planning the BA approach, stakeholder engagement, governance, and performance management."
     },
     {
@@ -329,10 +329,10 @@ ALL_QUESTIONS = [
         "options": [
             "A) Business Analysis Planning and Monitoring",
             "B) Requirements Life Cycle Management",
-            "C) Strategy Analysis",
-            "D) Solution Evaluation"
+            "C) Solution Evaluation",
+            "D) Strategy Analysis"
         ],
-        "answer": "C) Strategy Analysis",
+        "answer": "D) Strategy Analysis",
         "explanation": "BABOK® v3 §1.3: Strategy Analysis addresses understanding the business need, current state, future state, and the approach to bridging the gap."
     },
     {
@@ -340,71 +340,71 @@ ALL_QUESTIONS = [
         "question": "Which Knowledge Area manages requirements from creation through retirement?",
         "options": [
             "A) Business Analysis Planning and Monitoring",
-            "B) Requirements Life Cycle Management",
-            "C) Elicitation and Collaboration",
+            "B) Elicitation and Collaboration",
+            "C) Requirements Life Cycle Management",
             "D) Requirements Analysis and Design Definition"
         ],
-        "answer": "B) Requirements Life Cycle Management",
+        "answer": "C) Requirements Life Cycle Management",
         "explanation": "BABOK® v3 §1.3: RLCM manages requirements through their entire lifecycle including tracing, prioritizing, approving, and managing changes."
     },
     {
         "chapter": "Ch1 §1.3 – Knowledge Areas | Foundational",
         "question": "Which Knowledge Area involves specifying and modeling requirements and producing solution designs?",
         "options": [
-            "A) Strategy Analysis",
-            "B) Requirements Life Cycle Management",
-            "C) Requirements Analysis and Design Definition",
+            "A) Requirements Analysis and Design Definition",
+            "B) Strategy Analysis",
+            "C) Requirements Life Cycle Management",
             "D) Solution Evaluation"
         ],
-        "answer": "C) Requirements Analysis and Design Definition",
+        "answer": "A) Requirements Analysis and Design Definition",
         "explanation": "BABOK® v3 §1.3: RADD covers specifying, modeling, verifying, validating requirements, and defining solution designs."
     },
     {
         "chapter": "Ch1 §1.3 – Knowledge Areas | Foundational",
         "question": "Which Knowledge Area assesses whether a solution is delivering the expected business value?",
         "options": [
-            "A) Solution Evaluation",
-            "B) Requirements Life Cycle Management",
+            "A) Requirements Life Cycle Management",
+            "B) Solution Evaluation",
             "C) Strategy Analysis",
             "D) Requirements Analysis and Design Definition"
         ],
-        "answer": "A) Solution Evaluation",
+        "answer": "B) Solution Evaluation",
         "explanation": "BABOK® v3 §1.3: Solution Evaluation assesses solution performance against expected value and recommends corrective actions."
     },
     {
         "chapter": "Ch1 §1.3 – Knowledge Areas | Intermediate",
         "question": "A BA creates a stakeholder register, defines a requirements governance approach, and selects elicitation techniques. Which Knowledge Area is she working in?",
         "options": [
-            "A) Elicitation and Collaboration",
-            "B) Business Analysis Planning and Monitoring",
+            "A) Business Analysis Planning and Monitoring",
+            "B) Elicitation and Collaboration",
             "C) Strategy Analysis",
             "D) Requirements Life Cycle Management"
         ],
-        "answer": "B) Business Analysis Planning and Monitoring",
+        "answer": "A) Business Analysis Planning and Monitoring",
         "explanation": "BABOK® v3 §1.3: Stakeholder identification, governance design, and technique selection are planning activities in BA Planning and Monitoring."
     },
     {
         "chapter": "Ch1 §1.3 – Knowledge Areas | Intermediate",
         "question": "A BA facilitates focus groups, conducts stakeholder interviews, and runs observation sessions. Which Knowledge Area is she PRIMARILY working in?",
         "options": [
-            "A) Elicitation and Collaboration",
-            "B) Business Analysis Planning and Monitoring",
-            "C) Requirements Analysis and Design Definition",
+            "A) Business Analysis Planning and Monitoring",
+            "B) Requirements Analysis and Design Definition",
+            "C) Elicitation and Collaboration",
             "D) Strategy Analysis"
         ],
-        "answer": "A) Elicitation and Collaboration",
+        "answer": "C) Elicitation and Collaboration",
         "explanation": "BABOK® v3 §1.3: Interviews, focus groups, and observation are elicitation techniques within Elicitation and Collaboration."
     },
     {
         "chapter": "Ch1 §1.3 – Knowledge Areas | Intermediate",
         "question": "A BA analyzes the current state, identifies capability gaps, and defines the desired future state. Which Knowledge Area does this MOST align with?",
         "options": [
-            "A) Strategy Analysis",
-            "B) Requirements Life Cycle Management",
-            "C) Business Analysis Planning and Monitoring",
+            "A) Requirements Life Cycle Management",
+            "B) Business Analysis Planning and Monitoring",
+            "C) Strategy Analysis",
             "D) Elicitation and Collaboration"
         ],
-        "answer": "A) Strategy Analysis",
+        "answer": "C) Strategy Analysis",
         "explanation": "BABOK® v3 §1.3: Current-state analysis, gap analysis, and future-state definition are the core activities of Strategy Analysis."
     },
     {
@@ -436,23 +436,23 @@ ALL_QUESTIONS = [
         "question": "Six months after go-live, a BA measures KPI achievement, user adoption, and identifies improvement opportunities for the deployed system. This MOST aligns with which Knowledge Area?",
         "options": [
             "A) Strategy Analysis",
-            "B) Solution Evaluation",
-            "C) Requirements Analysis and Design Definition",
+            "B) Requirements Analysis and Design Definition",
+            "C) Solution Evaluation",
             "D) Requirements Life Cycle Management"
         ],
-        "answer": "B) Solution Evaluation",
+        "answer": "C) Solution Evaluation",
         "explanation": "BABOK® v3 §1.3: Post-deployment performance measurement and improvement identification is Solution Evaluation work."
     },
     {
         "chapter": "Ch1 §1.3 – Knowledge Areas | Intermediate",
         "question": "A BA is preparing a BA work plan that includes activity schedules, resource needs, and performance metrics for the BA function itself. This activity MOST aligns with:",
         "options": [
-            "A) Business Analysis Planning and Monitoring",
-            "B) Strategy Analysis",
-            "C) Requirements Life Cycle Management",
+            "A) Strategy Analysis",
+            "B) Requirements Life Cycle Management",
+            "C) Business Analysis Planning and Monitoring",
             "D) Solution Evaluation"
         ],
-        "answer": "A) Business Analysis Planning and Monitoring",
+        "answer": "C) Business Analysis Planning and Monitoring",
         "explanation": "BABOK® v3 §1.3: Planning BA activities, resources, and monitoring BA performance are core tasks in BA Planning and Monitoring."
     },
     {
@@ -461,10 +461,10 @@ ALL_QUESTIONS = [
         "options": [
             "A) Inappropriate—Knowledge Areas must be executed sequentially",
             "B) Only possible with multiple BA resources",
-            "C) Only acceptable in agile projects",
-            "D) Appropriate—Knowledge Areas can be performed in any order, iteratively, and in parallel"
+            "C) Appropriate—Knowledge Areas can be performed in any order, iteratively, and in parallel",
+            "D) Only acceptable in agile projects"
         ],
-        "answer": "D) Appropriate—Knowledge Areas can be performed in any order, iteratively, and in parallel",
+        "answer": "C) Appropriate—Knowledge Areas can be performed in any order, iteratively, and in parallel",
         "explanation": "BABOK® v3 §1.3: Knowledge Areas are not sequential phases—they represent related groups of tasks that may be performed in any order, iteratively, and concurrently."
     },
     {
@@ -484,11 +484,11 @@ ALL_QUESTIONS = [
         "question": "A BA discovers mid-project that the business objectives have shifted due to a market disruption. She reassesses the current state, redefines the future state, and updates the solution approach. She is working in which Knowledge Area?",
         "options": [
             "A) Business Analysis Planning and Monitoring",
-            "B) Strategy Analysis",
-            "C) Requirements Life Cycle Management",
+            "B) Requirements Life Cycle Management",
+            "C) Strategy Analysis",
             "D) Elicitation and Collaboration"
         ],
-        "answer": "B) Strategy Analysis",
+        "answer": "C) Strategy Analysis",
         "explanation": "BABOK® v3 §1.3: Reassessing current/future states and the solution approach in response to context change is Strategy Analysis."
     },
     {
@@ -519,24 +519,24 @@ ALL_QUESTIONS = [
         "chapter": "Ch1 §1.3 – Knowledge Areas | Advanced",
         "question": "A program manager asks a BA: 'Which Knowledge Area ensures we are solving the right problem?' The MOST accurate answer is:",
         "options": [
-            "A) Business Analysis Planning and Monitoring",
-            "B) Strategy Analysis",
+            "A) Strategy Analysis",
+            "B) Business Analysis Planning and Monitoring",
             "C) Requirements Analysis and Design Definition",
             "D) Solution Evaluation"
         ],
-        "answer": "B) Strategy Analysis",
+        "answer": "A) Strategy Analysis",
         "explanation": "BABOK® v3 §1.3: Strategy Analysis is explicitly focused on understanding whether the organization is addressing the right problem before investing in a solution."
     },
     {
         "chapter": "Ch1 §1.3 – Knowledge Areas | Advanced",
         "question": "A BA notices that requirements are frequently added without impact assessment, causing rework. She implements a formal prioritization and change management process. This MOST aligns with which Knowledge Area?",
         "options": [
-            "A) Requirements Life Cycle Management",
-            "B) Business Analysis Planning and Monitoring",
-            "C) Strategy Analysis",
+            "A) Business Analysis Planning and Monitoring",
+            "B) Strategy Analysis",
+            "C) Requirements Life Cycle Management",
             "D) Solution Evaluation"
         ],
-        "answer": "A) Requirements Life Cycle Management",
+        "answer": "C) Requirements Life Cycle Management",
         "explanation": "BABOK® v3 §1.3: Prioritization and change management for requirements are RLCM responsibilities."
     },
     {
@@ -544,11 +544,11 @@ ALL_QUESTIONS = [
         "question": "Which statement MOST accurately characterizes the relationship between the six Knowledge Areas in BABOK® v3?",
         "options": [
             "A) They form a sequential process that must be followed from start to finish",
-            "B) They are interrelated groups of tasks that collectively represent the scope of BA work",
-            "C) They are independent and can each be applied without reference to the others",
+            "B) They are independent and can each be applied without reference to the others",
+            "C) They are interrelated groups of tasks that collectively represent the scope of BA work",
             "D) They are mutually exclusive—work done in one cannot relate to another"
         ],
-        "answer": "B) They are interrelated groups of tasks that collectively represent the scope of BA work",
+        "answer": "C) They are interrelated groups of tasks that collectively represent the scope of BA work",
         "explanation": "BABOK® v3 §1.3: Knowledge Areas are interrelated, not independent or sequential—inputs and outputs flow between them continuously."
     },
     {
@@ -557,10 +557,10 @@ ALL_QUESTIONS = [
         "options": [
             "A) Stakeholder, Requirement, Change, Risk, Value, Benefit",
             "B) Change, Requirement, Design, Risk, Stakeholder, Context",
-            "C) Need, Solution, Value, Risk, Change, Constraint",
-            "D) Change, Need, Solution, Stakeholder, Value, Context"
+            "C) Change, Need, Solution, Stakeholder, Value, Context",
+            "D) Need, Solution, Value, Risk, Change, Constraint"
         ],
-        "answer": "D) Change, Need, Solution, Stakeholder, Value, Context",
+        "answer": "C) Change, Need, Solution, Stakeholder, Value, Context",
         "explanation": "BABOK® v3 §1.4.1: The six BACCM concepts are Change, Need, Solution, Stakeholder, Value, and Context—no more, no less."
     },
     {
@@ -568,11 +568,11 @@ ALL_QUESTIONS = [
         "question": "In the BACCM, 'Change' is BEST defined as:",
         "options": [
             "A) A modification to project scope",
-            "B) The act of transformation in response to a need",
-            "C) A new IT system",
+            "B) A new IT system",
+            "C) The act of transformation in response to a need",
             "D) Any deviation from the project plan"
         ],
-        "answer": "B) The act of transformation in response to a need",
+        "answer": "C) The act of transformation in response to a need",
         "explanation": "BABOK® v3 §1.4.1: Change is the act of transformation—the actual movement from one state to another in response to a need."
     },
     {
@@ -593,22 +593,22 @@ ALL_QUESTIONS = [
         "options": [
             "A) A software system",
             "B) A project deliverable",
-            "C) A specific way of satisfying one or more needs in a context",
-            "D) A technical architecture"
+            "C) A technical architecture",
+            "D) A specific way of satisfying one or more needs in a context"
         ],
-        "answer": "C) A specific way of satisfying one or more needs in a context",
+        "answer": "D) A specific way of satisfying one or more needs in a context",
         "explanation": "BABOK® v3 §1.4.1: A Solution is a specific way of satisfying needs within a context—it may be a system, process, product, or service."
     },
     {
         "chapter": "Ch1 §1.4 – BACCM | Foundational",
         "question": "In the BACCM, 'Stakeholder' is BEST defined as:",
         "options": [
-            "A) A group or individual with a relationship to the change, the need, or the solution",
-            "B) The project sponsor only",
+            "A) The project sponsor only",
+            "B) A group or individual with a relationship to the change, the need, or the solution",
             "C) Only those who directly use the solution",
             "D) Only internal employees"
         ],
-        "answer": "A) A group or individual with a relationship to the change, the need, or the solution",
+        "answer": "B) A group or individual with a relationship to the change, the need, or the solution",
         "explanation": "BABOK® v3 §1.4.1: Stakeholders include any party with a relationship to the change, need, or solution—not just direct users."
     },
     {
@@ -627,24 +627,24 @@ ALL_QUESTIONS = [
         "chapter": "Ch1 §1.4 – BACCM | Foundational",
         "question": "In the BACCM, 'Context' is BEST defined as:",
         "options": [
-            "A) The technical environment",
-            "B) The organizational chart",
-            "C) The project schedule and budget",
-            "D) The circumstances that influence, are influenced by, and provide understanding of the change"
+            "A) The circumstances that influence, are influenced by, and provide understanding of the change",
+            "B) The technical environment",
+            "C) The organizational chart",
+            "D) The project schedule and budget"
         ],
-        "answer": "D) The circumstances that influence, are influenced by, and provide understanding of the change",
+        "answer": "A) The circumstances that influence, are influenced by, and provide understanding of the change",
         "explanation": "BABOK® v3 §1.4.1: Context encompasses all circumstances—environmental, cultural, regulatory—that surround and influence the change."
     },
     {
         "chapter": "Ch1 §1.4 – BACCM | Intermediate",
         "question": "A bank wants to reduce loan default rates by 20%. This objective BEST represents which BACCM concept?",
         "options": [
-            "A) Need",
-            "B) Solution",
-            "C) Change",
-            "D) Value"
+            "A) Solution",
+            "B) Change",
+            "C) Value",
+            "D) Need"
         ],
-        "answer": "A) Need",
+        "answer": "D) Need",
         "explanation": "BABOK® v3 §1.4.1: A business objective representing a problem to solve or opportunity to capture is a Need."
     },
     {
@@ -652,23 +652,23 @@ ALL_QUESTIONS = [
         "question": "A new predictive analytics platform is selected to reduce loan defaults. The platform BEST represents which BACCM concept?",
         "options": [
             "A) Change",
-            "B) Stakeholder",
-            "C) Need",
-            "D) Solution"
+            "B) Solution",
+            "C) Stakeholder",
+            "D) Need"
         ],
-        "answer": "D) Solution",
+        "answer": "B) Solution",
         "explanation": "BABOK® v3 §1.4.1: The platform—the specific way of satisfying the need—is a Solution."
     },
     {
         "chapter": "Ch1 §1.4 – BACCM | Intermediate",
         "question": "The deployment of the analytics platform—moving from no predictive capability to an integrated system—BEST represents which BACCM concept?",
         "options": [
-            "A) Change",
-            "B) Solution",
-            "C) Need",
-            "D) Value"
+            "A) Solution",
+            "B) Need",
+            "C) Value",
+            "D) Change"
         ],
-        "answer": "A) Change",
+        "answer": "D) Change",
         "explanation": "BABOK® v3 §1.4.1: The act of transformation—moving from the current state to the future state—is Change."
     },
     {
@@ -687,72 +687,72 @@ ALL_QUESTIONS = [
         "chapter": "Ch1 §1.4 – BACCM | Intermediate",
         "question": "A BA discovers a technically sound solution was built but did not address the real business problem. Using BACCM terminology, which relationship was misaligned?",
         "options": [
-            "A) Solution and Need",
-            "B) Stakeholder and Value",
+            "A) Stakeholder and Value",
+            "B) Solution and Need",
             "C) Change and Context",
             "D) Value and Stakeholder"
         ],
-        "answer": "A) Solution and Need",
+        "answer": "B) Solution and Need",
         "explanation": "BABOK® v3 §1.4.1: When a solution doesn't address the actual need, the Solution–Need relationship is misaligned."
     },
     {
         "chapter": "Ch1 §1.4 – BACCM | Intermediate",
         "question": "All six BACCM concepts are described as interrelated. This means:",
         "options": [
-            "A) Each concept can be analyzed in isolation",
-            "B) Only three concepts apply to any given initiative",
-            "C) The concepts must be analyzed in a fixed order",
-            "D) Understanding any one concept requires considering its relationships to the other five"
+            "A) Understanding any one concept requires considering its relationships to the other five",
+            "B) Each concept can be analyzed in isolation",
+            "C) Only three concepts apply to any given initiative",
+            "D) The concepts must be analyzed in a fixed order"
         ],
-        "answer": "D) Understanding any one concept requires considering its relationships to the other five",
+        "answer": "A) Understanding any one concept requires considering its relationships to the other five",
         "explanation": "BABOK® v3 §1.4.1: The BACCM concepts are mutually interrelated—changes in one affect understanding of all others."
     },
     {
         "chapter": "Ch1 §1.4 – BACCM | Intermediate",
         "question": "An insurance company's customers are BEST represented by which BACCM concept when they will directly use the new claims portal?",
         "options": [
-            "A) Context",
-            "B) Value",
-            "C) Stakeholder",
+            "A) Stakeholder",
+            "B) Context",
+            "C) Value",
             "D) Need"
         ],
-        "answer": "C) Stakeholder",
+        "answer": "A) Stakeholder",
         "explanation": "BABOK® v3 §1.4.1: End users who interact with the solution are Stakeholders—they have a relationship to the change and the solution."
     },
     {
         "chapter": "Ch1 §1.4 – BACCM | Intermediate",
         "question": "Reduced claims processing time from 10 days to 2 days for the insurance company's customers BEST represents which BACCM concept?",
         "options": [
-            "A) Need",
-            "B) Change",
-            "C) Value",
+            "A) Value",
+            "B) Need",
+            "C) Change",
             "D) Solution"
         ],
-        "answer": "C) Value",
+        "answer": "A) Value",
         "explanation": "BABOK® v3 §1.4.1: The benefit (faster processing) delivered to stakeholders is Value—the worth or usefulness of the solution."
     },
     {
         "chapter": "Ch1 §1.4 – BACCM | Advanced",
         "question": "A program sponsor defines success as 'delivering the new system on time.' A BA argues success should be 'achieving the intended business outcomes.' This disagreement reflects a misunderstanding of which BACCM concept?",
         "options": [
-            "A) Change",
-            "B) Value",
+            "A) Value",
+            "B) Change",
             "C) Solution",
             "D) Context"
         ],
-        "answer": "B) Value",
+        "answer": "A) Value",
         "explanation": "BABOK® v3 §1.4.1: Value is about business outcomes and worth to stakeholders—not simply delivering a solution on schedule."
     },
     {
         "chapter": "Ch1 §1.4 – BACCM | Advanced",
         "question": "A new competitor dramatically changes customer expectations. A BA updates her environmental analysis. Which BACCM concept is she updating?",
         "options": [
-            "A) Context",
-            "B) Stakeholder",
-            "C) Need",
+            "A) Stakeholder",
+            "B) Need",
+            "C) Context",
             "D) Value"
         ],
-        "answer": "A) Context",
+        "answer": "C) Context",
         "explanation": "BABOK® v3 §1.4.1: Competitive landscape changes are shifts in the Context."
     },
     {
@@ -760,11 +760,11 @@ ALL_QUESTIONS = [
         "question": "A cost-reduction initiative delivers $2M in savings for shareholders but eliminates 50 jobs. The CFO views it as valuable; laid-off employees do not. This BEST reflects which BACCM principle?",
         "options": [
             "A) The Need was not properly defined",
-            "B) Value is stakeholder-specific—different stakeholders perceive the value of the same change differently",
-            "C) The Solution does not meet requirements",
-            "D) The Context changed during execution"
+            "B) The Solution does not meet requirements",
+            "C) The Context changed during execution",
+            "D) Value is stakeholder-specific—different stakeholders perceive the value of the same change differently"
         ],
-        "answer": "B) Value is stakeholder-specific—different stakeholders perceive the value of the same change differently",
+        "answer": "D) Value is stakeholder-specific—different stakeholders perceive the value of the same change differently",
         "explanation": "BABOK® v3 §1.4.1: Value is stakeholder-specific and context-dependent. Different stakeholders will assess the same outcome differently."
     },
     {
@@ -773,10 +773,10 @@ ALL_QUESTIONS = [
         "options": [
             "A) A process model for executing BA tasks",
             "B) A replacement for the Knowledge Areas",
-            "C) A universal conceptual framework providing shared vocabulary applicable to all BA work",
-            "D) Only used during the planning phase"
+            "C) Only used during the planning phase",
+            "D) A universal conceptual framework providing shared vocabulary applicable to all BA work"
         ],
-        "answer": "C) A universal conceptual framework providing shared vocabulary applicable to all BA work",
+        "answer": "D) A universal conceptual framework providing shared vocabulary applicable to all BA work",
         "explanation": "BABOK® v3 §1.4.1: The BACCM is a conceptual lens—not a process—that applies to all BA activities and enables consistent vocabulary."
     },
     {
@@ -785,22 +785,22 @@ ALL_QUESTIONS = [
         "options": [
             "A) Need–Stakeholder misalignment",
             "B) Value–Stakeholder misalignment",
-            "C) Solution–Context conflict—the solution is not viable within its regulatory context",
-            "D) Change–Need misalignment"
+            "C) Change–Need misalignment",
+            "D) Solution–Context conflict—the solution is not viable within its regulatory context"
         ],
-        "answer": "C) Solution–Context conflict—the solution is not viable within its regulatory context",
+        "answer": "D) Solution–Context conflict—the solution is not viable within its regulatory context",
         "explanation": "BABOK® v3 §1.4.1: A solution must be viable within its Context, including regulatory and environmental factors."
     },
     {
         "chapter": "Ch1 §1.4 – BACCM | Advanced",
         "question": "A BA uses the BACCM framework to explain to a new junior analyst why requirements cannot be defined in isolation. The MOST relevant BACCM principle is:",
         "options": [
-            "A) Every BA task relates to at least one BACCM concept, and the concepts are interrelated—isolating any one leads to incomplete understanding",
-            "B) Requirements must always be traceable to test cases",
-            "C) Requirements are only written by BAs",
+            "A) Requirements must always be traceable to test cases",
+            "B) Requirements are only written by BAs",
+            "C) Every BA task relates to at least one BACCM concept, and the concepts are interrelated—isolating any one leads to incomplete understanding",
             "D) Requirements define the solution architecture"
         ],
-        "answer": "A) Every BA task relates to at least one BACCM concept, and the concepts are interrelated—isolating any one leads to incomplete understanding",
+        "answer": "C) Every BA task relates to at least one BACCM concept, and the concepts are interrelated—isolating any one leads to incomplete understanding",
         "explanation": "BABOK® v3 §1.4.1: The BACCM's interrelated nature means no single concept—or requirement—can be fully understood without considering its relationship to the others."
     },
     {
@@ -819,12 +819,12 @@ ALL_QUESTIONS = [
         "chapter": "Ch1 §1.4.4 – Requirements Types | Foundational",
         "question": "BABOK® v3 classifies requirements into four categories. Which option lists them correctly?",
         "options": [
-            "A) Business, Stakeholder, Solution, Transition",
-            "B) Functional, Non-functional, Business, Technical",
+            "A) Functional, Non-functional, Business, Technical",
+            "B) Business, Stakeholder, Solution, Transition",
             "C) Explicit, Implicit, Derived, Assumed",
             "D) Current-state, Future-state, Gap, Design"
         ],
-        "answer": "A) Business, Stakeholder, Solution, Transition",
+        "answer": "B) Business, Stakeholder, Solution, Transition",
         "explanation": "BABOK® v3 §1.4.4 defines four requirement categories: Business, Stakeholder, Solution (functional + non-functional), and Transition."
     },
     {
@@ -892,23 +892,23 @@ ALL_QUESTIONS = [
         "question": "Solution requirements are subdivided into which two types in BABOK® v3?",
         "options": [
             "A) Business and Stakeholder",
-            "B) Functional and Non-functional",
-            "C) Explicit and Implicit",
-            "D) Transition and Operational"
+            "B) Explicit and Implicit",
+            "C) Transition and Operational",
+            "D) Functional and Non-functional"
         ],
-        "answer": "B) Functional and Non-functional",
+        "answer": "D) Functional and Non-functional",
         "explanation": "BABOK® v3 §1.4.4: Solution requirements consist of Functional requirements (behaviors/capabilities) and Non-functional requirements (quality attributes/constraints)."
     },
     {
         "chapter": "Ch1 §1.4.4 – Requirements Types | Intermediate",
         "question": "'Increase market share in the SMB segment by 15% within two years.' This BEST classifies as:",
         "options": [
-            "A) Business requirement",
-            "B) Stakeholder requirement",
-            "C) Functional requirement",
-            "D) Transition requirement"
+            "A) Stakeholder requirement",
+            "B) Functional requirement",
+            "C) Transition requirement",
+            "D) Business requirement"
         ],
-        "answer": "A) Business requirement",
+        "answer": "D) Business requirement",
         "explanation": "BABOK® v3 §1.4.4: A high-level organizational goal is a Business requirement."
     },
     {
@@ -927,12 +927,12 @@ ALL_QUESTIONS = [
         "chapter": "Ch1 §1.4.4 – Requirements Types | Intermediate",
         "question": "'The system must allow users to generate monthly sales reports filtered by region.' This BEST classifies as:",
         "options": [
-            "A) Business requirement",
-            "B) Stakeholder requirement",
-            "C) Functional solution requirement",
+            "A) Functional solution requirement",
+            "B) Business requirement",
+            "C) Stakeholder requirement",
             "D) Non-functional solution requirement"
         ],
-        "answer": "C) Functional solution requirement",
+        "answer": "A) Functional solution requirement",
         "explanation": "BABOK® v3 §1.4.4: A system capability (generating filtered reports) is a Functional solution requirement."
     },
     {
@@ -952,11 +952,11 @@ ALL_QUESTIONS = [
         "question": "'All historical customer records from the legacy system must be migrated to the new platform before go-live.' This BEST classifies as:",
         "options": [
             "A) Business requirement",
-            "B) Stakeholder requirement",
-            "C) Non-functional requirement",
-            "D) Transition requirement"
+            "B) Transition requirement",
+            "C) Stakeholder requirement",
+            "D) Non-functional requirement"
         ],
-        "answer": "D) Transition requirement",
+        "answer": "B) Transition requirement",
         "explanation": "BABOK® v3 §1.4.4: Data migration needed only for cutover is a Transition requirement—temporary and retired after go-live."
     },
     {
@@ -976,11 +976,11 @@ ALL_QUESTIONS = [
         "question": "'Users must complete system training before accessing production.' This BEST classifies as:",
         "options": [
             "A) Business requirement",
-            "B) Stakeholder requirement",
-            "C) Functional requirement",
-            "D) Transition requirement"
+            "B) Transition requirement",
+            "C) Stakeholder requirement",
+            "D) Functional requirement"
         ],
-        "answer": "D) Transition requirement",
+        "answer": "B) Transition requirement",
         "explanation": "BABOK® v3 §1.4.4: Training required for go-live is a Transition requirement—it supports the cutover, not the ongoing solution."
     },
     {
@@ -999,12 +999,12 @@ ALL_QUESTIONS = [
         "chapter": "Ch1 §1.4.4 – Requirements Types | Intermediate",
         "question": "'Achieve cost savings of €500,000 per year by automating invoice processing.' This BEST classifies as:",
         "options": [
-            "A) Business requirement",
-            "B) Functional requirement",
+            "A) Functional requirement",
+            "B) Business requirement",
             "C) Stakeholder requirement",
             "D) Transition requirement"
         ],
-        "answer": "A) Business requirement",
+        "answer": "B) Business requirement",
         "explanation": "BABOK® v3 §1.4.4: An organizational cost-savings target is a Business requirement—it states the 'why' of the initiative."
     },
     {
@@ -1024,11 +1024,11 @@ ALL_QUESTIONS = [
         "question": "A stakeholder asks: 'Once the new system is live, will we still need the data migration requirement?' The CORRECT answer is:",
         "options": [
             "A) Yes—it becomes a permanent non-functional requirement",
-            "B) No—it becomes a stakeholder requirement",
-            "C) Yes—it becomes a business requirement",
-            "D) No—transition requirements are temporary and retired once the transition is complete"
+            "B) No—transition requirements are temporary and retired once the transition is complete",
+            "C) No—it becomes a stakeholder requirement",
+            "D) Yes—it becomes a business requirement"
         ],
-        "answer": "D) No—transition requirements are temporary and retired once the transition is complete",
+        "answer": "B) No—transition requirements are temporary and retired once the transition is complete",
         "explanation": "BABOK® v3 §1.4.4: Transition requirements are explicitly defined as temporary—needed only to move to the future state, not beyond."
     },
     {
@@ -1049,10 +1049,10 @@ ALL_QUESTIONS = [
         "options": [
             "A) They are interchangeable",
             "B) Business requirements are derived from stakeholder requirements",
-            "C) Stakeholder requirements must support and trace back to business requirements",
-            "D) They are independent and need no alignment"
+            "C) They are independent and need no alignment",
+            "D) Stakeholder requirements must support and trace back to business requirements"
         ],
-        "answer": "C) Stakeholder requirements must support and trace back to business requirements",
+        "answer": "D) Stakeholder requirements must support and trace back to business requirements",
         "explanation": "BABOK® v3 §1.4.4: Stakeholder requirements describe how stakeholder needs relate to achieving organizational goals—they must align with and support business requirements."
     },
     {
@@ -1060,11 +1060,11 @@ ALL_QUESTIONS = [
         "question": "A developer claims: 'All requirements should be functional—we can infer quality from them.' The BABOK® v3-aligned response is:",
         "options": [
             "A) Agree—functional requirements are sufficient",
-            "B) Partially agree—only security requirements need to be explicit",
-            "C) Disagree—non-functional requirements define quality attributes that cannot be inferred from functional behaviors and are essential to solution success",
+            "B) Disagree—non-functional requirements define quality attributes that cannot be inferred from functional behaviors and are essential to solution success",
+            "C) Partially agree—only security requirements need to be explicit",
             "D) Defer to the architect's judgment"
         ],
-        "answer": "C) Disagree—non-functional requirements define quality attributes that cannot be inferred from functional behaviors and are essential to solution success",
+        "answer": "B) Disagree—non-functional requirements define quality attributes that cannot be inferred from functional behaviors and are essential to solution success",
         "explanation": "BABOK® v3 §1.4.4: Non-functional requirements (performance, security, availability, usability) are distinct from and not derivable from functional requirements."
     },
     {
@@ -1084,11 +1084,11 @@ ALL_QUESTIONS = [
         "question": "Which of the following is a recognized stakeholder type in BABOK® v3?",
         "options": [
             "A) Only customers and end users",
-            "B) Only senior management",
-            "C) Sponsor, Customer, End User, Domain SME, Regulator, Supplier, Tester, Operational Support, BA, and PM",
+            "B) Sponsor, Customer, End User, Domain SME, Regulator, Supplier, Tester, Operational Support, BA, and PM",
+            "C) Only senior management",
             "D) Only the project team"
         ],
-        "answer": "C) Sponsor, Customer, End User, Domain SME, Regulator, Supplier, Tester, Operational Support, BA, and PM",
+        "answer": "B) Sponsor, Customer, End User, Domain SME, Regulator, Supplier, Tester, Operational Support, BA, and PM",
         "explanation": "BABOK® v3 §1.4.5 lists a comprehensive range of stakeholder types including internal, external, and supporting roles."
     },
     {
@@ -1096,11 +1096,11 @@ ALL_QUESTIONS = [
         "question": "Which stakeholder type provides financial resources and approves the scope of a change initiative?",
         "options": [
             "A) End User",
-            "B) Domain Subject Matter Expert",
-            "C) Sponsor",
+            "B) Sponsor",
+            "C) Domain Subject Matter Expert",
             "D) Operational Support"
         ],
-        "answer": "C) Sponsor",
+        "answer": "B) Sponsor",
         "explanation": "BABOK® v3 §1.4.5: The Sponsor authorizes the initiative, provides resources, and approves scope and decisions."
     },
     {
@@ -1108,23 +1108,23 @@ ALL_QUESTIONS = [
         "question": "A government regulator does not use the system but must approve its outputs. Is this regulator a stakeholder?",
         "options": [
             "A) No—only direct users are stakeholders",
-            "B) Yes—they have a relationship to the change and its outputs",
-            "C) No—external parties are not stakeholders",
+            "B) No—external parties are not stakeholders",
+            "C) Yes—they have a relationship to the change and its outputs",
             "D) Yes—only if they attend project meetings"
         ],
-        "answer": "B) Yes—they have a relationship to the change and its outputs",
+        "answer": "C) Yes—they have a relationship to the change and its outputs",
         "explanation": "BABOK® v3 §1.4.5: Regulators are stakeholders because they have a relationship to the change outcomes, even without direct system usage."
     },
     {
         "chapter": "Ch1 §1.4.5 – Stakeholders | Intermediate",
         "question": "A third-party vendor will integrate their product with the solution being built. They BEST represent which stakeholder type?",
         "options": [
-            "A) Supplier",
-            "B) Sponsor",
-            "C) End User",
+            "A) Sponsor",
+            "B) End User",
+            "C) Supplier",
             "D) Domain Subject Matter Expert"
         ],
-        "answer": "A) Supplier",
+        "answer": "C) Supplier",
         "explanation": "BABOK® v3 §1.4.5: A vendor providing products or services that integrate with the solution is a Supplier stakeholder."
     },
     {
@@ -1132,11 +1132,11 @@ ALL_QUESTIONS = [
         "question": "The IT operations team will support and maintain the system post-go-live. They BEST represent which stakeholder type?",
         "options": [
             "A) End User",
-            "B) Tester",
-            "C) Operational Support",
+            "B) Operational Support",
+            "C) Tester",
             "D) Implementation Subject Matter Expert"
         ],
-        "answer": "C) Operational Support",
+        "answer": "B) Operational Support",
         "explanation": "BABOK® v3 §1.4.5: Teams responsible for post-deployment maintenance and support are Operational Support stakeholders."
     },
     {
@@ -1144,23 +1144,23 @@ ALL_QUESTIONS = [
         "question": "A domain expert in the finance department provides deep knowledge about accounting rules. They BEST represent which stakeholder type?",
         "options": [
             "A) Sponsor",
-            "B) Domain Subject Matter Expert",
-            "C) Customer",
-            "D) Supplier"
+            "B) Customer",
+            "C) Supplier",
+            "D) Domain Subject Matter Expert"
         ],
-        "answer": "B) Domain Subject Matter Expert",
+        "answer": "D) Domain Subject Matter Expert",
         "explanation": "BABOK® v3 §1.4.5: Domain SMEs provide specialized knowledge about a business area—in this case, accounting and finance."
     },
     {
         "chapter": "Ch1 §1.4.5 – Stakeholders | Advanced",
         "question": "A BA misses the legal department during stakeholder identification. The legal team later raises compliance concerns requiring significant rework. This illustrates the risk of:",
         "options": [
-            "A) Incomplete stakeholder identification leading to missed requirements and late-stage rework",
-            "B) Poor requirements documentation",
-            "C) Inadequate testing",
+            "A) Poor requirements documentation",
+            "B) Inadequate testing",
+            "C) Incomplete stakeholder identification leading to missed requirements and late-stage rework",
             "D) Poor project governance"
         ],
-        "answer": "A) Incomplete stakeholder identification leading to missed requirements and late-stage rework",
+        "answer": "C) Incomplete stakeholder identification leading to missed requirements and late-stage rework",
         "explanation": "BABOK® v3 §1.4.5: Missing stakeholders during identification leads to missed requirements, discovered late when they are costlier to address."
     },
     {
@@ -1203,48 +1203,48 @@ ALL_QUESTIONS = [
         "chapter": "Ch1 §1.5 – Requirements vs Designs | Foundational",
         "question": "According to BABOK® v3, the BEST distinction between requirements and designs is:",
         "options": [
-            "A) Requirements describe what is needed; designs describe how the solution will satisfy the need",
-            "B) Requirements are written by BAs; designs are created by architects",
-            "C) Requirements are high-level; designs are detailed",
-            "D) Requirements are for business; designs are for IT"
+            "A) Requirements are written by BAs; designs are created by architects",
+            "B) Requirements are high-level; designs are detailed",
+            "C) Requirements are for business; designs are for IT",
+            "D) Requirements describe what is needed; designs describe how the solution will satisfy the need"
         ],
-        "answer": "A) Requirements describe what is needed; designs describe how the solution will satisfy the need",
+        "answer": "D) Requirements describe what is needed; designs describe how the solution will satisfy the need",
         "explanation": "BABOK® v3 §1.5: Requirements define what is needed (the 'what and why'); designs define how the solution will deliver it (the 'how')."
     },
     {
         "chapter": "Ch1 §1.5 – Requirements vs Designs | Foundational",
         "question": "A use case that describes a system behavior from the user's perspective—without specifying implementation—is BEST classified as:",
         "options": [
-            "A) A design artifact",
-            "B) A requirements artifact",
+            "A) A requirements artifact",
+            "B) A design artifact",
             "C) A non-functional requirement",
             "D) A transition requirement"
         ],
-        "answer": "B) A requirements artifact",
+        "answer": "A) A requirements artifact",
         "explanation": "BABOK® v3 §1.5: A use case describing behavior without implementation details is a requirements artifact—it defines what the system must do."
     },
     {
         "chapter": "Ch1 §1.5 – Requirements vs Designs | Intermediate",
         "question": "A BA produces a wireframe showing the layout of a mobile checkout screen. This is BEST classified as:",
         "options": [
-            "A) A stakeholder requirement",
-            "B) A functional requirement",
-            "C) A business requirement",
-            "D) A design artifact"
+            "A) A design artifact",
+            "B) A stakeholder requirement",
+            "C) A functional requirement",
+            "D) A business requirement"
         ],
-        "answer": "D) A design artifact",
+        "answer": "A) A design artifact",
         "explanation": "BABOK® v3 §1.5: A wireframe describes how the solution will look—it is a design artifact, not a requirement."
     },
     {
         "chapter": "Ch1 §1.5 – Requirements vs Designs | Intermediate",
         "question": "An entity-relationship diagram (ERD) showing the data model for the solution BEST represents:",
         "options": [
-            "A) A business requirement",
-            "B) A design artifact describing data structure",
+            "A) A design artifact describing data structure",
+            "B) A business requirement",
             "C) A stakeholder requirement",
             "D) A non-functional requirement"
         ],
-        "answer": "B) A design artifact describing data structure",
+        "answer": "A) A design artifact describing data structure",
         "explanation": "BABOK® v3 §1.5: An ERD defines the data structure of the solution—it is a design artifact."
     },
     {
@@ -1276,11 +1276,11 @@ ALL_QUESTIONS = [
         "question": "A BA hands her requirements document directly to developers as the design specification. What risk does this create?",
         "options": [
             "A) No risk—requirements and designs are the same",
-            "B) The risk of scope creep",
-            "C) Requirements (what is needed) may be confused with design (how to build it), unnecessarily constraining the solution space",
+            "B) Requirements (what is needed) may be confused with design (how to build it), unnecessarily constraining the solution space",
+            "C) The risk of scope creep",
             "D) The risk of missing stakeholder sign-off"
         ],
-        "answer": "C) Requirements (what is needed) may be confused with design (how to build it), unnecessarily constraining the solution space",
+        "answer": "B) Requirements (what is needed) may be confused with design (how to build it), unnecessarily constraining the solution space",
         "explanation": "BABOK® v3 §1.5: Treating requirements as design specifications prematurely closes off design options and may lead to suboptimal solutions."
     },
     {
@@ -1300,23 +1300,23 @@ ALL_QUESTIONS = [
         "question": "A BA is asked why BABOK® v3 distinguishes between requirements and designs if BAs produce both. The MOST accurate answer is:",
         "options": [
             "A) Only architects should produce designs",
-            "B) The distinction helps the BA know when they are defining what is needed versus how it will be delivered, avoiding premature solution commitment",
-            "C) Requirements are always more important than designs",
-            "D) The distinction is only relevant in waterfall projects"
+            "B) Requirements are always more important than designs",
+            "C) The distinction is only relevant in waterfall projects",
+            "D) The distinction helps the BA know when they are defining what is needed versus how it will be delivered, avoiding premature solution commitment"
         ],
-        "answer": "B) The distinction helps the BA know when they are defining what is needed versus how it will be delivered, avoiding premature solution commitment",
+        "answer": "D) The distinction helps the BA know when they are defining what is needed versus how it will be delivered, avoiding premature solution commitment",
         "explanation": "BABOK® v3 §1.5: Understanding the boundary between requirements and designs helps practitioners avoid locking solutions prematurely and maintain appropriate flexibility."
     },
     {
         "chapter": "Ch1 Integration | Intermediate",
         "question": "A BA starts a new project by reviewing organizational strategy, identifying stakeholders, and planning elicitation techniques. According to BABOK® v3, she is working in which Knowledge Area FIRST?",
         "options": [
-            "A) Strategy Analysis",
-            "B) Elicitation and Collaboration",
-            "C) Requirements Life Cycle Management",
-            "D) Business Analysis Planning and Monitoring"
+            "A) Business Analysis Planning and Monitoring",
+            "B) Strategy Analysis",
+            "C) Elicitation and Collaboration",
+            "D) Requirements Life Cycle Management"
         ],
-        "answer": "D) Business Analysis Planning and Monitoring",
+        "answer": "A) Business Analysis Planning and Monitoring",
         "explanation": "BABOK® v3 §1.3: Planning BA activities—approach, stakeholder identification, and technique selection—is BA Planning and Monitoring."
     },
     {
@@ -1335,24 +1335,24 @@ ALL_QUESTIONS = [
         "chapter": "Ch1 Integration | Intermediate",
         "question": "A BA is reviewing a context diagram with a new team member. The diagram shows the system boundary, external entities, and data flows. This artifact MOST relates to which BACCM concept being defined?",
         "options": [
-            "A) Context",
-            "B) Stakeholder",
-            "C) Need",
-            "D) Value"
+            "A) Stakeholder",
+            "B) Need",
+            "C) Value",
+            "D) Context"
         ],
-        "answer": "A) Context",
+        "answer": "D) Context",
         "explanation": "BABOK® v3 §1.4.1: A context diagram defines the boundary of the solution and its surrounding environment—this defines Context."
     },
     {
         "chapter": "Ch1 Integration | Intermediate",
         "question": "A BA notices requirements conflicts between two departments. To resolve them, she facilitates workshops and documents agreed-upon prioritization. This MOST activates which two Knowledge Areas?",
         "options": [
-            "A) Strategy Analysis and Solution Evaluation",
-            "B) Business Analysis Planning and Monitoring, and Strategy Analysis",
-            "C) Elicitation and Collaboration, and Requirements Life Cycle Management",
+            "A) Elicitation and Collaboration, and Requirements Life Cycle Management",
+            "B) Strategy Analysis and Solution Evaluation",
+            "C) Business Analysis Planning and Monitoring, and Strategy Analysis",
             "D) Requirements Analysis and Design Definition, and Solution Evaluation"
         ],
-        "answer": "C) Elicitation and Collaboration, and Requirements Life Cycle Management",
+        "answer": "A) Elicitation and Collaboration, and Requirements Life Cycle Management",
         "explanation": "BABOK® v3 §1.3: Facilitated workshops for conflict resolution are Elicitation and Collaboration; documenting agreed prioritization is Requirements Life Cycle Management."
     },
     {
@@ -1371,12 +1371,12 @@ ALL_QUESTIONS = [
         "chapter": "Ch1 Integration | Advanced",
         "question": "A new CRM is deployed. Six months later, customer satisfaction has not improved. A BA is asked to investigate. The MOST appropriate activity is:",
         "options": [
-            "A) Re-elicit all requirements from scratch",
-            "B) Update the traceability matrix",
-            "C) Conduct solution evaluation to assess whether the solution delivers expected value and identify root causes",
+            "A) Conduct solution evaluation to assess whether the solution delivers expected value and identify root causes",
+            "B) Re-elicit all requirements from scratch",
+            "C) Update the traceability matrix",
             "D) Escalate to the project sponsor for a new project"
         ],
-        "answer": "C) Conduct solution evaluation to assess whether the solution delivers expected value and identify root causes",
+        "answer": "A) Conduct solution evaluation to assess whether the solution delivers expected value and identify root causes",
         "explanation": "BABOK® v3 §1.3: Post-deployment underperformance is addressed through Solution Evaluation—measuring value delivery and identifying gaps."
     },
     {
@@ -1385,10 +1385,10 @@ ALL_QUESTIONS = [
         "options": [
             "A) The BA's authority supersedes the sponsor's",
             "B) BABOK® v3 mandates validation regardless of governance",
-            "C) Validation ensures requirements will lead to a solution delivering intended value; sign-off confirms approval, not correctness",
-            "D) Validation is required for compliance"
+            "C) Validation is required for compliance",
+            "D) Validation ensures requirements will lead to a solution delivering intended value; sign-off confirms approval, not correctness"
         ],
-        "answer": "C) Validation ensures requirements will lead to a solution delivering intended value; sign-off confirms approval, not correctness",
+        "answer": "D) Validation ensures requirements will lead to a solution delivering intended value; sign-off confirms approval, not correctness",
         "explanation": "BABOK® v3 RLCM: Validation confirms that requirements will lead to value-delivering solutions. Formal approval confirms only that stakeholders agree with the documented content."
     },
     {
@@ -1407,24 +1407,24 @@ ALL_QUESTIONS = [
         "chapter": "Ch1 Integration | Advanced",
         "question": "A BA produces a complete, approved requirements set. The project delivers on time. But the business fails to achieve its objectives. The MOST likely BA-related root cause is:",
         "options": [
-            "A) Too few requirements were produced",
-            "B) Requirements were approved but not aligned with the true Need and expected Value",
+            "A) Requirements were approved but not aligned with the true Need and expected Value",
+            "B) Too few requirements were produced",
             "C) The BA should have managed the project",
             "D) The developers did not follow the requirements"
         ],
-        "answer": "B) Requirements were approved but not aligned with the true Need and expected Value",
+        "answer": "A) Requirements were approved but not aligned with the true Need and expected Value",
         "explanation": "BABOK® v3 §1.4.1, §1.4.4: Requirements can be technically approved yet disconnected from the real Need and Value. This is a BA quality failure, not a delivery failure."
     },
     {
         "chapter": "Ch1 Integration | Advanced",
         "question": "A BA retrospective reveals that requirements were elicited well but were never managed—they were lost, changed without documentation, and became inconsistent. The primary gap is in which Knowledge Area?",
         "options": [
-            "A) Requirements Life Cycle Management",
-            "B) Strategy Analysis",
+            "A) Strategy Analysis",
+            "B) Requirements Life Cycle Management",
             "C) Elicitation and Collaboration",
             "D) Requirements Analysis and Design Definition"
         ],
-        "answer": "A) Requirements Life Cycle Management",
+        "answer": "B) Requirements Life Cycle Management",
         "explanation": "BABOK® v3 §1.3: Managing requirements through their lifecycle—preventing loss, controlling changes, maintaining consistency—is RLCM."
     },
     {
@@ -1433,10 +1433,10 @@ ALL_QUESTIONS = [
         "options": [
             "A) Elicitation and Collaboration",
             "B) Requirements Analysis and Design Definition",
-            "C) Requirements Life Cycle Management",
-            "D) Strategy Analysis"
+            "C) Strategy Analysis",
+            "D) Requirements Life Cycle Management"
         ],
-        "answer": "D) Strategy Analysis",
+        "answer": "C) Strategy Analysis",
         "explanation": "BABOK® v3 §1.3: Choosing solutions before problems are defined is a Strategy Analysis failure. Strengthening SA ensures the right problems are identified before solutions are selected."
     },
     {
@@ -1444,11 +1444,11 @@ ALL_QUESTIONS = [
         "question": "A BA is asked to explain a complete BACCM-based analysis of why a recently delivered solution failed to create value. The MOST complete explanation is:",
         "options": [
             "A) The project manager failed to deliver",
-            "B) Testing was insufficient",
-            "C) The Solution was not aligned with the actual Need, the expected Value was not defined correctly, or the Context changed during delivery",
+            "B) The Solution was not aligned with the actual Need, the expected Value was not defined correctly, or the Context changed during delivery",
+            "C) Testing was insufficient",
             "D) Requirements were not detailed enough"
         ],
-        "answer": "C) The Solution was not aligned with the actual Need, the expected Value was not defined correctly, or the Context changed during delivery",
+        "answer": "B) The Solution was not aligned with the actual Need, the expected Value was not defined correctly, or the Context changed during delivery",
         "explanation": "BABOK® v3 §1.4.1: A complete BACCM-based explanation covers Solution–Need misalignment, incorrect Value definition, or a Context shift that invalidated the approach."
     },
     {
@@ -1468,11 +1468,11 @@ ALL_QUESTIONS = [
         "question": "A BA notices a developer has added features not in the approved requirements baseline. She assesses impact and initiates a formal change request. This MOST aligns with:",
         "options": [
             "A) Strategy Analysis",
-            "B) Requirements Life Cycle Management",
-            "C) Elicitation and Collaboration",
-            "D) Business Analysis Planning and Monitoring"
+            "B) Elicitation and Collaboration",
+            "C) Business Analysis Planning and Monitoring",
+            "D) Requirements Life Cycle Management"
         ],
-        "answer": "B) Requirements Life Cycle Management",
+        "answer": "D) Requirements Life Cycle Management",
         "explanation": "BABOK® v3 §1.3: Managing unauthorized additions through formal change control is Requirements Life Cycle Management."
     },
     {
@@ -1480,11 +1480,11 @@ ALL_QUESTIONS = [
         "question": "A BA is challenged: 'Why do we need you when we have project managers?' The MOST BABOK® v3-aligned response is:",
         "options": [
             "A) BA reduces PM workload",
-            "B) BA ensures we solve the right problem before investing in a solution; PM ensures the chosen solution is delivered within constraints—both are essential and complementary",
-            "C) BA replaces PM in agile projects",
+            "B) BA replaces PM in agile projects",
+            "C) BA ensures we solve the right problem before investing in a solution; PM ensures the chosen solution is delivered within constraints—both are essential and complementary",
             "D) BA is only needed for large projects"
         ],
-        "answer": "B) BA ensures we solve the right problem before investing in a solution; PM ensures the chosen solution is delivered within constraints—both are essential and complementary",
+        "answer": "C) BA ensures we solve the right problem before investing in a solution; PM ensures the chosen solution is delivered within constraints—both are essential and complementary",
         "explanation": "BABOK® v3 §1.1: BA and PM are complementary—BA focuses on the right problem and solution; PM focuses on delivering within constraints."
     },
     {
@@ -1492,11 +1492,11 @@ ALL_QUESTIONS = [
         "question": "A product manager declares requirements 'done' because all user stories are written. A BA disagrees. What should she do FIRST?",
         "options": [
             "A) Accept the PM's declaration to avoid conflict",
-            "B) Escalate directly to the executive sponsor",
-            "C) Present evidence of elicitation gaps and explain the risk of proceeding with incomplete requirements",
+            "B) Present evidence of elicitation gaps and explain the risk of proceeding with incomplete requirements",
+            "C) Escalate directly to the executive sponsor",
             "D) Proceed silently and document concerns privately"
         ],
-        "answer": "C) Present evidence of elicitation gaps and explain the risk of proceeding with incomplete requirements",
+        "answer": "B) Present evidence of elicitation gaps and explain the risk of proceeding with incomplete requirements",
         "explanation": "BABOK® v3 §2.2, §2.4: Professional ethics and communication skills require the BA to present gaps and risks transparently before proceeding."
     },
     {
@@ -1515,12 +1515,12 @@ ALL_QUESTIONS = [
         "chapter": "Ch1 §1.1 – Why BA Exists | Foundational",
         "question": "BABOK® v3 defines business analysis as a practice focused on enabling change. Which word in this definition is MOST significant?",
         "options": [
-            "A) Practice—it implies structured discipline",
-            "B) Change—it means BA is only relevant when something is being transformed",
+            "A) Change—it means BA is only relevant when something is being transformed",
+            "B) Practice—it implies structured discipline",
             "C) Enabling—it means BA facilitates and supports rather than directs",
             "D) Both A and C are equally significant"
         ],
-        "answer": "B) Change—it means BA is only relevant when something is being transformed",
+        "answer": "A) Change—it means BA is only relevant when something is being transformed",
         "explanation": "BABOK® v3 §1.1: The focus on 'enabling change' is the defining characteristic—BA work is always tied to some form of organizational transformation."
     },
     {
@@ -1539,24 +1539,24 @@ ALL_QUESTIONS = [
         "chapter": "Ch1 §1.3 – Knowledge Areas | Foundational",
         "question": "A BA performs requirements elicitation BEFORE completing her BA plan. This is:",
         "options": [
-            "A) A process violation—planning must always precede elicitation",
-            "B) Only allowed in agile projects",
-            "C) Acceptable—BABOK® v3 KAs can be executed iteratively and in any order based on context",
+            "A) Acceptable—BABOK® v3 KAs can be executed iteratively and in any order based on context",
+            "B) A process violation—planning must always precede elicitation",
+            "C) Only allowed in agile projects",
             "D) Unacceptable regardless of context"
         ],
-        "answer": "C) Acceptable—BABOK® v3 KAs can be executed iteratively and in any order based on context",
+        "answer": "A) Acceptable—BABOK® v3 KAs can be executed iteratively and in any order based on context",
         "explanation": "BABOK® v3 §1.3: Knowledge Areas are not sequential phases. Performing elicitation before completing planning can be appropriate depending on context."
     },
     {
         "chapter": "Ch1 §1.3 – Knowledge Areas | Intermediate",
         "question": "Which of the following BEST describes the outputs of the Strategy Analysis Knowledge Area that feed into other Knowledge Areas?",
         "options": [
-            "A) Current-state analysis, future-state definition, and the change strategy that guide elicitation, RADD, and RLCM",
-            "B) A requirements document and a stakeholder register",
+            "A) A requirements document and a stakeholder register",
+            "B) Current-state analysis, future-state definition, and the change strategy that guide elicitation, RADD, and RLCM",
             "C) A project charter and business case",
             "D) A risk register and issue log"
         ],
-        "answer": "A) Current-state analysis, future-state definition, and the change strategy that guide elicitation, RADD, and RLCM",
+        "answer": "B) Current-state analysis, future-state definition, and the change strategy that guide elicitation, RADD, and RLCM",
         "explanation": "BABOK® v3 §1.3: Strategy Analysis defines the problem, future state, and change approach—foundational outputs that guide downstream BA activities."
     },
     {
@@ -1564,23 +1564,23 @@ ALL_QUESTIONS = [
         "question": "The inputs to BA Planning and Monitoring include the needs of the organization and the BA's understanding of the initiative context. This MOST illustrates:",
         "options": [
             "A) That BA planning is done in isolation",
-            "B) That BA planning is a one-time activity",
-            "C) That BA planning must wait for full requirements",
-            "D) That KAs are interconnected—Strategy Analysis outputs serve as inputs to BA Planning and Monitoring"
+            "B) That KAs are interconnected—Strategy Analysis outputs serve as inputs to BA Planning and Monitoring",
+            "C) That BA planning is a one-time activity",
+            "D) That BA planning must wait for full requirements"
         ],
-        "answer": "D) That KAs are interconnected—Strategy Analysis outputs serve as inputs to BA Planning and Monitoring",
+        "answer": "B) That KAs are interconnected—Strategy Analysis outputs serve as inputs to BA Planning and Monitoring",
         "explanation": "BABOK® v3 §1.3: Knowledge Areas are interconnected. Understanding the context and need (from SA) is prerequisite to effective BA planning."
     },
     {
         "chapter": "Ch1 §1.4 – BACCM | Foundational",
         "question": "The BACCM was created to provide which of the following?",
         "options": [
-            "A) A common vocabulary and conceptual foundation for all business analysis work",
-            "B) A step-by-step process for performing BA",
+            "A) A step-by-step process for performing BA",
+            "B) A common vocabulary and conceptual foundation for all business analysis work",
             "C) A certification framework for BAs",
             "D) A measurement system for BA performance"
         ],
-        "answer": "A) A common vocabulary and conceptual foundation for all business analysis work",
+        "answer": "B) A common vocabulary and conceptual foundation for all business analysis work",
         "explanation": "BABOK® v3 §1.4: The BACCM provides a shared conceptual foundation and vocabulary enabling BAs to understand, discuss, and perform their work consistently."
     },
     {
@@ -1588,23 +1588,23 @@ ALL_QUESTIONS = [
         "question": "A retail company identifies an opportunity to enter the e-commerce market. In BACCM terms, this opportunity is BEST classified as:",
         "options": [
             "A) A Solution",
-            "B) A Change",
-            "C) A Need",
+            "B) A Need",
+            "C) A Change",
             "D) A Context factor"
         ],
-        "answer": "C) A Need",
+        "answer": "B) A Need",
         "explanation": "BABOK® v3 §1.4.1: An opportunity to be captured—like entering e-commerce—is a Need. It represents the driver for change."
     },
     {
         "chapter": "Ch1 §1.4 – BACCM | Intermediate",
         "question": "The retail company decides to build an online store. In BACCM terms, the decision to build the online store is BEST classified as:",
         "options": [
-            "A) A Solution",
-            "B) A Change",
+            "A) A Change",
+            "B) A Solution",
             "C) A Need",
             "D) A Value"
         ],
-        "answer": "A) A Solution",
+        "answer": "B) A Solution",
         "explanation": "BABOK® v3 §1.4.1: The online store—the specific approach chosen to satisfy the need—is a Solution."
     },
     {
@@ -1659,24 +1659,24 @@ ALL_QUESTIONS = [
         "chapter": "Ch1 §1.4.4 – Requirements Types | Advanced",
         "question": "A BA challenges the team: 'Show me how each solution requirement traces to a stakeholder or business requirement.' This challenge MOST serves which purpose?",
         "options": [
-            "A) To increase documentation volume",
-            "B) To slow down the development team",
-            "C) To ensure all solution requirements have legitimate justification and link to the actual needs driving the initiative",
+            "A) To ensure all solution requirements have legitimate justification and link to the actual needs driving the initiative",
+            "B) To increase documentation volume",
+            "C) To slow down the development team",
             "D) To satisfy audit requirements"
         ],
-        "answer": "C) To ensure all solution requirements have legitimate justification and link to the actual needs driving the initiative",
+        "answer": "A) To ensure all solution requirements have legitimate justification and link to the actual needs driving the initiative",
         "explanation": "BABOK® v3 §1.4.4: Traceability from solution requirements to stakeholder and business requirements ensures no orphaned or unjustified requirements exist."
     },
     {
         "chapter": "Ch1 §1.4.5 – Stakeholders | Intermediate",
         "question": "A QA team is responsible for validating whether the solution meets stated requirements. They BEST represent which stakeholder type?",
         "options": [
-            "A) Tester",
-            "B) Operational Support",
-            "C) End User",
+            "A) Operational Support",
+            "B) End User",
+            "C) Tester",
             "D) Domain Subject Matter Expert"
         ],
-        "answer": "A) Tester",
+        "answer": "C) Tester",
         "explanation": "BABOK® v3 §1.4.5: Teams responsible for validating requirements and confirming solution quality are Tester stakeholders."
     },
     {
@@ -1684,11 +1684,11 @@ ALL_QUESTIONS = [
         "question": "A BA is conducting a new project kickoff and realizes she has not identified all affected stakeholders. The MOST immediate risk is:",
         "options": [
             "A) The project will be cancelled",
-            "B) The BA's performance review will be negative",
-            "C) Key requirements from unidentified stakeholders may be missed, discovered late and at greater cost",
+            "B) Key requirements from unidentified stakeholders may be missed, discovered late and at greater cost",
+            "C) The BA's performance review will be negative",
             "D) The sponsor will lose confidence"
         ],
-        "answer": "C) Key requirements from unidentified stakeholders may be missed, discovered late and at greater cost",
+        "answer": "B) Key requirements from unidentified stakeholders may be missed, discovered late and at greater cost",
         "explanation": "BABOK® v3 §1.4.5: Incomplete stakeholder identification is a primary driver of late-stage requirements discovery, which is increasingly expensive to address."
     },
     {
@@ -1719,12 +1719,12 @@ ALL_QUESTIONS = [
         "chapter": "Ch1 §1.5 – Requirements vs Designs | Intermediate",
         "question": "A solution architect creates a database schema defining tables, columns, and relationships. This is BEST classified as:",
         "options": [
-            "A) A non-functional requirement",
-            "B) A transition requirement",
-            "C) A design artifact",
+            "A) A design artifact",
+            "B) A non-functional requirement",
+            "C) A transition requirement",
             "D) A functional requirement"
         ],
-        "answer": "C) A design artifact",
+        "answer": "A) A design artifact",
         "explanation": "BABOK® v3 §1.5: A database schema specifies how data will be structured—it is a design artifact, not a requirement."
     },
     {
@@ -1733,10 +1733,10 @@ ALL_QUESTIONS = [
         "options": [
             "A) Nothing—combining them improves efficiency",
             "B) Confusing stakeholders about the technology",
-            "C) Violating BABOK® v3 documentation standards",
-            "D) Blurring the boundary between requirements and designs, potentially constraining solution options unnecessarily"
+            "C) Blurring the boundary between requirements and designs, potentially constraining solution options unnecessarily",
+            "D) Violating BABOK® v3 documentation standards"
         ],
-        "answer": "D) Blurring the boundary between requirements and designs, potentially constraining solution options unnecessarily",
+        "answer": "C) Blurring the boundary between requirements and designs, potentially constraining solution options unnecessarily",
         "explanation": "BABOK® v3 §1.5: Mixing requirements and designs risks premature solution commitment and reduces the design team's flexibility to find optimal approaches."
     },
     {
@@ -1757,22 +1757,22 @@ ALL_QUESTIONS = [
         "options": [
             "A) Requirements Analysis and Design Definition",
             "B) Requirements Life Cycle Management",
-            "C) Strategy Analysis",
-            "D) Elicitation and Collaboration"
+            "C) Elicitation and Collaboration",
+            "D) Strategy Analysis"
         ],
-        "answer": "D) Elicitation and Collaboration",
+        "answer": "C) Elicitation and Collaboration",
         "explanation": "BABOK® v3 §1.3: Conducting interviews to draw out information from stakeholders is Elicitation and Collaboration."
     },
     {
         "chapter": "Ch1 Integration | Advanced",
         "question": "A BA maps a regulatory compliance need to a solution requirement, which traces to a system design. This chain BEST illustrates:",
         "options": [
-            "A) The difference between BA and project management",
-            "B) The BACCM in action",
-            "C) Traceability—the RLCM mechanism ensuring every solution element links to a justified need",
+            "A) Traceability—the RLCM mechanism ensuring every solution element links to a justified need",
+            "B) The difference between BA and project management",
+            "C) The BACCM in action",
             "D) The sequential nature of Knowledge Areas"
         ],
-        "answer": "C) Traceability—the RLCM mechanism ensuring every solution element links to a justified need",
+        "answer": "A) Traceability—the RLCM mechanism ensuring every solution element links to a justified need",
         "explanation": "BABOK® v3 §1.3 RLCM: Traceability connects needs → requirements → designs, providing justification and impact assessment capability for every element."
     },
     {
@@ -1781,46 +1781,46 @@ ALL_QUESTIONS = [
         "options": [
             "A) Nothing—BABOK® v3 is intended to be sequential",
             "B) The sequential interpretation only fails for agile projects",
-            "C) Only Strategy Analysis must come first; the rest can be sequential",
-            "D) BABOK® v3 Knowledge Areas are not sequential phases; they are groups of related tasks that can be performed in any order, iteratively, based on context"
+            "C) BABOK® v3 Knowledge Areas are not sequential phases; they are groups of related tasks that can be performed in any order, iteratively, based on context",
+            "D) Only Strategy Analysis must come first; the rest can be sequential"
         ],
-        "answer": "D) BABOK® v3 Knowledge Areas are not sequential phases; they are groups of related tasks that can be performed in any order, iteratively, based on context",
+        "answer": "C) BABOK® v3 Knowledge Areas are not sequential phases; they are groups of related tasks that can be performed in any order, iteratively, based on context",
         "explanation": "BABOK® v3 §1.3: A common misapplication of BABOK® v3 is treating it as a waterfall methodology. KAs are conceptual groupings, not process phases."
     },
     {
         "chapter": "Ch1 Integration | Advanced",
         "question": "A BA is evaluating whether a deployed solution is meeting its intended objectives. She finds that the original business need has changed since deployment and the solution no longer addresses it. Which BACCM concepts and Knowledge Areas are MOST relevant?",
         "options": [
-            "A) Need and Context (BACCM) have shifted; Strategy Analysis (re-examine need/future state) and Solution Evaluation (assess current performance) are both relevant",
-            "B) Only Solution Evaluation",
+            "A) Only Solution Evaluation",
+            "B) Need and Context (BACCM) have shifted; Strategy Analysis (re-examine need/future state) and Solution Evaluation (assess current performance) are both relevant",
             "C) Only Requirements Life Cycle Management",
             "D) BACCM is not relevant to post-deployment assessments"
         ],
-        "answer": "A) Need and Context (BACCM) have shifted; Strategy Analysis (re-examine need/future state) and Solution Evaluation (assess current performance) are both relevant",
+        "answer": "B) Need and Context (BACCM) have shifted; Strategy Analysis (re-examine need/future state) and Solution Evaluation (assess current performance) are both relevant",
         "explanation": "BABOK® v3 §1.3, §1.4.1: When the Need and Context have changed, both Solution Evaluation (current performance) and Strategy Analysis (revised future state) are triggered."
     },
     {
         "chapter": "Ch1 Integration | Advanced",
         "question": "A BA is writing a business case for a new initiative. She must justify the investment. Which BACCM concept is MOST central to this justification?",
         "options": [
-            "A) Value—demonstrating the expected worth and benefit relative to the investment",
-            "B) Solution—describing what will be built",
+            "A) Solution—describing what will be built",
+            "B) Value—demonstrating the expected worth and benefit relative to the investment",
             "C) Change—describing what will transform",
             "D) Context—describing the current environment"
         ],
-        "answer": "A) Value—demonstrating the expected worth and benefit relative to the investment",
+        "answer": "B) Value—demonstrating the expected worth and benefit relative to the investment",
         "explanation": "BABOK® v3 §1.4.1: A business case justifies investment by demonstrating expected Value—the worth and benefit the change will deliver to stakeholders."
     },
     {
         "chapter": "Ch1 Integration | Advanced",
         "question": "An organization pursues a digital transformation without clearly defining what 'value' the transformation should deliver. According to BABOK® v3, the MOST significant risk is:",
         "options": [
-            "A) The transformation will take too long",
-            "B) There will be no shared basis for measuring success or making trade-off decisions, increasing the likelihood of failed outcomes",
+            "A) There will be no shared basis for measuring success or making trade-off decisions, increasing the likelihood of failed outcomes",
+            "B) The transformation will take too long",
             "C) Developers will not know what to build",
             "D) The project manager will lose control"
         ],
-        "answer": "B) There will be no shared basis for measuring success or making trade-off decisions, increasing the likelihood of failed outcomes",
+        "answer": "A) There will be no shared basis for measuring success or making trade-off decisions, increasing the likelihood of failed outcomes",
         "explanation": "BABOK® v3 §1.4.1: Without a defined Value concept, there is no success criterion—decisions cannot be made objectively and outcomes cannot be measured."
     },
     {
@@ -1828,11 +1828,11 @@ ALL_QUESTIONS = [
         "question": "An organization asks whether a CBAP® certification is required before a person can perform BA tasks. The BABOK® v3-aligned answer is:",
         "options": [
             "A) Yes—only certified BAs may perform tasks described in BABOK® v3",
-            "B) Yes—regulations require certification for all BA activities",
-            "C) No—CBAP® certifies knowledge but BABOK® v3 defines BA by the tasks performed, not certification status",
+            "B) No—CBAP® certifies knowledge but BABOK® v3 defines BA by the tasks performed, not certification status",
+            "C) Yes—regulations require certification for all BA activities",
             "D) Only in financial services sectors is certification mandatory"
         ],
-        "answer": "C) No—CBAP® certifies knowledge but BABOK® v3 defines BA by the tasks performed, not certification status",
+        "answer": "B) No—CBAP® certifies knowledge but BABOK® v3 defines BA by the tasks performed, not certification status",
         "explanation": "BABOK® v3 §1.2: BA is defined by performing the tasks in BABOK® v3. Certification demonstrates knowledge but is not a prerequisite to perform BA work."
     },
     {
@@ -1840,11 +1840,11 @@ ALL_QUESTIONS = [
         "question": "Which of the following BEST describes how the BACCM differs from the six Knowledge Areas?",
         "options": [
             "A) The BACCM organizes tasks; KAs organize concepts",
-            "B) The BACCM provides a conceptual vocabulary; KAs organize the tasks and practices BAs perform",
-            "C) The BACCM applies only to strategic work; KAs apply to tactical work",
-            "D) They are identical—KAs are just a renamed version of the BACCM"
+            "B) The BACCM applies only to strategic work; KAs apply to tactical work",
+            "C) They are identical—KAs are just a renamed version of the BACCM",
+            "D) The BACCM provides a conceptual vocabulary; KAs organize the tasks and practices BAs perform"
         ],
-        "answer": "B) The BACCM provides a conceptual vocabulary; KAs organize the tasks and practices BAs perform",
+        "answer": "D) The BACCM provides a conceptual vocabulary; KAs organize the tasks and practices BAs perform",
         "explanation": "BABOK® v3 §1.3, §1.4: The BACCM is a conceptual framework (the 'what is') while Knowledge Areas organize practical tasks (the 'what BAs do')—complementary but distinct."
     },
     {
@@ -1853,10 +1853,10 @@ ALL_QUESTIONS = [
         "options": [
             "A) The BACCM as a documentation checklist",
             "B) The BACCM as a replacement for practical techniques",
-            "C) The BACCM as the conceptual foundation for all BA thinking and practice",
-            "D) The BACCM as a methodology for large programs only"
+            "C) The BACCM as a methodology for large programs only",
+            "D) The BACCM as the conceptual foundation for all BA thinking and practice"
         ],
-        "answer": "C) The BACCM as the conceptual foundation for all BA thinking and practice",
+        "answer": "D) The BACCM as the conceptual foundation for all BA thinking and practice",
         "explanation": "BABOK® v3 §1.4.1: The BACCM is the theoretical backbone of all BA work—a practitioner who internalizes it applies it naturally in every task, not just in documentation."
     },
     {
@@ -1875,24 +1875,24 @@ ALL_QUESTIONS = [
         "chapter": "Ch1 §1.1 – Why BA Exists | Expert",
         "question": "A BA is embedded in a team that follows SAFe® (Scaled Agile Framework). The team's product manager argues that PI Planning replaces the need for formal Strategy Analysis. The MOST BABOK® v3-aligned counter-argument is:",
         "options": [
-            "A) Agree—PI Planning fully covers Strategy Analysis tasks",
-            "B) PI Planning is a planning ceremony; Strategy Analysis is the intellectual discipline of understanding current state, defining future state, and identifying the change strategy—these are complementary, not substitutes",
+            "A) PI Planning is a planning ceremony; Strategy Analysis is the intellectual discipline of understanding current state, defining future state, and identifying the change strategy—these are complementary, not substitutes",
+            "B) Agree—PI Planning fully covers Strategy Analysis tasks",
             "C) BABOK® v3 does not apply to SAFe® environments",
             "D) Strategy Analysis only applies to waterfall and is not relevant in SAFe®"
         ],
-        "answer": "B) PI Planning is a planning ceremony; Strategy Analysis is the intellectual discipline of understanding current state, defining future state, and identifying the change strategy—these are complementary, not substitutes",
+        "answer": "A) PI Planning is a planning ceremony; Strategy Analysis is the intellectual discipline of understanding current state, defining future state, and identifying the change strategy—these are complementary, not substitutes",
         "explanation": "BABOK® v3 §1.1, §1.3: Methodology ceremonies organize delivery cadence; Strategy Analysis is a distinct discipline ensuring the right problems are understood. Both are necessary regardless of framework."
     },
     {
         "chapter": "Ch1 §1.1 – Why BA Exists | Expert",
         "question": "A BA is asked to justify why requirements verification AND validation are both necessary, even when stakeholders have signed off. The MOST precise BABOK® v3-aligned explanation is:",
         "options": [
-            "A) Verification checks that requirements are well-written; validation checks that stakeholders approved them",
-            "B) Validation is only needed when regulatory compliance is involved",
-            "C) Both are the same activity performed at different times",
-            "D) Verification ensures requirements are internally consistent and complete; validation ensures they will lead to a solution that delivers the intended business value—sign-off confirms agreement, not correctness or fitness for purpose"
+            "A) Verification ensures requirements are internally consistent and complete; validation ensures they will lead to a solution that delivers the intended business value—sign-off confirms agreement, not correctness or fitness for purpose",
+            "B) Verification checks that requirements are well-written; validation checks that stakeholders approved them",
+            "C) Validation is only needed when regulatory compliance is involved",
+            "D) Both are the same activity performed at different times"
         ],
-        "answer": "D) Verification ensures requirements are internally consistent and complete; validation ensures they will lead to a solution that delivers the intended business value—sign-off confirms agreement, not correctness or fitness for purpose",
+        "answer": "A) Verification ensures requirements are internally consistent and complete; validation ensures they will lead to a solution that delivers the intended business value—sign-off confirms agreement, not correctness or fitness for purpose",
         "explanation": "BABOK® v3 RLCM: Verification = are requirements done correctly? Validation = do requirements define the right thing? Stakeholder sign-off is an approval mechanism, not a substitute for either quality check."
     },
     {
@@ -1900,83 +1900,83 @@ ALL_QUESTIONS = [
         "question": "A BA is asked to explain what distinguishes Requirements Analysis and Design Definition (RADD) from Requirements Life Cycle Management (RLCM). A senior examiner presses for the most precise distinction. The BEST answer is:",
         "options": [
             "A) RADD writes requirements; RLCM approves them",
-            "B) RADD is performed before RLCM in all methodologies",
-            "C) RADD applies only to functional requirements; RLCM applies to non-functional requirements",
-            "D) RADD transforms elicited information into specified, modeled, verified, and validated requirements and solution designs; RLCM governs the lifecycle of those artifacts—tracing, prioritizing, controlling changes, and maintaining their integrity over time"
+            "B) RADD transforms elicited information into specified, modeled, verified, and validated requirements and solution designs; RLCM governs the lifecycle of those artifacts—tracing, prioritizing, controlling changes, and maintaining their integrity over time",
+            "C) RADD is performed before RLCM in all methodologies",
+            "D) RADD applies only to functional requirements; RLCM applies to non-functional requirements"
         ],
-        "answer": "D) RADD transforms elicited information into specified, modeled, verified, and validated requirements and solution designs; RLCM governs the lifecycle of those artifacts—tracing, prioritizing, controlling changes, and maintaining their integrity over time",
+        "answer": "B) RADD transforms elicited information into specified, modeled, verified, and validated requirements and solution designs; RLCM governs the lifecycle of those artifacts—tracing, prioritizing, controlling changes, and maintaining their integrity over time",
         "explanation": "BABOK® v3 §1.3: RADD is about producing quality requirements and designs. RLCM is about governing those artifacts from creation to retirement. Both are essential and distinct."
     },
     {
         "chapter": "Ch1 §1.3 – Knowledge Areas | Expert",
         "question": "On a complex program, a BA completes thorough elicitation and produces a validated requirements baseline. Three months later, an external audit finds that 40% of the implemented solution cannot be traced to any approved requirement. The PRIMARY Knowledge Area failure is:",
         "options": [
-            "A) Elicitation and Collaboration—elicitation was insufficient",
-            "B) Business Analysis Planning and Monitoring—the BA plan was inadequate",
-            "C) Solution Evaluation—the solution was not assessed before delivery",
-            "D) Requirements Life Cycle Management—approved requirements were not maintained, traced, or governed through implementation"
+            "A) Requirements Life Cycle Management—approved requirements were not maintained, traced, or governed through implementation",
+            "B) Elicitation and Collaboration—elicitation was insufficient",
+            "C) Business Analysis Planning and Monitoring—the BA plan was inadequate",
+            "D) Solution Evaluation—the solution was not assessed before delivery"
         ],
-        "answer": "D) Requirements Life Cycle Management—approved requirements were not maintained, traced, or governed through implementation",
+        "answer": "A) Requirements Life Cycle Management—approved requirements were not maintained, traced, or governed through implementation",
         "explanation": "BABOK® v3 §1.3: An approved requirements baseline that is not maintained through implementation indicates RLCM failure—specifically, traceability and change control were not enforced."
     },
     {
         "chapter": "Ch1 §1.3 – Knowledge Areas | Expert",
         "question": "A BA working on an enterprise transformation observes that business objectives change quarterly due to market conditions, while development sprints are two weeks long. She implements a mechanism to regularly reassess whether current sprint work still aligns to evolving business objectives. This MOST reflects sophisticated application of which Knowledge Area pairing?",
         "options": [
-            "A) Elicitation and Collaboration + RADD",
-            "B) Strategy Analysis (continuous current/future state reassessment) + RLCM (requirements baseline updates reflecting strategic changes)",
+            "A) Strategy Analysis (continuous current/future state reassessment) + RLCM (requirements baseline updates reflecting strategic changes)",
+            "B) Elicitation and Collaboration + RADD",
             "C) BA Planning and Monitoring + Solution Evaluation",
             "D) RADD + Solution Evaluation"
         ],
-        "answer": "B) Strategy Analysis (continuous current/future state reassessment) + RLCM (requirements baseline updates reflecting strategic changes)",
+        "answer": "A) Strategy Analysis (continuous current/future state reassessment) + RLCM (requirements baseline updates reflecting strategic changes)",
         "explanation": "BABOK® v3 §1.3: In volatile environments, Strategy Analysis must be ongoing—not a one-time event—and RLCM must reflect approved changes to strategy in the requirements baseline."
     },
     {
         "chapter": "Ch1 §1.4 – BACCM | Expert",
         "question": "A BA presents the BACCM to a board of directors. A board member challenges: 'This model has six concepts—but when we approve a project, we only think about cost, deliverable, and timeline. Your model seems academic.' The MOST compelling BABOK® v3-aligned rebuttal is:",
         "options": [
-            "A) Agree—the BACCM is primarily for academic purposes",
-            "B) Cost/deliverable/timeline maps to Context (constraints), Solution (deliverable), and Change (transformation)—but without explicitly examining Need, Value, and Stakeholder, organizations routinely build the right thing for the wrong people, at the right cost for the wrong outcomes. The BACCM prevents these expensive blind spots",
+            "A) Cost/deliverable/timeline maps to Context (constraints), Solution (deliverable), and Change (transformation)—but without explicitly examining Need, Value, and Stakeholder, organizations routinely build the right thing for the wrong people, at the right cost for the wrong outcomes. The BACCM prevents these expensive blind spots",
+            "B) Agree—the BACCM is primarily for academic purposes",
             "C) The board only needs to understand Value and Cost",
             "D) The BACCM is only relevant for BA practitioners, not executives"
         ],
-        "answer": "B) Cost/deliverable/timeline maps to Context (constraints), Solution (deliverable), and Change (transformation)—but without explicitly examining Need, Value, and Stakeholder, organizations routinely build the right thing for the wrong people, at the right cost for the wrong outcomes. The BACCM prevents these expensive blind spots",
+        "answer": "A) Cost/deliverable/timeline maps to Context (constraints), Solution (deliverable), and Change (transformation)—but without explicitly examining Need, Value, and Stakeholder, organizations routinely build the right thing for the wrong people, at the right cost for the wrong outcomes. The BACCM prevents these expensive blind spots",
         "explanation": "BABOK® v3 §1.4.1: The BACCM's value to executives is in surfacing blind spots. Missing Need analysis leads to wrong solutions; missing Value definition makes success unmeasurable; missing Stakeholder analysis creates solutions that satisfy the wrong people."
     },
     {
         "chapter": "Ch1 §1.4 – BACCM | Expert",
         "question": "Two competing BAs debate whether 'risk' should be a BACCM concept. One argues risk belongs in Context; the other argues it belongs in Need. The MOST BABOK® v3-consistent resolution is:",
         "options": [
-            "A) Risk can manifest as both Context (environmental uncertainty affecting the change) and Need (a threat that must be addressed)—the BACCM's six concepts are sufficient to represent risk through existing relationships without requiring a seventh concept",
-            "B) Risk is a separate concept that BABOK® v3 accidentally excluded",
+            "A) Risk is a separate concept that BABOK® v3 accidentally excluded",
+            "B) Risk can manifest as both Context (environmental uncertainty affecting the change) and Need (a threat that must be addressed)—the BACCM's six concepts are sufficient to represent risk through existing relationships without requiring a seventh concept",
             "C) Risk only belongs in Context",
             "D) Risk is exclusively a PM concern and has no place in the BACCM"
         ],
-        "answer": "A) Risk can manifest as both Context (environmental uncertainty affecting the change) and Need (a threat that must be addressed)—the BACCM's six concepts are sufficient to represent risk through existing relationships without requiring a seventh concept",
+        "answer": "B) Risk can manifest as both Context (environmental uncertainty affecting the change) and Need (a threat that must be addressed)—the BACCM's six concepts are sufficient to represent risk through existing relationships without requiring a seventh concept",
         "explanation": "BABOK® v3 §1.4.1: The BACCM is intentionally parsimonious. Risk as environmental uncertainty is Context; risk as a problem requiring mitigation is a Need. The six concepts are complete and sufficient."
     },
     {
         "chapter": "Ch1 §1.4 – BACCM | Expert",
         "question": "A BA uses the BACCM as a post-mortem framework for a failed $5M ERP implementation. She identifies: (1) the Need was defined as 'reduce manual data entry' but the real pain was inability to generate real-time management reports; (2) the Solution addressed data entry but not reporting; (3) Stakeholders who needed reports were excluded from requirements; (4) a mid-project merger changed reporting needs. Which BACCM failure chain BEST describes the root cause?",
         "options": [
-            "A) Need was incorrectly defined → Solution was built to the wrong Need → key Stakeholders were excluded → Context shift was not monitored—a cascading failure across multiple BACCM concepts",
-            "B) Context–Solution mismatch only",
-            "C) Stakeholder exclusion was the only failure",
-            "D) The merger (Context) was the sole root cause"
+            "A) Context–Solution mismatch only",
+            "B) Stakeholder exclusion was the only failure",
+            "C) The merger (Context) was the sole root cause",
+            "D) Need was incorrectly defined → Solution was built to the wrong Need → key Stakeholders were excluded → Context shift was not monitored—a cascading failure across multiple BACCM concepts"
         ],
-        "answer": "A) Need was incorrectly defined → Solution was built to the wrong Need → key Stakeholders were excluded → Context shift was not monitored—a cascading failure across multiple BACCM concepts",
+        "answer": "D) Need was incorrectly defined → Solution was built to the wrong Need → key Stakeholders were excluded → Context shift was not monitored—a cascading failure across multiple BACCM concepts",
         "explanation": "BABOK® v3 §1.4.1: The BACCM reveals cascading failure: wrong Need → wrong Solution; missing Stakeholders meant reporting needs were never captured; Context change was unmonitored. True BA failure is almost always multi-concept."
     },
     {
         "chapter": "Ch1 §1.4 – BACCM | Expert",
         "question": "A BA is challenged: 'In an agile sprint, we define the Need in the sprint goal, the Solution in the backlog, and Value in the Definition of Done. Why do we need the BACCM?' The MOST precise rebuttal is:",
         "options": [
-            "A) Sprint artifacts name these concepts but do not guarantee rigorous analysis of them. The BACCM ensures that Need, Value, Context, and Stakeholder are analytically examined—not just named. Sprint goals can be wrong needs; Definition of Done can measure delivery, not value",
-            "B) Agree—the sprint framework replaces the BACCM",
-            "C) The BACCM only applies to large programs, not sprints",
+            "A) Agree—the sprint framework replaces the BACCM",
+            "B) The BACCM only applies to large programs, not sprints",
+            "C) Sprint artifacts name these concepts but do not guarantee rigorous analysis of them. The BACCM ensures that Need, Value, Context, and Stakeholder are analytically examined—not just named. Sprint goals can be wrong needs; Definition of Done can measure delivery, not value",
             "D) Sprint ceremonies are sufficient if the Product Owner is experienced"
         ],
-        "answer": "A) Sprint artifacts name these concepts but do not guarantee rigorous analysis of them. The BACCM ensures that Need, Value, Context, and Stakeholder are analytically examined—not just named. Sprint goals can be wrong needs; Definition of Done can measure delivery, not value",
+        "answer": "C) Sprint artifacts name these concepts but do not guarantee rigorous analysis of them. The BACCM ensures that Need, Value, Context, and Stakeholder are analytically examined—not just named. Sprint goals can be wrong needs; Definition of Done can measure delivery, not value",
         "explanation": "BABOK® v3 §1.4.1: Agile ceremonies provide cadence; the BACCM provides analytical depth. Naming concepts in sprint artifacts does not substitute for the rigorous examination each concept demands."
     },
     {
@@ -1985,10 +1985,10 @@ ALL_QUESTIONS = [
         "options": [
             "A) They are not hierarchical—they are independent categories",
             "B) Solution requirements are most important; Business requirements are least important",
-            "C) Business requirements establish organizational intent; Stakeholder requirements translate that intent into specific group needs; Solution requirements define how the solution satisfies those needs; Transition requirements address temporary needs for reaching the future state—each layer traces to and must support the layer above",
-            "D) The hierarchy only applies to waterfall methodologies"
+            "C) The hierarchy only applies to waterfall methodologies",
+            "D) Business requirements establish organizational intent; Stakeholder requirements translate that intent into specific group needs; Solution requirements define how the solution satisfies those needs; Transition requirements address temporary needs for reaching the future state—each layer traces to and must support the layer above"
         ],
-        "answer": "C) Business requirements establish organizational intent; Stakeholder requirements translate that intent into specific group needs; Solution requirements define how the solution satisfies those needs; Transition requirements address temporary needs for reaching the future state—each layer traces to and must support the layer above",
+        "answer": "D) Business requirements establish organizational intent; Stakeholder requirements translate that intent into specific group needs; Solution requirements define how the solution satisfies those needs; Transition requirements address temporary needs for reaching the future state—each layer traces to and must support the layer above",
         "explanation": "BABOK® v3 §1.4.4: The four requirement types form a traceability hierarchy: Business → Stakeholder → Solution, with Transition operating in parallel. Each must link to and be justified by the layer above."
     },
     {
@@ -2007,48 +2007,48 @@ ALL_QUESTIONS = [
         "chapter": "Ch1 §1.4.4 – Requirements Types | Expert",
         "question": "During a program review, a BA discovers that transition requirements were archived at go-live but the organization still relies on a manual reconciliation process documented only as a transition requirement. The BEST diagnosis is:",
         "options": [
-            "A) The reconciliation process was misclassified—if the process persists post-transition, it is a permanent operational process that should have been captured as a functional or stakeholder requirement, not a transition requirement",
-            "B) The transition requirement was correctly retired",
-            "C) Transition requirements should never be retired",
-            "D) This is a project management gap, not a BA gap"
+            "A) The transition requirement was correctly retired",
+            "B) Transition requirements should never be retired",
+            "C) This is a project management gap, not a BA gap",
+            "D) The reconciliation process was misclassified—if the process persists post-transition, it is a permanent operational process that should have been captured as a functional or stakeholder requirement, not a transition requirement"
         ],
-        "answer": "A) The reconciliation process was misclassified—if the process persists post-transition, it is a permanent operational process that should have been captured as a functional or stakeholder requirement, not a transition requirement",
+        "answer": "D) The reconciliation process was misclassified—if the process persists post-transition, it is a permanent operational process that should have been captured as a functional or stakeholder requirement, not a transition requirement",
         "explanation": "BABOK® v3 §1.4.4: Transition requirements are defined by temporariness. If an activity persists beyond the transition, it was misclassified and should have been documented as a permanent solution or stakeholder requirement."
     },
     {
         "chapter": "Ch1 §1.4.5 – Stakeholders | Expert",
         "question": "A BA is managing a transformation with 47 identified stakeholder groups. A program director argues that engaging all 47 groups will paralyze the project. The MOST BABOK® v3-aligned resolution is:",
         "options": [
-            "A) Reduce the stakeholder list to the top 10 by seniority",
-            "B) Engage only stakeholders who attend project meetings",
-            "C) Delegate all stakeholder engagement to the project manager",
-            "D) Apply stakeholder analysis (influence, impact, attitude, availability) to define differentiated engagement strategies—high-influence/high-impact groups receive intensive engagement; others receive appropriate communication—ensuring all are accounted for without equal resource allocation"
+            "A) Apply stakeholder analysis (influence, impact, attitude, availability) to define differentiated engagement strategies—high-influence/high-impact groups receive intensive engagement; others receive appropriate communication—ensuring all are accounted for without equal resource allocation",
+            "B) Reduce the stakeholder list to the top 10 by seniority",
+            "C) Engage only stakeholders who attend project meetings",
+            "D) Delegate all stakeholder engagement to the project manager"
         ],
-        "answer": "D) Apply stakeholder analysis (influence, impact, attitude, availability) to define differentiated engagement strategies—high-influence/high-impact groups receive intensive engagement; others receive appropriate communication—ensuring all are accounted for without equal resource allocation",
+        "answer": "A) Apply stakeholder analysis (influence, impact, attitude, availability) to define differentiated engagement strategies—high-influence/high-impact groups receive intensive engagement; others receive appropriate communication—ensuring all are accounted for without equal resource allocation",
         "explanation": "BABOK® v3 §1.4.5: Stakeholder analysis produces a differentiated engagement strategy, not equal engagement. Different stakeholders warrant different levels of involvement based on their relationship to the change."
     },
     {
         "chapter": "Ch1 §1.4.5 – Stakeholders | Expert",
         "question": "A BA discovers mid-project that a newly appointed regulatory body now has jurisdiction over the solution's outputs, but was not in the original stakeholder register. The MOST appropriate BA response is:",
         "options": [
-            "A) Immediately update the stakeholder register, conduct analysis of the new body's requirements and influence, assess impact on existing requirements, and present findings to the sponsor for scope and risk review",
-            "B) Continue with the existing plan—the new body was not in the original scope",
-            "C) Let the legal team handle it",
-            "D) Wait until go-live to assess the regulatory body's requirements"
+            "A) Continue with the existing plan—the new body was not in the original scope",
+            "B) Let the legal team handle it",
+            "C) Wait until go-live to assess the regulatory body's requirements",
+            "D) Immediately update the stakeholder register, conduct analysis of the new body's requirements and influence, assess impact on existing requirements, and present findings to the sponsor for scope and risk review"
         ],
-        "answer": "A) Immediately update the stakeholder register, conduct analysis of the new body's requirements and influence, assess impact on existing requirements, and present findings to the sponsor for scope and risk review",
+        "answer": "D) Immediately update the stakeholder register, conduct analysis of the new body's requirements and influence, assess impact on existing requirements, and present findings to the sponsor for scope and risk review",
         "explanation": "BABOK® v3 §1.4.5: Stakeholder identification is not a one-time activity. New stakeholders discovered mid-project must be analyzed, their requirements captured, and impacts assessed—ignoring them creates compliance and value risk."
     },
     {
         "chapter": "Ch1 §1.5 – Requirements vs Designs | Expert",
         "question": "A BA is asked to explain when an artifact transitions from being a 'requirement' to being a 'design.' The MOST BABOK® v3-precise answer is:",
         "options": [
-            "A) The boundary is defined by abstraction level and intent: requirements describe what is needed and why (solution-agnostic); designs describe how a specific solution will be structured. A single artifact can cross this boundary depending on the level of implementation detail it contains",
-            "B) When it is approved by the project sponsor",
-            "C) Designs are always created by architects; requirements by BAs",
+            "A) When it is approved by the project sponsor",
+            "B) Designs are always created by architects; requirements by BAs",
+            "C) The boundary is defined by abstraction level and intent: requirements describe what is needed and why (solution-agnostic); designs describe how a specific solution will be structured. A single artifact can cross this boundary depending on the level of implementation detail it contains",
             "D) When the document is passed from BA to developer"
         ],
-        "answer": "A) The boundary is defined by abstraction level and intent: requirements describe what is needed and why (solution-agnostic); designs describe how a specific solution will be structured. A single artifact can cross this boundary depending on the level of implementation detail it contains",
+        "answer": "C) The boundary is defined by abstraction level and intent: requirements describe what is needed and why (solution-agnostic); designs describe how a specific solution will be structured. A single artifact can cross this boundary depending on the level of implementation detail it contains",
         "explanation": "BABOK® v3 §1.5: The requirement/design distinction is not role-based or document-based—it is defined by abstraction and intent. The same artifact can contain both requirements and design elements."
     },
     {
@@ -2068,11 +2068,11 @@ ALL_QUESTIONS = [
         "question": "A CBAP examiner presents this scenario: A BA has performed rigorous BA Planning, thorough Elicitation, complete Strategy Analysis, meticulous RADD, and disciplined RLCM. The project is delivered on time and on budget. The business unit reports no improvement in performance one year later. Using BABOK® v3 Chapter 1 concepts, identify ALL possible root causes.",
         "options": [
             "A) Only Solution Evaluation was skipped",
-            "B) Multiple possibilities: (1) Need was incorrectly defined despite thorough analysis; (2) Value was never explicitly defined so success was unmeasurable; (3) Context shifted post-delivery and was not monitored; (4) Solution Evaluation was not performed to detect and respond to underperformance",
-            "C) The PM failed to manage benefits realization",
-            "D) Requirements were not detailed enough"
+            "B) The PM failed to manage benefits realization",
+            "C) Requirements were not detailed enough",
+            "D) Multiple possibilities: (1) Need was incorrectly defined despite thorough analysis; (2) Value was never explicitly defined so success was unmeasurable; (3) Context shifted post-delivery and was not monitored; (4) Solution Evaluation was not performed to detect and respond to underperformance"
         ],
-        "answer": "B) Multiple possibilities: (1) Need was incorrectly defined despite thorough analysis; (2) Value was never explicitly defined so success was unmeasurable; (3) Context shifted post-delivery and was not monitored; (4) Solution Evaluation was not performed to detect and respond to underperformance",
+        "answer": "D) Multiple possibilities: (1) Need was incorrectly defined despite thorough analysis; (2) Value was never explicitly defined so success was unmeasurable; (3) Context shifted post-delivery and was not monitored; (4) Solution Evaluation was not performed to detect and respond to underperformance",
         "explanation": "BABOK® v3 §1.1–§1.5: Even rigorous BA execution across five KAs cannot guarantee value if Need was wrong, Value was undefined, Context changed, or Solution Evaluation was omitted. All six KAs must operate for the value loop to close."
     },
     {
@@ -2080,35 +2080,35 @@ ALL_QUESTIONS = [
         "question": "A BA is asked to design a BABOK® v3-aligned BA function for an organization that currently has none. Which sequencing of initial priorities BEST reflects BABOK® v3 Chapter 1 principles?",
         "options": [
             "A) Start with RADD to produce requirements templates",
-            "B) First establish BA Planning and Monitoring (how BA will work); concurrently activate Strategy Analysis (understand organizational needs); then build Elicitation, RLCM, and RADD capabilities; finally implement Solution Evaluation to close the value loop",
-            "C) Start with Solution Evaluation to assess current solution quality",
+            "B) Start with Solution Evaluation to assess current solution quality",
+            "C) First establish BA Planning and Monitoring (how BA will work); concurrently activate Strategy Analysis (understand organizational needs); then build Elicitation, RLCM, and RADD capabilities; finally implement Solution Evaluation to close the value loop",
             "D) Start with stakeholder identification and stop there until all stakeholders are fully mapped"
         ],
-        "answer": "B) First establish BA Planning and Monitoring (how BA will work); concurrently activate Strategy Analysis (understand organizational needs); then build Elicitation, RLCM, and RADD capabilities; finally implement Solution Evaluation to close the value loop",
+        "answer": "C) First establish BA Planning and Monitoring (how BA will work); concurrently activate Strategy Analysis (understand organizational needs); then build Elicitation, RLCM, and RADD capabilities; finally implement Solution Evaluation to close the value loop",
         "explanation": "BABOK® v3 §1.3: While KAs are not sequential by rule, building a BA function requires foundational capabilities first. Planning how BA will operate and understanding strategic context precede producing requirements; Solution Evaluation closes the value delivery loop."
     },
     {
         "chapter": "Ch1 Integration | Expert",
         "question": "A BA is conducting a BACCM analysis of a proposed outsourcing initiative. Need=cost reduction; Solution=third-party provider; Change=transitioning 200 staff; Context=union agreement; Stakeholders=employees, union, customers; Value is defined differently by shareholders (cost savings) and customers (service continuity). A board member asks: 'What is the single most important BACCM relationship to manage?' The BEST BABOK® v3-aligned answer is:",
         "options": [
-            "A) There is no single most important relationship—the BACCM requires holistic analysis; however, Value–Stakeholder is strategically critical here because unresolved Value conflicts across stakeholder groups will undermine the initiative regardless of execution quality",
-            "B) Change–Context: managing the transition within union constraints",
-            "C) Solution–Need: ensuring the vendor delivers cost reduction",
-            "D) Need–Context: ensuring the cost reduction target is realistic"
+            "A) Change–Context: managing the transition within union constraints",
+            "B) Solution–Need: ensuring the vendor delivers cost reduction",
+            "C) Need–Context: ensuring the cost reduction target is realistic",
+            "D) There is no single most important relationship—the BACCM requires holistic analysis; however, Value–Stakeholder is strategically critical here because unresolved Value conflicts across stakeholder groups will undermine the initiative regardless of execution quality"
         ],
-        "answer": "A) There is no single most important relationship—the BACCM requires holistic analysis; however, Value–Stakeholder is strategically critical here because unresolved Value conflicts across stakeholder groups will undermine the initiative regardless of execution quality",
+        "answer": "D) There is no single most important relationship—the BACCM requires holistic analysis; however, Value–Stakeholder is strategically critical here because unresolved Value conflicts across stakeholder groups will undermine the initiative regardless of execution quality",
         "explanation": "BABOK® v3 §1.4.1: The BACCM is holistic by design. In this scenario, conflicting Value definitions across Stakeholders is the highest-risk dimension—if unresolved, the initiative will satisfy one group while damaging another."
     },
     {
         "chapter": "Ch1 Integration | Expert",
         "question": "A BA must defend the practical relevance of BABOK® v3 Chapter 1 to skeptical senior executives in under two minutes. Which argument is MOST compelling and MOST aligned with BABOK® v3?",
         "options": [
-            "A) 'Every project failure we have experienced can be traced to ignoring at least one Chapter 1 concept: investing in the wrong solution (Need), building for the wrong people (Stakeholder), delivering the wrong thing (Value), or being blindsided by the environment (Context). Chapter 1 is not theory—it is a diagnostic framework for the root causes of every expensive failure in this organization'",
-            "B) 'BABOK® v3 is an industry standard used in over 120 countries'",
-            "C) 'BABOK® v3 certification improves salary outcomes for BAs'",
+            "A) 'BABOK® v3 is an industry standard used in over 120 countries'",
+            "B) 'BABOK® v3 certification improves salary outcomes for BAs'",
+            "C) 'Every project failure we have experienced can be traced to ignoring at least one Chapter 1 concept: investing in the wrong solution (Need), building for the wrong people (Stakeholder), delivering the wrong thing (Value), or being blindsided by the environment (Context). Chapter 1 is not theory—it is a diagnostic framework for the root causes of every expensive failure in this organization'",
             "D) 'Using BABOK® v3 will reduce project timelines by 30%'"
         ],
-        "answer": "A) 'Every project failure we have experienced can be traced to ignoring at least one Chapter 1 concept: investing in the wrong solution (Need), building for the wrong people (Stakeholder), delivering the wrong thing (Value), or being blindsided by the environment (Context). Chapter 1 is not theory—it is a diagnostic framework for the root causes of every expensive failure in this organization'",
+        "answer": "C) 'Every project failure we have experienced can be traced to ignoring at least one Chapter 1 concept: investing in the wrong solution (Need), building for the wrong people (Stakeholder), delivering the wrong thing (Value), or being blindsided by the environment (Context). Chapter 1 is not theory—it is a diagnostic framework for the root causes of every expensive failure in this organization'",
         "explanation": "BABOK® v3 §1.1–§1.5: The most compelling case for Chapter 1 is forensic: every major project failure maps to a concept that was ignored. This argument is practical, credible, and directly addresses executives' skepticism about theoretical relevance."
     },
     {
@@ -2116,11 +2116,11 @@ ALL_QUESTIONS = [
         "question": "A BA evaluates a proposed initiative to 'replace the legacy HR system to improve employee experience.' Which analysis MOST completely applies ALL relevant BABOK® v3 Chapter 1 concepts simultaneously?",
         "options": [
             "A) Document functional requirements for the new HR system",
-            "B) Run a gap analysis between current and future HR system features",
-            "C) Build a requirements document and present to the sponsor",
-            "D) Examine: (1) Need—is 'improve employee experience' the real need or a symptom of something deeper? (2) Context—what regulatory, cultural, and technical constraints apply? (3) Stakeholders—who defines 'employee experience' and are all affected groups identified? (4) Value—how will improvement be measured and by whom? (5) Change—what transformation is required? (6) Solution—has replacing the legacy system been validated against the actual Need, or is it a pre-defined solution masquerading as a requirement?"
+            "B) Examine: (1) Need—is 'improve employee experience' the real need or a symptom of something deeper? (2) Context—what regulatory, cultural, and technical constraints apply? (3) Stakeholders—who defines 'employee experience' and are all affected groups identified? (4) Value—how will improvement be measured and by whom? (5) Change—what transformation is required? (6) Solution—has replacing the legacy system been validated against the actual Need, or is it a pre-defined solution masquerading as a requirement?",
+            "C) Run a gap analysis between current and future HR system features",
+            "D) Build a requirements document and present to the sponsor"
         ],
-        "answer": "D) Examine: (1) Need—is 'improve employee experience' the real need or a symptom of something deeper? (2) Context—what regulatory, cultural, and technical constraints apply? (3) Stakeholders—who defines 'employee experience' and are all affected groups identified? (4) Value—how will improvement be measured and by whom? (5) Change—what transformation is required? (6) Solution—has replacing the legacy system been validated against the actual Need, or is it a pre-defined solution masquerading as a requirement?",
+        "answer": "B) Examine: (1) Need—is 'improve employee experience' the real need or a symptom of something deeper? (2) Context—what regulatory, cultural, and technical constraints apply? (3) Stakeholders—who defines 'employee experience' and are all affected groups identified? (4) Value—how will improvement be measured and by whom? (5) Change—what transformation is required? (6) Solution—has replacing the legacy system been validated against the actual Need, or is it a pre-defined solution masquerading as a requirement?",
         "explanation": "BABOK® v3 §1.1–§1.5: Expert BA application integrates all Chapter 1 concepts simultaneously. The critical insight: 'replace the legacy system' is a pre-defined Solution that may not address the actual Need—a classic BA anti-pattern that Chapter 1 is designed to prevent."
     }
 ]
@@ -2374,13 +2374,14 @@ else:
 
     # ── Answer options ───────────────────────────────────────────
     if not already_submitted:
-        # st.selectbox always renders options in exact list order
+        import hashlib
+        opts_hash = hashlib.md5(str(q["options"]).encode()).hexdigest()[:8]
         opts_display = ["-- Select an answer --"] + q["options"]
         selection = st.selectbox(
             "Select your answer:",
             options=opts_display,
             index=0,
-            key=f"sel_{idx}"
+            key=f"sel_{idx}_{opts_hash}"
         )
         st.markdown("<br>", unsafe_allow_html=True)
         col_a, col_b = st.columns([1, 4])
