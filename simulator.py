@@ -2343,9 +2343,9 @@ elif st.session_state.phase == "exam":
         qp_key   = f"q{idx}"
         selected = qp.get(qp_key, "")
 
-        # Build complete HTML string in Python — no JS, no loops in browser
-        # Options come straight from the bank in A,B,C,D order
-        html_opts = ""
+        # Build all 4 options as one HTML string in Python, in exact A,B,C,D order
+        # st.markdown renders the string exactly as given — no reordering possible
+        html_opts = "<div style='margin:.5rem 0'>"
         for opt in q["options"]:
             letter = opt[0]
             text   = opt[3:]
@@ -2355,43 +2355,38 @@ elif st.session_state.phase == "exam":
             color  = "#f0d080"               if is_sel else "#f4f1eb"
             lcolor = "#f0d080"               if is_sel else "#c9a84c"
             html_opts += (
-                f'<div onclick="pick(\'{letter}\')" style="display:flex;align-items:flex-start;'
-                f'gap:10px;padding:10px 14px;margin:5px 0;border-radius:8px;cursor:pointer;'
-                f'border:{border};background:{bg};color:{color};font-size:15px;line-height:1.5;">'
-                f'<span style="font-weight:700;color:{lcolor};min-width:22px;">{letter})</span>'
+                f'<div style="display:flex;align-items:flex-start;gap:10px;padding:10px 14px;'
+                f'margin:5px 0;border-radius:8px;border:{border};background:{bg};'
+                f'color:{color};font-size:1rem;line-height:1.5;font-family:\'Source Sans 3\',sans-serif;">'
+                f'<span style="font-weight:700;color:{lcolor};min-width:22px;flex-shrink:0">{letter})</span>'
                 f'<span>{text}</span></div>'
             )
+        html_opts += "</div>"
+        st.markdown(html_opts, unsafe_allow_html=True)
 
-        html = f"""<!DOCTYPE html><html><body style="margin:0;background:transparent;
-        font-family:'Source Sans 3',sans-serif;">
-        {html_opts}
-        <script>
-        function pick(letter) {{
-            var url = new URL(window.parent.location.href);
-            url.searchParams.set('{qp_key}', letter);
-            window.parent.location.href = url.toString();
-        }}
-        </script>
-        </body></html>"""
-
-        st.components.v1.html(html, height=len(q["options"]) * 62 + 10, scrolling=False)
-
-        if selected:
-            full = next((o for o in q["options"] if o[0] == selected), None)
-            if full:
-                st.markdown(f"<p style='font-family:\"Source Sans 3\",sans-serif;color:#c9a84c;font-size:.9rem;margin:.3rem 0'>Selected: <b>{full}</b></p>", unsafe_allow_html=True)
-
-        if st.button("✅  Confirm Answer", key=f"confirm_{idx}"):
-            if not selected:
-                st.warning("Please click an option first.")
-            else:
-                letter_map = {o[0]: o for o in q["options"]}
-                chosen = letter_map.get(selected)
-                if chosen:
-                    st.session_state.answers[idx]  = chosen
-                    st.session_state.q_times[idx]  = time.time() - (st.session_state.q_start or time.time())
-                    st.query_params.clear()
-                    st.rerun()
+        # One button per letter — below the HTML, never reordered because they are separate st.button calls
+        st.markdown("<p style='font-family:\"Source Sans 3\",sans-serif;color:#c8d4e8;font-size:.9rem;margin:.5rem 0'>Click a letter to select:</p>", unsafe_allow_html=True)
+        ca, cb, cc, cd, _, ce = st.columns([1, 1, 1, 1, 3, 2])
+        with ca:
+            if st.button("A", key=f"a_{idx}"): st.query_params[qp_key] = "A"; st.rerun()
+        with cb:
+            if st.button("B", key=f"b_{idx}"): st.query_params[qp_key] = "B"; st.rerun()
+        with cc:
+            if st.button("C", key=f"c_{idx}"): st.query_params[qp_key] = "C"; st.rerun()
+        with cd:
+            if st.button("D", key=f"d_{idx}"): st.query_params[qp_key] = "D"; st.rerun()
+        with ce:
+            if st.button("✅  Confirm Answer", key=f"confirm_{idx}"):
+                if not selected:
+                    st.warning("Please select A, B, C or D.")
+                else:
+                    letter_map = {o[0]: o for o in q["options"]}
+                    chosen = letter_map.get(selected)
+                    if chosen:
+                        st.session_state.answers[idx]  = chosen
+                        st.session_state.q_times[idx]  = time.time() - (st.session_state.q_start or time.time())
+                        st.query_params.clear()
+                        st.rerun()
 
     else:
         # Show result
