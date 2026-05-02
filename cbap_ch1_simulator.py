@@ -47,6 +47,13 @@ html, body, [data-testid="stAppViewContainer"] { background-color: var(--navy) !
 .stat-lbl { font-family:'Source Sans 3',sans-serif; font-size:.78rem; color:var(--mid); text-transform:uppercase; letter-spacing:1px; }
 div[data-testid="stButton"] > button { background: linear-gradient(135deg,var(--gold),#a07828) !important; color: var(--navy) !important; font-family: 'Source Sans 3',sans-serif !important; font-weight: 700 !important; border: none !important; border-radius: 8px !important; padding: .7rem 2rem !important; font-size: 1rem !important; }
 div[data-testid="stButton"] > button:hover { opacity:.85 !important; }
+div[data-testid="stRadio"] label p,
+div[data-testid="stRadio"] label span,
+div[data-testid="stRadio"] label {
+    font-family: 'Source Sans 3', sans-serif !important;
+    color: #f4f1eb !important;
+    font-size: 1rem !important;
+}
 #MainMenu, footer, header { visibility:hidden; }
 </style>
 """, unsafe_allow_html=True)
