@@ -2338,53 +2338,44 @@ elif st.session_state.phase == "exam":
     </div>""", unsafe_allow_html=True)
 
     # ── Options ──────────────────────────────────────────────
-    # Pure HTML form inside st.components — Streamlit never touches options.
-    # Selection stored in st.query_params, read back on rerun.
     if not submitted:
-        import json
-
-        # Read current selection from query params
         qp       = st.query_params.to_dict()
         qp_key   = f"q{idx}"
         selected = qp.get(qp_key, "")
 
-        # Build options JSON for JS
-        opts_data = [{"letter": o[0], "text": o[3:]} for o in q["options"]]
-        opts_json = json.dumps(opts_data)
-        sel_json  = json.dumps(selected)
+        # Build complete HTML string in Python — no JS, no loops in browser
+        # Options come straight from the bank in A,B,C,D order
+        html_opts = ""
+        for opt in q["options"]:
+            letter = opt[0]
+            text   = opt[3:]
+            is_sel = (letter == selected)
+            bg     = "rgba(201,168,76,0.12)" if is_sel else "rgba(255,255,255,0.03)"
+            border = "2px solid #c9a84c"     if is_sel else "1px solid rgba(201,168,76,0.2)"
+            color  = "#f0d080"               if is_sel else "#f4f1eb"
+            lcolor = "#f0d080"               if is_sel else "#c9a84c"
+            html_opts += (
+                f'<div onclick="pick(\'{letter}\')" style="display:flex;align-items:flex-start;'
+                f'gap:10px;padding:10px 14px;margin:5px 0;border-radius:8px;cursor:pointer;'
+                f'border:{border};background:{bg};color:{color};font-size:15px;line-height:1.5;">'
+                f'<span style="font-weight:700;color:{lcolor};min-width:22px;">{letter})</span>'
+                f'<span>{text}</span></div>'
+            )
 
-        html = f"""
-        <style>
-        body {{ margin:0; background:transparent; font-family:'Source Sans 3',sans-serif; }}
-        .opt {{ display:flex; align-items:flex-start; gap:10px; padding:10px 14px;
-                margin:5px 0; border-radius:8px; cursor:pointer;
-                border:1px solid rgba(201,168,76,0.2); background:rgba(255,255,255,0.03);
-                color:#f4f1eb; font-size:15px; line-height:1.5; }}
-        .opt.sel {{ border:2px solid #c9a84c; background:rgba(201,168,76,0.12); color:#f0d080; }}
-        .letter {{ font-weight:700; color:#c9a84c; min-width:22px; flex-shrink:0; }}
-        .opt.sel .letter {{ color:#f0d080; }}
-        </style>
-        <div id="opts"></div>
+        html = f"""<!DOCTYPE html><html><body style="margin:0;background:transparent;
+        font-family:'Source Sans 3',sans-serif;">
+        {html_opts}
         <script>
-        var opts   = {opts_json};
-        var selLet = {sel_json};
-        var cont   = document.getElementById('opts');
-        opts.forEach(function(o) {{
-            var d = document.createElement('div');
-            d.className = 'opt' + (o.letter === selLet ? ' sel' : '');
-            d.innerHTML = '<span class="letter">' + o.letter + ')</span><span>' + o.text + '</span>';
-            d.onclick = function() {{
-                var url = new URL(window.parent.location.href);
-                url.searchParams.set('{qp_key}', o.letter);
-                window.parent.location.href = url.toString();
-            }};
-            cont.appendChild(d);
-        }});
+        function pick(letter) {{
+            var url = new URL(window.parent.location.href);
+            url.searchParams.set('{qp_key}', letter);
+            window.parent.location.href = url.toString();
+        }}
         </script>
-        """
-        st.components.v1.html(html, height=len(q["options"]) * 60 + 20, scrolling=False)
+        </body></html>"""
 
-        # Show selected
+        st.components.v1.html(html, height=len(q["options"]) * 62 + 10, scrolling=False)
+
         if selected:
             full = next((o for o in q["options"] if o[0] == selected), None)
             if full:
