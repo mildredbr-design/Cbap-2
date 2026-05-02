@@ -2191,10 +2191,16 @@ def init_state():
         "started": False, "questions": [], "current": 0,
         "answers": {}, "submitted": {}, "finished": False,
         "num_questions": 20, "start_time": None,
+        "q_start_time": None, "q_times": {},
     }
     for k, v in defaults.items():
         if k not in st.session_state:
             st.session_state[k] = v
+
+def reset_exam():
+    for k in ["started","questions","current","answers","submitted",
+              "finished","start_time","q_start_time","q_times"]:
+        st.session_state.pop(k, None)
 
 init_state()
 
@@ -2219,27 +2225,34 @@ if not st.session_state.started:
                     border-radius:12px;padding:1.8rem;margin-bottom:1.5rem;
                     font-family:"Source Sans 3",sans-serif;color:#c8d4e8;line-height:1.7'>
             <b style='color:#c9a84c;font-size:1.05rem'>📌 Exam Rules</b><br><br>
-            • {len(ALL_QUESTIONS)} questions from Chapter 1 of BABOK® v3<br>
+            • {len(ALL_QUESTIONS)} questions available from Chapter 1 of BABOK® v3<br>
             • Difficulty levels: Foundational · Intermediate · Advanced · Expert<br>
             • Covers §1.1 through §1.5 — all sections included<br>
             • Questions are randomized on every exam<br>
             • One attempt per question — confirm before moving on<br>
-            • Immediate explanations after each answer<br>
+            • Per-question timer visible on every question<br>
             • Passing score: <b style='color:#f0d080'>70%</b> (CBAP® benchmark)
         </div>
         """, unsafe_allow_html=True)
 
+        n = st.slider("Number of questions", min_value=5,
+                      max_value=len(ALL_QUESTIONS),
+                      value=min(40, len(ALL_QUESTIONS)), step=1)
+        st.session_state.num_questions = n
+
         if st.button("🚀  Start Exam", use_container_width=True):
             pool = ALL_QUESTIONS.copy()
             random.shuffle(pool)
-            st.session_state.questions  = pool
-            st.session_state.num_questions = len(pool)
-            st.session_state.current    = 0
-            st.session_state.answers    = {}
-            st.session_state.submitted  = {}
-            st.session_state.finished   = False
-            st.session_state.started    = True
-            st.session_state.start_time = time.time()
+            st.session_state.questions   = pool[:n]
+            st.session_state.num_questions = n
+            st.session_state.current     = 0
+            st.session_state.answers     = {}
+            st.session_state.submitted   = {}
+            st.session_state.finished    = False
+            st.session_state.started     = True
+            st.session_state.start_time  = time.time()
+            st.session_state.q_start_time = time.time()
+            st.session_state.q_times     = {}
             st.rerun()
 
 # ──────────────────────────────────────────────────────────────
@@ -2254,6 +2267,9 @@ elif st.session_state.finished:
     elapsed = int(time.time() - (st.session_state.start_time or time.time()))
     mins, secs = divmod(elapsed, 60)
     passed  = pct >= 70
+    q_times_vals = list(st.session_state.q_times.values())
+    avg_q = int(sum(q_times_vals) / len(q_times_vals)) if q_times_vals else 0
+    avg_m, avg_s = divmod(avg_q, 60)
 
     col1, col2, col3 = st.columns([1, 3, 1])
     with col2:
@@ -2270,7 +2286,8 @@ elif st.session_state.finished:
         <div class="stats-row">
             <div class="stat-box"><div class="stat-num">{correct}</div><div class="stat-lbl">Correct</div></div>
             <div class="stat-box"><div class="stat-num">{total-correct}</div><div class="stat-lbl">Incorrect</div></div>
-            <div class="stat-box"><div class="stat-num">{mins}:{secs:02d}</div><div class="stat-lbl">Time</div></div>
+            <div class="stat-box"><div class="stat-num">{mins}:{secs:02d}</div><div class="stat-lbl">Total Time</div></div>
+            <div class="stat-box"><div class="stat-num">{avg_m}:{avg_s:02d}</div><div class="stat-lbl">Avg / Question</div></div>
             <div class="stat-box"><div class="stat-num">{pct}%</div><div class="stat-lbl">Score</div></div>
         </div>""", unsafe_allow_html=True)
 
@@ -2294,8 +2311,7 @@ elif st.session_state.finished:
 
         st.markdown("<br>", unsafe_allow_html=True)
         if st.button("🔄  New Exam", use_container_width=True):
-            for k in ["started","questions","current","answers","submitted","finished","start_time"]:
-                st.session_state.pop(k, None)
+            reset_exam()
             st.rerun()
 
 # ──────────────────────────────────────────────────────────────
@@ -2307,6 +2323,14 @@ else:
     idx   = st.session_state.current
     q     = qs[idx]
 
+    # ── Restart button (top right) ──────────────────────────────
+    col_top1, col_top2 = st.columns([6, 1])
+    with col_top2:
+        if st.button("🔄 Restart", use_container_width=True):
+            reset_exam()
+            st.rerun()
+
+    # ── Progress bar ────────────────────────────────────────────
     progress_pct = int(idx / total * 100)
     st.markdown(f"""
     <div style='font-family:"Source Sans 3",sans-serif;color:#8090aa;
@@ -2318,14 +2342,27 @@ else:
         <div class="progress-bar" style="width:{progress_pct}%"></div>
     </div>""", unsafe_allow_html=True)
 
+    # ── Per-question timer ───────────────────────────────────────
+    already_submitted = idx in st.session_state.submitted
+    if already_submitted:
+        q_elapsed = int(st.session_state.q_times.get(idx, 0))
+    else:
+        q_elapsed = int(time.time() - (st.session_state.q_start_time or time.time()))
+    q_mins, q_secs = divmod(q_elapsed, 60)
+    timer_color = "#6fe4a4" if q_elapsed < 60 else ("#f0d080" if q_elapsed < 120 else "#f4a0a0")
+    st.markdown(f"""
+    <div style='font-family:"Source Sans 3",sans-serif;font-size:.85rem;
+                color:{timer_color};text-align:right;margin-bottom:.5rem;letter-spacing:1px'>
+        ⏱ Time on this question: <b>{q_mins:02d}:{q_secs:02d}</b>
+    </div>""", unsafe_allow_html=True)
+
+    # ── Question card ────────────────────────────────────────────
     st.markdown(f"""
     <div class="q-card">
         <div class="q-number">Question {idx+1}</div>
         <div class="q-chapter">{q["chapter"]}</div>
         <p class="q-text">{q["question"]}</p>
     </div>""", unsafe_allow_html=True)
-
-    already_submitted = idx in st.session_state.submitted
 
     if not already_submitted:
         chosen = st.radio("Select your answer:", q["options"],
@@ -2338,6 +2375,8 @@ else:
                 if st.session_state.answers.get(idx) is None:
                     st.warning("Please select an answer before confirming.")
                 else:
+                    # Record time spent on this question
+                    st.session_state.q_times[idx] = time.time() - (st.session_state.q_start_time or time.time())
                     st.session_state.submitted[idx] = True
                     st.rerun()
     else:
@@ -2374,13 +2413,18 @@ else:
 
         st.markdown("<br>", unsafe_allow_html=True)
         is_last = idx == total - 1
-        col_nav1, col_nav2 = st.columns(2)
+        col_nav1, col_nav2, col_nav3 = st.columns([1, 1, 1])
         with col_nav1:
             if idx > 0:
                 if st.button("⬅  Previous", use_container_width=True):
                     st.session_state.current -= 1
+                    st.session_state.q_start_time = time.time()
                     st.rerun()
         with col_nav2:
+            if st.button("🔄 Restart", use_container_width=True):
+                reset_exam()
+                st.rerun()
+        with col_nav3:
             if is_last:
                 if st.button("🏁  Finish Exam", use_container_width=True):
                     st.session_state.finished = True
@@ -2388,4 +2432,5 @@ else:
             else:
                 if st.button("Next  ➡", use_container_width=True):
                     st.session_state.current += 1
+                    st.session_state.q_start_time = time.time()
                     st.rerun()
