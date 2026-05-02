@@ -2344,19 +2344,25 @@ elif st.session_state.phase == "exam":
         <p class="q-text">{q["question"]}</p>
     </div>""", unsafe_allow_html=True)
 
+    # ── Options display — plain st.write, no HTML, guaranteed order ──
+    for opt in q["options"]:
+        st.write(opt)
+
     # ── Selection ─────────────────────────────────────────────
     if not submitted:
-        chosen = st.radio(
-            "Select your answer:",
-            options=q["options"],
+        chosen_letter = st.radio(
+            "Your answer:",
+            ["A", "B", "C", "D"],
             index=None,
+            horizontal=True,
             key=f"radio_{idx}"
         )
         if st.button("✅  Confirm Answer", key=f"confirm_{idx}"):
-            if not chosen:
-                st.warning("Please select an answer first.")
+            if not chosen_letter:
+                st.warning("Please select A, B, C or D.")
             else:
-                st.session_state.answers[idx] = chosen
+                letter_map = {o[0]: o for o in q["options"]}
+                st.session_state.answers[idx] = letter_map[chosen_letter]
                 st.session_state.q_times[idx] = time.time() - (st.session_state.q_start or time.time())
                 st.rerun()
 
