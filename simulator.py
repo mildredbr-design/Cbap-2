@@ -2247,14 +2247,20 @@ if not st.session_state.started:
 
         if st.button("🚀  Start Exam", use_container_width=True):
             def shuffle_options(q):
-                """Return a copy of the question with options shuffled and answer updated."""
-                import copy
+                """Shuffle option texts, reassign A/B/C/D letters, update answer."""
+                import copy, re
                 q2 = copy.deepcopy(q)
-                correct = q2["answer"]
-                opts = q2["options"][:]
-                random.shuffle(opts)
-                q2["options"] = opts
-                q2["answer"]  = correct  # answer text stays the same; comparison is text-based
+                # Extract just the text after "A) ", "B) ", etc.
+                texts = [re.sub(r'^[A-D]\)\s*', '', opt) for opt in q2["options"]]
+                correct_text = re.sub(r'^[A-D]\)\s*', '', q2["answer"])
+                random.shuffle(texts)
+                letters = ["A", "B", "C", "D"]
+                q2["options"] = [f"{letters[i]}) {texts[i]}" for i in range(len(texts))]
+                # Find which letter now holds the correct text
+                for opt in q2["options"]:
+                    if re.sub(r'^[A-D]\)\s*', '', opt) == correct_text:
+                        q2["answer"] = opt
+                        break
                 return q2
 
             pool = [shuffle_options(q) for q in ALL_QUESTIONS]
