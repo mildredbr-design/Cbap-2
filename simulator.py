@@ -2374,19 +2374,22 @@ else:
 
     # ── Answer options ───────────────────────────────────────────
     if not already_submitted:
-        with st.form(key=f"form_{idx}"):
-            chosen = st.radio(
-                "Select your answer:",
-                options=q["options"],
-                index=None,
-                key=f"radio_{idx}"
-            )
-            submitted_form = st.form_submit_button("✅  Confirm Answer")
-            if submitted_form:
-                if chosen is None:
+        # st.selectbox always renders options in exact list order
+        opts_display = ["-- Select an answer --"] + q["options"]
+        selection = st.selectbox(
+            "Select your answer:",
+            options=opts_display,
+            index=0,
+            key=f"sel_{idx}"
+        )
+        st.markdown("<br>", unsafe_allow_html=True)
+        col_a, col_b = st.columns([1, 4])
+        with col_a:
+            if st.button("✅  Confirm Answer", key=f"confirm_{idx}", use_container_width=True):
+                if selection == "-- Select an answer --":
                     st.warning("Please select an answer before confirming.")
                 else:
-                    st.session_state.answers[idx]  = chosen
+                    st.session_state.answers[idx]  = selection
                     st.session_state.q_times[idx]  = time.time() - (st.session_state.q_start_time or time.time())
                     st.session_state.submitted[idx] = True
                     st.rerun()
