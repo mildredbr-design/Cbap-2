@@ -2339,32 +2339,13 @@ elif st.session_state.phase == "exam":
 
     # ── Selection ─────────────────────────────────────────────
     if not submitted:
-        pending = st.session_state.get(f"pending_{idx}", None)
-        for opt in q["options"]:
-            letter  = opt[0]
-            text    = opt[3:]
-            is_sel  = (opt == pending)
-            bg      = "rgba(201,168,76,0.12)" if is_sel else "rgba(255,255,255,0.03)"
-            border  = "2px solid #c9a84c"     if is_sel else "1px solid rgba(201,168,76,0.2)"
-            lcolor  = "#f0d080"               if is_sel else "#c9a84c"
-            tcolor  = "#f0d080"               if is_sel else "#f4f1eb"
-            col_btn, col_txt = st.columns([1, 9])
-            with col_btn:
-                if st.button(letter, key=f"btn_{idx}_{letter}"):
-                    st.session_state[f"pending_{idx}"] = opt
-                    st.rerun()
-            with col_txt:
-                st.markdown(
-                    f'<div style="padding:6px 10px;border-radius:8px;background:{bg};'
-                    f'border:{border};color:{tcolor};font-family:Source Sans 3,sans-serif;'
-                    f'font-size:1rem;line-height:1.5;margin:2px 0">'
-                    f'<span style="font-weight:700;color:{lcolor}">{letter})</span> {text}</div>',
-                    unsafe_allow_html=True
-                )
-
-        st.markdown("<br>", unsafe_allow_html=True)
+        chosen = st.radio(
+            "Select your answer:",
+            options=q["options"],
+            index=None,
+            key=f"radio_{idx}"
+        )
         if st.button("✅  Confirm Answer", key=f"confirm_{idx}"):
-            chosen = st.session_state.get(f"pending_{idx}", None)
             if not chosen:
                 st.warning("Please select an answer first.")
             else:
