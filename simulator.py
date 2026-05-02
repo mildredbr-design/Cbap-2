@@ -2355,14 +2355,14 @@ else:
     if not already_submitted:
         chosen = st.radio("Select your answer:", q["options"],
                           key=f"radio_{idx}", index=None)
-        st.session_state.answers[idx] = chosen
 
         col_a, col_b = st.columns([1, 4])
         with col_a:
             if st.button("✅  Confirm Answer", key=f"confirm_{idx}", use_container_width=True):
-                if st.session_state.answers.get(idx) is None:
+                if chosen is None:
                     st.warning("Please select an answer before confirming.")
                 else:
+                    st.session_state.answers[idx] = chosen
                     st.session_state.q_times[idx] = time.time() - (st.session_state.q_start_time or time.time())
                     st.session_state.submitted[idx] = True
                     st.rerun()
