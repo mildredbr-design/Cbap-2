@@ -2302,10 +2302,6 @@ elif st.session_state.finished:
 #  EXAM SCREEN
 # ──────────────────────────────────────────────────────────────
 else:
-    # Auto-refresh every second so the timer ticks live
-    if HAS_AUTOREFRESH:
-        st_autorefresh(interval=1000, limit=None, key="exam_timer")
-
     qs    = st.session_state.questions
     total = len(qs)
     idx   = st.session_state.current
@@ -2325,20 +2321,44 @@ else:
         <div class="progress-bar" style="width:{progress_pct}%"></div>
     </div>""", unsafe_allow_html=True)
 
-    # ── Per-question timer ───────────────────────────────────────
+    # ── Timer — pure JS, runs in browser, no Streamlit rerenders ─
     if already_submitted:
         q_elapsed = int(st.session_state.q_times.get(idx, 0))
+        q_mins, q_secs = divmod(q_elapsed, 60)
+        timer_color = "#6fe4a4" if q_elapsed < 60 else ("#f0d080" if q_elapsed < 120 else "#f4a0a0")
+        st.markdown(f"""
+        <div style='font-family:"Source Sans 3",sans-serif;font-size:.85rem;
+                    color:{timer_color};text-align:right;margin-bottom:.5rem;letter-spacing:1px'>
+            ⏱ Time on this question: <b>{q_mins:02d}:{q_secs:02d}</b>
+        </div>""", unsafe_allow_html=True)
     else:
-        q_elapsed = int(time.time() - (st.session_state.q_start_time or time.time()))
-    q_mins, q_secs = divmod(q_elapsed, 60)
-    timer_color = "#6fe4a4" if q_elapsed < 60 else ("#f0d080" if q_elapsed < 120 else "#f4a0a0")
-    st.markdown(f"""
-    <div style='font-family:"Source Sans 3",sans-serif;font-size:.85rem;
-                color:{timer_color};text-align:right;margin-bottom:.5rem;letter-spacing:1px'>
-        ⏱ Time on this question: <b>{q_mins:02d}:{q_secs:02d}</b>
-    </div>""", unsafe_allow_html=True)
+        start_ts = int(st.session_state.q_start_time or time.time())
+        st.markdown(f"""
+        <div id="q_timer" style='font-family:"Source Sans 3",sans-serif;font-size:.85rem;
+                    color:#6fe4a4;text-align:right;margin-bottom:.5rem;letter-spacing:1px'>
+            ⏱ Time on this question: <b>00:00</b>
+        </div>
+        <script>
+        (function() {{
+            var start = {start_ts};
+            function tick() {{
+                var el = document.getElementById('q_timer');
+                if (!el) return;
+                var elapsed = Math.floor(Date.now() / 1000) - start;
+                var m = Math.floor(elapsed / 60);
+                var s = elapsed % 60;
+                var mm = String(m).padStart(2,'0');
+                var ss = String(s).padStart(2,'0');
+                var color = elapsed < 60 ? '#6fe4a4' : (elapsed < 120 ? '#f0d080' : '#f4a0a0');
+                el.style.color = color;
+                el.innerHTML = '⏱ Time on this question: <b>' + mm + ':' + ss + '</b>';
+            }}
+            tick();
+            setInterval(tick, 1000);
+        }})();
+        </script>""", unsafe_allow_html=True)
 
-    # ── Question card ────────────────────────────────────────────
+    # ── Restart button + Question card ──────────────────────────
     col_q1, col_q2 = st.columns([6, 1])
     with col_q2:
         if st.button("🔄 Restart", key="restart_top", use_container_width=True):
@@ -2352,36 +2372,19 @@ else:
         <p class="q-text">{q["question"]}</p>
     </div>""", unsafe_allow_html=True)
 
+    # ── Answer options ───────────────────────────────────────────
     if not already_submitted:
-        st.markdown("<div style='margin-bottom:.5rem;font-family:\"Source Sans 3\",sans-serif;color:#c8d4e8;font-size:.95rem'>Select your answer:</div>", unsafe_allow_html=True)
-        selected = st.session_state.get(f"pending_{idx}", None)
-        for opt_i, opt in enumerate(q["options"]):
-            is_sel = (opt == selected)
-            border = "2px solid #c9a84c" if is_sel else "1px solid rgba(201,168,76,0.2)"
-            bg     = "rgba(201,168,76,0.12)" if is_sel else "rgba(255,255,255,0.03)"
-            col_opt, col_btn = st.columns([10, 1])
-            with col_opt:
-                st.markdown(f"""
-                <div style='padding:.6rem 1rem;border-radius:8px;background:{bg};
-                            border:{border};font-family:"Source Sans 3",sans-serif;
-                            color:#f4f1eb;cursor:pointer;margin-bottom:.3rem'>
-                    {opt}
-                </div>""", unsafe_allow_html=True)
-            with col_btn:
-                if st.button("●" if is_sel else "○", key=f"opt_{idx}_{opt_i}", use_container_width=True):
-                    st.session_state[f"pending_{idx}"] = opt
-                    st.rerun()
-
+        chosen = st.radio("Select your answer:", q["options"],
+                          key=f"radio_{idx}", index=None)
         st.markdown("<br>", unsafe_allow_html=True)
         col_a, col_b = st.columns([1, 4])
         with col_a:
             if st.button("✅  Confirm Answer", key=f"confirm_{idx}", use_container_width=True):
-                chosen = st.session_state.get(f"pending_{idx}", None)
                 if chosen is None:
                     st.warning("Please select an answer before confirming.")
                 else:
-                    st.session_state.answers[idx] = chosen
-                    st.session_state.q_times[idx] = time.time() - (st.session_state.q_start_time or time.time())
+                    st.session_state.answers[idx]  = chosen
+                    st.session_state.q_times[idx]  = time.time() - (st.session_state.q_start_time or time.time())
                     st.session_state.submitted[idx] = True
                     st.rerun()
     else:
