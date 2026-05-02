@@ -2329,7 +2329,7 @@ elif st.session_state.phase == "exam":
         reset()
         st.rerun()
 
-    # Question card + options — plain text, no HTML
+    # Question card
     st.markdown(f"""
     <div class="q-card">
         <div class="q-number">Question {idx+1}</div>
@@ -2337,27 +2337,39 @@ elif st.session_state.phase == "exam":
         <p class="q-text">{q["question"]}</p>
     </div>""", unsafe_allow_html=True)
 
-    st.write("**Options:**")
-    for opt in q["options"]:
-        st.write(opt)
-
     # ── Selection ─────────────────────────────────────────────
     if not submitted:
-        chosen_letter = st.radio(
-            "Select your answer:",
-            ["A", "B", "C", "D"],
-            index=None,
-            horizontal=True,
-            key=f"radio_{idx}"
-        )
+        pending = st.session_state.get(f"pending_{idx}", None)
+        for opt in q["options"]:
+            letter  = opt[0]
+            text    = opt[3:]
+            is_sel  = (opt == pending)
+            bg      = "rgba(201,168,76,0.12)" if is_sel else "rgba(255,255,255,0.03)"
+            border  = "2px solid #c9a84c"     if is_sel else "1px solid rgba(201,168,76,0.2)"
+            lcolor  = "#f0d080"               if is_sel else "#c9a84c"
+            tcolor  = "#f0d080"               if is_sel else "#f4f1eb"
+            col_btn, col_txt = st.columns([1, 9])
+            with col_btn:
+                if st.button(letter, key=f"btn_{idx}_{letter}"):
+                    st.session_state[f"pending_{idx}"] = opt
+                    st.rerun()
+            with col_txt:
+                st.markdown(
+                    f'<div style="padding:6px 10px;border-radius:8px;background:{bg};'
+                    f'border:{border};color:{tcolor};font-family:Source Sans 3,sans-serif;'
+                    f'font-size:1rem;line-height:1.5;margin:2px 0">'
+                    f'<span style="font-weight:700;color:{lcolor}">{letter})</span> {text}</div>',
+                    unsafe_allow_html=True
+                )
+
+        st.markdown("<br>", unsafe_allow_html=True)
         if st.button("✅  Confirm Answer", key=f"confirm_{idx}"):
-            if not chosen_letter:
-                st.warning("Please select A, B, C or D.")
+            chosen = st.session_state.get(f"pending_{idx}", None)
+            if not chosen:
+                st.warning("Please select an answer first.")
             else:
-                letter_map = {o[0]: o for o in q["options"]}
-                chosen = letter_map[chosen_letter]
-                st.session_state.answers[idx]  = chosen
-                st.session_state.q_times[idx]  = time.time() - (st.session_state.q_start or time.time())
+                st.session_state.answers[idx] = chosen
+                st.session_state.q_times[idx] = time.time() - (st.session_state.q_start or time.time())
                 st.rerun()
 
     else:
