@@ -2360,6 +2360,12 @@ else:
     </div>""", unsafe_allow_html=True)
 
     # ── Question card ────────────────────────────────────────────
+    col_q1, col_q2 = st.columns([6, 1])
+    with col_q2:
+        if st.button("🔄 Restart", key="restart_top", use_container_width=True):
+            reset_exam()
+            st.rerun()
+
     st.markdown(f"""
     <div class="q-card">
         <div class="q-number">Question {idx+1}</div>
@@ -2378,7 +2384,6 @@ else:
                 if st.session_state.answers.get(idx) is None:
                     st.warning("Please select an answer before confirming.")
                 else:
-                    # Record time spent on this question
                     st.session_state.q_times[idx] = time.time() - (st.session_state.q_start_time or time.time())
                     st.session_state.submitted[idx] = True
                     st.rerun()
@@ -2416,7 +2421,7 @@ else:
 
         st.markdown("<br>", unsafe_allow_html=True)
         is_last = idx == total - 1
-        col_nav1, col_nav2, col_nav3 = st.columns([1, 1, 1])
+        col_nav1, col_nav2 = st.columns([1, 1])
         with col_nav1:
             if idx > 0:
                 if st.button("⬅  Previous", key=f"prev_{idx}", use_container_width=True):
@@ -2424,10 +2429,6 @@ else:
                     st.session_state.q_start_time = time.time()
                     st.rerun()
         with col_nav2:
-            if st.button("🔄 Restart", key=f"restart_{idx}", use_container_width=True):
-                reset_exam()
-                st.rerun()
-        with col_nav3:
             if is_last:
                 if st.button("🏁  Finish Exam", key=f"finish_{idx}", use_container_width=True):
                     st.session_state.finished = True
