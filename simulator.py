@@ -2329,31 +2329,30 @@ elif st.session_state.phase == "exam":
         reset()
         st.rerun()
 
-    # Question card
+    # Question card + options — ONE single st.markdown call
+    # Everything in one HTML block: Streamlit cannot reorder parts of a single string
+    opts_html = ""
+    for opt in q["options"]:
+        opts_html += (
+            f'<div style="display:flex;align-items:flex-start;gap:10px;padding:10px 14px;'
+            f'margin:5px 0;border-radius:8px;border:1px solid rgba(201,168,76,0.2);'
+            f'background:rgba(255,255,255,0.03);color:#f4f1eb;font-size:1rem;'
+            f'line-height:1.5;font-family:Source Sans 3,sans-serif;">'
+            f'<span style="font-weight:700;color:#c9a84c;min-width:22px;flex-shrink:0">{opt[0]})</span>'
+            f'<span>{opt[3:]}</span></div>'
+        )
+
     st.markdown(f"""
     <div class="q-card">
         <div class="q-number">Question {idx+1}</div>
         <div class="q-chapter">{q["chapter"].split("|")[0].strip()}</div>
         <p class="q-text">{q["question"]}</p>
-    </div>""", unsafe_allow_html=True)
+    </div>
+    {opts_html}
+    """, unsafe_allow_html=True)
 
-    # ── Options ──────────────────────────────────────────────
+    # ── Selection ─────────────────────────────────────────────
     if not submitted:
-        # Show all 4 options as one HTML block — st.markdown preserves order exactly
-        html_opts = "<div style='margin:.5rem 0'>"
-        for opt in q["options"]:
-            html_opts += (
-                f'<div style="display:flex;align-items:flex-start;gap:10px;padding:10px 14px;'
-                f'margin:5px 0;border-radius:8px;border:1px solid rgba(201,168,76,0.2);'
-                f'background:rgba(255,255,255,0.03);color:#f4f1eb;font-size:1rem;'
-                f'line-height:1.5;font-family:Source Sans 3,sans-serif;">'
-                f'<span style="font-weight:700;color:#c9a84c;min-width:22px;flex-shrink:0">{opt[0]})</span>'
-                f'<span>{opt[3:]}</span></div>'
-            )
-        html_opts += "</div>"
-        st.markdown(html_opts, unsafe_allow_html=True)
-
-        # Select with radio on letters only — A B C D, nothing to reorder
         chosen_letter = st.radio(
             "Select your answer:",
             ["A", "B", "C", "D"],
@@ -2372,23 +2371,25 @@ elif st.session_state.phase == "exam":
                 st.rerun()
 
     else:
-        # Show result
         user_ans    = st.session_state.answers[idx]
         correct_ans = q["answer"]
         is_correct  = (user_ans == correct_ans)
 
+        result_html = ""
         for opt in q["options"]:
             if opt == correct_ans:
                 color, icon, bg = "#1e7c4a", "✅", "rgba(30,124,74,0.15)"
             elif opt == user_ans and not is_correct:
                 color, icon, bg = "#9b2335", "❌", "rgba(155,35,53,0.15)"
             else:
-                color, icon, bg = "#8090aa", "○",  "transparent"
-            st.markdown(f"""<div style='padding:.65rem 1rem;margin:.25rem 0;border-radius:8px;
-                background:{bg};border:1px solid {color}33;
-                font-family:"Source Sans 3",sans-serif;color:{color}'>
-                {icon} {opt}
-            </div>""", unsafe_allow_html=True)
+                color, icon, bg = "#8090aa", "○", "transparent"
+            result_html += (
+                f'<div style="padding:.65rem 1rem;margin:.25rem 0;border-radius:8px;'
+                f'background:{bg};border:1px solid {color}33;'
+                f'font-family:Source Sans 3,sans-serif;color:{color}">'
+                f'{icon} {opt}</div>'
+            )
+        st.markdown(result_html, unsafe_allow_html=True)
 
         if is_correct:
             st.markdown(f"""<div class="feedback-correct">🎯 <b>Correct!</b>
