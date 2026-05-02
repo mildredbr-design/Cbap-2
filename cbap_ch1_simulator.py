@@ -2297,15 +2297,15 @@ elif st.session_state.phase == "results":
 #  EXAM SCREEN
 # ══════════════════════════════════════════════════════════════
 elif st.session_state.phase == "exam":
-    # Autorefresh every second for live timer — only when question not yet submitted
     qs    = st.session_state.questions
     total = len(qs)
     idx   = st.session_state.idx
     q     = qs[idx]
     submitted = idx in st.session_state.answers
 
-    if not submitted and HAS_AUTOREFRESH:
-        st_autorefresh(interval=1000, limit=None, key=f"timer_{idx}")
+    # Autorefresh every second unconditionally — timer needs it
+    if HAS_AUTOREFRESH:
+        st_autorefresh(interval=1000, limit=None, key="exam_autorefresh")
 
     # Progress
     pct = int(idx / total * 100)
