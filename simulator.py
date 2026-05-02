@@ -2353,12 +2353,32 @@ else:
     </div>""", unsafe_allow_html=True)
 
     if not already_submitted:
-        chosen = st.radio("Select your answer:", q["options"],
-                          key=f"radio_{idx}", index=None)
+        # Custom option buttons — avoid st.radio widget state conflicts with autorefresh
+        st.markdown("<div style='margin-bottom:.5rem;font-family:\"Source Sans 3\",sans-serif;color:#c8d4e8;font-size:.95rem'>Select your answer:</div>", unsafe_allow_html=True)
+        selected = st.session_state.get(f"pending_{idx}", None)
+        for opt in q["options"]:
+            is_sel = (opt == selected)
+            border = "2px solid #c9a84c" if is_sel else "1px solid rgba(201,168,76,0.2)"
+            bg     = "rgba(201,168,76,0.12)" if is_sel else "rgba(255,255,255,0.03)"
+            col_opt, col_btn = st.columns([10, 1])
+            with col_opt:
+                st.markdown(f"""
+                <div style='padding:.6rem 1rem;border-radius:8px;background:{bg};
+                            border:{border};font-family:"Source Sans 3",sans-serif;
+                            color:#f4f1eb;cursor:pointer;margin-bottom:.3rem'>
+                    {opt}
+                </div>""", unsafe_allow_html=True)
+            with col_btn:
+                key_sel = f"sel_{idx}_{opt[:10].replace(' ','_').replace(')','')}"
+                if st.button("●" if is_sel else "○", key=key_sel, use_container_width=True):
+                    st.session_state[f"pending_{idx}"] = opt
+                    st.rerun()
 
+        st.markdown("<br>", unsafe_allow_html=True)
         col_a, col_b = st.columns([1, 4])
         with col_a:
             if st.button("✅  Confirm Answer", key=f"confirm_{idx}", use_container_width=True):
+                chosen = st.session_state.get(f"pending_{idx}", None)
                 if chosen is None:
                     st.warning("Please select an answer before confirming.")
                 else:
