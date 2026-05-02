@@ -1,6 +1,11 @@
 import streamlit as st
 import random
 import time
+try:
+    from streamlit_autorefresh import st_autorefresh
+    HAS_AUTOREFRESH = True
+except ImportError:
+    HAS_AUTOREFRESH = False
 
 st.set_page_config(
     page_title="CBAP Simulator — Chapter 1",
@@ -2318,17 +2323,16 @@ elif st.session_state.finished:
 #  EXAM SCREEN
 # ──────────────────────────────────────────────────────────────
 else:
+    # Auto-refresh every second so the timer ticks live
+    if HAS_AUTOREFRESH:
+        st_autorefresh(interval=1000, limit=None, key="exam_timer")
+
     qs    = st.session_state.questions
     total = len(qs)
     idx   = st.session_state.current
     q     = qs[idx]
 
-    # ── Restart button (top right) ──────────────────────────────
-    col_top1, col_top2 = st.columns([6, 1])
-    with col_top2:
-        if st.button("🔄 Restart", use_container_width=True):
-            reset_exam()
-            st.rerun()
+    already_submitted = idx in st.session_state.submitted
 
     # ── Progress bar ────────────────────────────────────────────
     progress_pct = int(idx / total * 100)
@@ -2343,7 +2347,6 @@ else:
     </div>""", unsafe_allow_html=True)
 
     # ── Per-question timer ───────────────────────────────────────
-    already_submitted = idx in st.session_state.submitted
     if already_submitted:
         q_elapsed = int(st.session_state.q_times.get(idx, 0))
     else:
@@ -2371,7 +2374,7 @@ else:
 
         col_a, col_b = st.columns([1, 4])
         with col_a:
-            if st.button("✅  Confirm Answer", use_container_width=True):
+            if st.button("✅  Confirm Answer", key=f"confirm_{idx}", use_container_width=True):
                 if st.session_state.answers.get(idx) is None:
                     st.warning("Please select an answer before confirming.")
                 else:
@@ -2416,21 +2419,21 @@ else:
         col_nav1, col_nav2, col_nav3 = st.columns([1, 1, 1])
         with col_nav1:
             if idx > 0:
-                if st.button("⬅  Previous", use_container_width=True):
+                if st.button("⬅  Previous", key=f"prev_{idx}", use_container_width=True):
                     st.session_state.current -= 1
                     st.session_state.q_start_time = time.time()
                     st.rerun()
         with col_nav2:
-            if st.button("🔄 Restart", use_container_width=True):
+            if st.button("🔄 Restart", key=f"restart_{idx}", use_container_width=True):
                 reset_exam()
                 st.rerun()
         with col_nav3:
             if is_last:
-                if st.button("🏁  Finish Exam", use_container_width=True):
+                if st.button("🏁  Finish Exam", key=f"finish_{idx}", use_container_width=True):
                     st.session_state.finished = True
                     st.rerun()
             else:
-                if st.button("Next  ➡", use_container_width=True):
+                if st.button("Next  ➡", key=f"next_{idx}", use_container_width=True):
                     st.session_state.current += 1
                     st.session_state.q_start_time = time.time()
                     st.rerun()
