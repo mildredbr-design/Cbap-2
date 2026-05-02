@@ -2353,10 +2353,9 @@ else:
     </div>""", unsafe_allow_html=True)
 
     if not already_submitted:
-        # Custom option buttons — avoid st.radio widget state conflicts with autorefresh
         st.markdown("<div style='margin-bottom:.5rem;font-family:\"Source Sans 3\",sans-serif;color:#c8d4e8;font-size:.95rem'>Select your answer:</div>", unsafe_allow_html=True)
         selected = st.session_state.get(f"pending_{idx}", None)
-        for opt in q["options"]:
+        for opt_i, opt in enumerate(q["options"]):
             is_sel = (opt == selected)
             border = "2px solid #c9a84c" if is_sel else "1px solid rgba(201,168,76,0.2)"
             bg     = "rgba(201,168,76,0.12)" if is_sel else "rgba(255,255,255,0.03)"
@@ -2369,8 +2368,7 @@ else:
                     {opt}
                 </div>""", unsafe_allow_html=True)
             with col_btn:
-                key_sel = f"sel_{idx}_{opt[:10].replace(' ','_').replace(')','')}"
-                if st.button("●" if is_sel else "○", key=key_sel, use_container_width=True):
+                if st.button("●" if is_sel else "○", key=f"opt_{idx}_{opt_i}", use_container_width=True):
                     st.session_state[f"pending_{idx}"] = opt
                     st.rerun()
 
